@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTM Content Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FA4616;
+    --orange-dark: #d93a10;
+    --orange-light: rgba(250,70,22,0.09);
+    --orange-border: rgba(250,70,22,0.25);
+    --deep-blue: #182126;
+    --deep-blue-2: #1e2d34;
+    --deep-blue-3: #243540;
+    --teal: #0BA2B3;
+    --teal-dark: #0891a0;
+    --teal-light: rgba(11,162,179,0.1);
+    --teal-border: rgba(11,162,179,0.28);
+    --white: #ffffff;
+    /* Light theme canvas */
+    --bg: #f4f5f7;
+    --surface: #ffffff;
+    --surface2: #f0f2f5;
+    --border: #e0e4ea;
+    --border-strong: #c8cfd8;
+    /* Text on light bg */
+    --text: #182126;
+    --text2: #3d5260;
+    --text3: #7a8fa0;
+    --verified: #0BA2B3;
+    --needs-review: #c9960a;
+    --needs-review-bg: rgba(247,201,72,0.15);
+    --needs-review-border: rgba(201,150,10,0.25);
+    --flagged: #FA4616;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 228px;
+    background: var(--teal);
+    border-right: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+  }
+
+  .logo-area {
+    padding: 22px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .logo-lockup { display: flex; align-items: center; gap: 10px; }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--orange);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+
+  .logo-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: #ffffff; line-height: 1.2; letter-spacing: -0.2px;
+  }
+
+  .logo-sub {
+    font-size: 10px; color: rgba(255,255,255,0.7);
+    font-weight: 500; letter-spacing: 0.5px; margin-top: 1px;
+  }
+
+  .nav-section {
+    font-size: 9px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    padding: 18px 20px 6px; font-weight: 600;
+  }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 20px; cursor: pointer;
+    font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.75);
+    transition: all 0.15s; border-left: 2px solid transparent;
+  }
+
+  .nav-item:hover { color: #ffffff; background: rgba(255,255,255,0.15); }
+
+  .nav-item.active {
+    color: #ffffff; border-left-color: var(--orange);
+    background: rgba(255,255,255,0.18); font-weight: 600;
+  }
+
+  .nav-icon { font-size: 15px; width: 18px; text-align: center; }
+
+  .nav-count {
+    margin-left: auto;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px; padding: 1px 7px;
+    font-size: 10px; color: rgba(255,255,255,0.8);
+  }
+
+  .sidebar-bottom {
+    margin-top: auto; padding: 16px 14px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .persona-card {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius);
+    padding: 12px 14px; cursor: pointer; transition: all 0.15s;
+  }
+
+  .persona-card:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
+
+  .persona-card-top {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 8px;
+  }
+
+  .persona-label-sm {
+    font-size: 9px; text-transform: uppercase;
+    letter-spacing: 1.2px; color: rgba(255,255,255,0.55); font-weight: 600;
+  }
+
+  .switch-btn { font-size: 9px; color: #ffffff; font-weight: 600; opacity: 0.8; }
+
+  .persona-row { display: flex; align-items: center; }
+
+  .persona-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0; margin-right: 10px;
+  }
+
+  .persona-name-sm { font-size: 13px; font-weight: 600; color: #ffffff; }
+  .persona-role-sm { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 1px; }
+  .persona-vert-sm { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 1px; font-weight: 500; }
+
+  .main { margin-left: 228px; min-height: 100vh; }
+
+  .topbar {
+    position: sticky; top: 0;
+    background: rgba(244,245,247,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 28px;
+    display: flex; align-items: center; gap: 12px; z-index: 50;
+  }
+
+  .search-wrap { flex: 1; max-width: 540px; position: relative; }
+
+  .search-wrap input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 9px 14px 9px 38px;
+    color: var(--text); font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    outline: none; transition: border-color 0.15s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .search-wrap input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-light); }
+  .search-wrap input::placeholder { color: var(--text3); }
+  .search-ico { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 14px; }
+
+  .btn-search {
+    background: var(--orange); color: white; border: none;
+    border-radius: var(--radius-sm); padding: 9px 20px;
+    font-size: 13px; font-weight: 600;
+    font-family: 'Inter', sans-serif; cursor: pointer;
+    transition: background 0.15s;
+    box-shadow: 0 2px 8px rgba(250,70,22,0.3);
+  }
+
+  .btn-search:hover { background: var(--orange-dark); }
+
+  .topbar-pill {
+    background: var(--teal-light);
+    border: 1px solid var(--teal-border);
+    border-radius: 20px; padding: 4px 12px;
+    font-size: 11px; color: var(--teal-dark); font-weight: 600;
+    margin-left: auto;
+  }
+
+  .page { display: none; padding: 28px 32px; }
+  .page.active { display: block; }
+
+  .greeting { margin-bottom: 24px; }
+
+  .greeting-eyebrow {
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--text3); font-weight: 600; margin-bottom: 6px;
+  }
+
+  .greeting-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px; font-weight: 800;
+    color: var(--deep-blue); line-height: 1.15;
+  }
+
+  .greeting-name span { color: var(--orange); }
+
+  .greeting-meta {
+    display: flex; align-items: center;
+    gap: 10px; margin-top: 8px; flex-wrap: wrap;
+  }
+
+  .role-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--orange-light);
+    border: 1px solid var(--orange-border);
+    color: var(--orange); border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; font-weight: 600;
+  }
+
+  .vert-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--teal-light);
+    border: 1px solid var(--teal-border);
+    color: var(--teal-dark); border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; font-weight: 600;
+  }
+
+  .context-text { font-size: 12px; color: var(--text3); }
+
+  /* AI BANNER — Robotic Orange bg for brand hero moment */
+  .ai-banner {
+    background: var(--orange);
+    border: none;
+    border-radius: var(--radius);
+    padding: 16px 18px; margin-bottom: 22px;
+    display: flex; gap: 14px; align-items: flex-start;
+    box-shadow: 0 4px 16px rgba(250,70,22,0.3);
+  }
+
+  .ai-icon-box {
+    width: 30px; height: 30px; background: rgba(255,255,255,0.2);
+    border-radius: 6px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+
+  .ai-banner-text { font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.65; }
+  .ai-banner-text strong { color: #ffffff; font-weight: 700; }
+
+  /* OPPORTUNITY STRIP */
+  .opp-strip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 18px; margin-bottom: 26px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .opp-icon-box {
+    width: 40px; height: 40px;
+    background: var(--teal-light);
+    border: 1px solid var(--teal-border);
+    border-radius: 10px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+
+  .opp-info { flex: 1; }
+  .opp-eyebrow { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .opp-name { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 2px; }
+  .opp-meta { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+  .stage-pill {
+    background: var(--needs-review-bg);
+    color: var(--needs-review);
+    border: 1px solid var(--needs-review-border);
+    border-radius: 20px; padding: 5px 13px;
+    font-size: 11px; font-weight: 600; white-space: nowrap;
+  }
+
+  .section-header {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 700; color: var(--deep-blue);
+    display: flex; align-items: center; gap: 7px;
+  }
+
+  .s-dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+  .s-dot-teal { background: var(--teal); }
+  .section-link { font-size: 12px; color: var(--teal-dark); cursor: pointer; font-weight: 500; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+    gap: 14px; margin-bottom: 30px;
+  }
+
+  /* CARDS — white surface on light bg */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px; cursor: pointer;
+    transition: all 0.18s; position: relative; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+
+  .card::after {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: transparent; transition: background 0.18s;
+  }
+
+  .card:hover {
+    border-color: var(--orange-border);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+  }
+
+  .card:hover::after { background: var(--orange); }
+
+  .card-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; margin-bottom: 12px;
+  }
+
+  .card-type {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.8px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px;
+  }
+
+  .type-playbook { background: rgba(250,70,22,0.1); color: #d43a0e; }
+  .type-battlecard { background: rgba(11,162,179,0.12); color: #0891a0; }
+  .type-casestudy { background: rgba(14,160,80,0.12); color: #0a9044; }
+  .type-product { background: rgba(180,130,0,0.12); color: #8a6200; }
+  .type-template { background: rgba(120,60,200,0.12); color: #6030b0; }
+
+  .conf-badge { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; }
+  .conf-dot { width: 5px; height: 5px; border-radius: 50%; }
+  .conf-verified { color: #0891a0; }
+  .conf-verified .conf-dot { background: var(--teal); }
+  .conf-review { color: var(--needs-review); }
+  .conf-review .conf-dot { background: #c9960a; }
+  .conf-flagged { color: var(--orange); }
+  .conf-flagged .conf-dot { background: var(--orange); }
+
+  .card-title { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.45; }
+  .card-summary { font-size: 12px; color: var(--text2); line-height: 1.65; margin-bottom: 14px; }
+
+  .card-footer {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 11px; gap: 8px;
+  }
+
+  .card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  .tag {
+    font-size: 10px; color: var(--text3);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px; padding: 2px 7px;
+  }
+
+  .card-owner { font-size: 10px; color: var(--text3); white-space: nowrap; }
+
+  /* STATS — keep Deep Blue cards for brand punch */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin-bottom: 26px;
+  }
+
+  .stat-card {
+    background: var(--deep-blue);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius);
+    padding: 16px 18px; position: relative; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(24,33,38,0.12);
+  }
+
+  .stat-card::before {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 3px;
+  }
+
+  .sc-orange::before { background: var(--orange); }
+  .sc-teal::before { background: var(--teal); }
+  .sc-yellow::before { background: #f7c948; }
+  .sc-red::before { background: var(--orange); }
+
+  .stat-label { font-size: 10px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .stat-value { font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 800; color: #ffffff; margin: 4px 0 2px; }
+  .stat-change { font-size: 11px; color: rgba(255,255,255,0.4); }
+  .sc-orange .stat-value { color: var(--orange); }
+  .sc-teal .stat-value { color: var(--teal); }
+  .sc-yellow .stat-value { color: #f7c948; }
+
+  .suggestions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+
+  .chip {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 12px; color: var(--text2);
+    cursor: pointer; transition: all 0.15s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .chip:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
+
+  /* SEARCH BOXES */
+  .search-query-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 18px; margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+
+  .sqb-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .sqb-text { font-size: 15px; font-weight: 600; color: var(--text); margin-top: 4px; }
+
+  /* Claude box — Deep Blue for contrast */
+  .claude-box {
+    background: var(--deep-blue);
+    border-left: 4px solid var(--teal);
+    border-radius: var(--radius);
+    padding: 16px 18px; margin-bottom: 18px;
+    box-shadow: 0 4px 16px rgba(24,33,38,0.1);
+  }
+
+  .claude-hdr {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 10px; font-weight: 700; color: var(--teal);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+  }
+
+  .claude-box p { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.7; }
+
+  .result-row {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 18px; margin-bottom: 10px;
+    cursor: pointer; transition: all 0.15s;
+    display: flex; gap: 14px; align-items: flex-start;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+
+  .result-row:hover { border-color: var(--orange-border); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+  .result-num {
+    width: 26px; height: 26px; background: var(--surface2);
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; font-size: 11px; font-weight: 700;
+    color: var(--text3); flex-shrink: 0; margin-top: 1px;
+  }
+
+  .result-body { flex: 1; }
+  .result-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .result-summary { font-size: 12.5px; color: var(--text2); line-height: 1.65; margin-bottom: 9px; }
+  .result-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+  .open-link {
+    margin-left: auto; flex-shrink: 0;
+    background: transparent; border: 1px solid var(--border-strong);
+    color: var(--text2); border-radius: 6px;
+    padding: 5px 12px; font-size: 11px; font-weight: 500;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: all 0.15s; white-space: nowrap;
+  }
+
+  .open-link:hover { border-color: var(--orange); color: var(--orange); }
+
+  .empty { text-align: center; padding: 60px 20px; }
+  .empty-ico { font-size: 36px; margin-bottom: 12px; opacity: 0.3; }
+  .empty-title { font-size: 15px; font-weight: 600; color: var(--text2); margin-bottom: 5px; }
+  .empty-sub { font-size: 13px; color: var(--text3); }
+
+  /* MODAL */
+  .overlay {
+    position: fixed; inset: 0;
+    background: rgba(24,33,38,0.6);
+    z-index: 200; display: none;
+    align-items: center; justify-content: center; padding: 24px;
+  }
+
+  .overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px; width: 100%; max-width: 620px;
+    max-height: 88vh; overflow-y: auto; padding: 28px; position: relative;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+  }
+
+  .modal-close {
+    position: absolute; top: 18px; right: 18px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text2); width: 30px; height: 30px;
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; cursor: pointer; font-size: 14px;
+  }
+
+  .modal-type-tag { margin-bottom: 8px; }
+
+  .modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px; font-weight: 800; color: var(--text);
+    margin-bottom: 12px; line-height: 1.3; padding-right: 30px;
+  }
+
+  .modal-summary {
+    font-size: 13.5px; color: var(--text2); line-height: 1.7;
+    margin-bottom: 20px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+  .meta-lbl { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; }
+  .meta-val { font-size: 13px; color: var(--text); font-weight: 500; }
+
+  .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--orange); color: white; border: none;
+    border-radius: 7px; padding: 10px 18px;
+    font-size: 12.5px; font-weight: 600;
+    font-family: 'Inter', sans-serif; cursor: pointer;
+    transition: background 0.15s;
+    box-shadow: 0 2px 8px rgba(250,70,22,0.3);
+  }
+
+  .btn-primary:hover { background: var(--orange-dark); }
+
+  .btn-secondary {
+    background: transparent; color: var(--text2);
+    border: 1px solid var(--border-strong); border-radius: 7px;
+    padding: 10px 18px; font-size: 12.5px; font-weight: 500;
+    font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal-dark); }
+
+  /* PERSONA PICKER */
+  .persona-overlay {
+    position: fixed; inset: 0;
+    background: rgba(24,33,38,0.5);
+    z-index: 300; display: none;
+    align-items: flex-end;
+    padding-bottom: 90px; padding-left: 240px;
+  }
+
+  .persona-overlay.open { display: flex; }
+
+  .persona-picker {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 6px; width: 220px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  }
+
+  .picker-opt { padding: 11px 12px; border-radius: 8px; cursor: pointer; transition: background 0.12s; }
+  .picker-opt:hover { background: var(--surface2); }
+  .picker-opt.selected { background: var(--orange-light); }
+  .po-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .po-role { font-size: 11px; color: var(--text2); margin-top: 1px; }
+  .po-vert { font-size: 10px; color: var(--teal-dark); margin-top: 1px; font-weight: 500; }
+
+  .loading { display: flex; align-items: center; gap: 10px; padding: 24px 0; color: var(--text3); font-size: 13px; }
+  .spin { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--orange); border-radius: 50%; animation: spin 0.7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .fade-in { animation: fi 0.3s ease forwards; }
+  @keyframes fi { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo-area">
+    <div class="logo-lockup">
+      <div class="logo-icon">⚡</div>
+      <div>
+        <div class="logo-name">GTM Content Hub</div>
+        <div class="logo-sub">Powered by AI</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-section">Workspace</div>
+  <div class="nav-item active" onclick="showPage('home',this)"><span class="nav-icon">⊞</span>Home</div>
+  <div class="nav-item" onclick="showPage('search-pg',this)"><span class="nav-icon">◎</span>Search</div>
+  <div class="nav-item" onclick="goLib(null,this)"><span class="nav-icon">▦</span>Library<span class="nav-count" id="lib-count">12</span></div>
+
+  <div class="nav-section">Content Types</div>
+  <div class="nav-item" onclick="goLib('Playbook',this)"><span class="nav-icon">📘</span>Playbooks</div>
+  <div class="nav-item" onclick="goLib('Battlecard',this)"><span class="nav-icon">⚔️</span>Battlecards</div>
+  <div class="nav-item" onclick="goLib('Case Study',this)"><span class="nav-icon">💼</span>Case Studies</div>
+  <div class="nav-item" onclick="goLib('Product',this)"><span class="nav-icon">⚙️</span>Product Info</div>
+  <div class="nav-item" onclick="goLib('Template',this)"><span class="nav-icon">📄</span>Templates</div>
+
+  <div class="sidebar-bottom">
+    <div class="persona-card" onclick="openPicker()">
+      <div class="persona-card-top">
+        <span class="persona-label-sm">Active Persona</span>
+        <span class="switch-btn">Switch →</span>
+      </div>
+      <div class="persona-row">
+        <div class="persona-avatar" id="sb-av" style="background:rgba(250,70,22,0.15)">👩</div>
+        <div>
+          <div class="persona-name-sm" id="sb-nm">Sarah Chen</div>
+          <div class="persona-role-sm" id="sb-rl">FS Account Executive</div>
+          <div class="persona-vert-sm" id="sb-vt">Financial Services</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="topbar">
+    <div class="search-wrap">
+      <span class="search-ico">◎</span>
+      <input id="s-in" type="text" placeholder="Ask anything — e.g. 'how do we handle Microsoft objections?'" onkeydown="if(event.key==='Enter')runSearch()">
+    </div>
+    <button class="btn-search" onclick="runSearch()">Search</button>
+    <div class="topbar-pill" id="tp-pill">🏦 FinServ · AE</div>
+  </div>
+
+  <!-- HOME -->
+  <div class="page active" id="home">
+    <div class="greeting fade-in">
+      <div class="greeting-eyebrow" id="g-time">Good morning</div>
+      <div class="greeting-name">Welcome back, <span id="g-nm">Sarah</span></div>
+      <div class="greeting-meta">
+        <span class="role-pill" id="g-role">👩 FS Account Executive</span>
+        <span class="vert-pill" id="g-vert">🏦 Financial Services</span>
+        <span class="context-text" id="g-ctx">3 open opportunities</span>
+      </div>
+    </div>
+
+    <div class="ai-banner fade-in">
+      <div class="ai-icon-box">✦</div>
+      <div class="ai-banner-text" id="ai-txt"><strong>AI Insight:</strong> Loading…</div>
+    </div>
+
+    <div class="opp-strip fade-in">
+      <div class="opp-icon-box">🏢</div>
+      <div class="opp-info">
+        <div class="opp-eyebrow">Active Opportunity · Salesforce</div>
+        <div class="opp-name" id="opp-nm">—</div>
+        <div class="opp-meta" id="opp-mt">—</div>
+      </div>
+      <div class="stage-pill" id="opp-st">—</div>
+    </div>
+
+    <div class="section-header">
+      <div class="section-title"><span class="s-dot"></span>Recommended for You</div>
+      <span class="section-link" onclick="goLib(null,null)">View all →</span>
+    </div>
+    <div class="cards-grid fade-in" id="rec-cards"></div>
+
+    <div class="section-header">
+      <div class="section-title"><span class="s-dot s-dot-teal"></span>Recently Updated</div>
+      <span class="section-link">View all →</span>
+    </div>
+    <div class="cards-grid fade-in" id="recent-cards"></div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="page" id="search-pg">
+    <div class="greeting fade-in">
+      <div class="greeting-name" style="font-size:20px;">Search Content</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:6px;">Ask in plain English — personalized to your role and vertical.</p>
+    </div>
+    <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-bottom:8px;">Suggested searches</div>
+    <div class="suggestions" id="sugg-chips"></div>
+    <div id="results-area">
+      <div class="empty">
+        <div class="empty-ico">◎</div>
+        <div class="empty-title">Search your content library</div>
+        <div class="empty-sub">Type a question above and press Search</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIBRARY -->
+  <div class="page" id="library">
+    <div class="greeting fade-in">
+      <div class="greeting-name" style="font-size:20px;" id="lib-title">Content Library</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:6px;" id="lib-sub">All content tagged for your role and vertical</p>
+    </div>
+    <div class="stats-row fade-in">
+      <div class="stat-card sc-orange">
+        <div class="stat-label">Total Assets</div>
+        <div class="stat-value" id="st-tot">—</div>
+        <div class="stat-change">↑ 3 added this month</div>
+      </div>
+      <div class="stat-card sc-teal">
+        <div class="stat-label">Verified</div>
+        <div class="stat-value" id="st-ver">—</div>
+        <div class="stat-change" style="color:var(--teal)">Content you can trust</div>
+      </div>
+      <div class="stat-card sc-yellow">
+        <div class="stat-label">Needs Review</div>
+        <div class="stat-value" id="st-rev">—</div>
+        <div class="stat-change" style="color:var(--needs-review)">Review overdue</div>
+      </div>
+      <div class="stat-card sc-red">
+        <div class="stat-label">Flagged</div>
+        <div class="stat-value" id="st-flg">—</div>
+        <div class="stat-change" style="color:var(--orange)">Action required</div>
+      </div>
+    </div>
+    <div class="cards-grid fade-in" id="lib-cards"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="c-modal">
+  <div class="modal">
+    <div class="modal-close" onclick="closeModal()">✕</div>
+    <div class="modal-type-tag" id="m-type"></div>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-summary" id="m-sum"></div>
+    <div class="modal-grid">
+      <div><div class="meta-lbl">Type</div><div class="meta-val" id="m-ct"></div></div>
+      <div><div class="meta-lbl">Confidence</div><div class="meta-val" id="m-cf"></div></div>
+      <div><div class="meta-lbl">Owner</div><div class="meta-val" id="m-ow"></div></div>
+      <div><div class="meta-lbl">Last Verified</div><div class="meta-val" id="m-vr"></div></div>
+      <div><div class="meta-lbl">Roles</div><div class="meta-val" id="m-rl"></div></div>
+      <div><div class="meta-lbl">Vertical</div><div class="meta-val" id="m-vt"></div></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-primary" id="sp-btn">📂 Open in SharePoint</button>
+      <button class="btn-secondary">📤 Share</button>
+      <button class="btn-secondary">🔔 Ping Owner</button>
+    </div>
+  </div>
+</div>
+
+<!-- PERSONA PICKER -->
+<div class="persona-overlay" id="p-overlay" onclick="if(event.target.id==='p-overlay')closePicker()">
+  <div class="persona-picker" id="p-picker"></div>
+</div>
+
+<script>
+const personas=[
+  {id:'fs-ae',name:'Sarah Chen',short:'Sarah',av:'👩',role:'FS Account Executive',vert:'Financial Services',emoji:'🏦',
+   opp:{nm:'Meridian Capital Partners',mt:'$420K ARR · Q1 Close · 850 employees',st:'Proposal / Negotiation'},
+   ai:'You have a late-stage deal with <strong>Meridian Capital Partners</strong>. I\'ve surfaced the FCC FAQ doc, TARA overview deck, ROI business case template, and your Agentic Automation pitch deck — all tagged for FinServ AE.',
+   ctx:'3 open opportunities · Financial Services',rec:[101,104,106,109],
+   sugg:['WorkFusion FCC agent overview for FinServ','ROI business case for Financial Crime Compliance','How do we handle Microsoft objections in FinServ?','TARA transaction alert review demo']},
+  {id:'sdr',name:'Marcus Webb',short:'Marcus',av:'👨',role:'SDR / Business Development',vert:'Enterprise SaaS',emoji:'📞',
+   opp:{nm:'TechCorp Global (Prospecting)',mt:'$85K est. ARR · Early Stage · 1,200 employees',st:'Prospecting / Discovery'},
+   ai:'You\'re prospecting into <strong>TechCorp Global</strong>. I\'ve surfaced the Workfusion outreach sequence, Test Cloud pitch deck, UiPath Agentic Automation deck, and opportunity management playbook.',
+   ctx:'12 active sequences · Enterprise SaaS',rec:[101,103,109,111],
+   sugg:['WorkFusion FinServ outreach sequence','Test Cloud master pitch deck','UiPath agentic automation overview','Opportunity management best practices']},
+  {id:'cs',name:'Jamie Torres',short:'Jamie',av:'🧑',role:'Customer Success Manager',vert:'Enterprise SaaS',emoji:'🤝',
+   opp:{nm:'Pinnacle Insurance Group',mt:'$290K ARR · Renewal in 45 days · At-Risk · Clari',st:'⚠️ At-Risk Renewal'},
+   ai:'<strong>Pinnacle Insurance Group</strong> is flagged at-risk in Clari with renewal in 45 days. I\'ve surfaced the FCC FAQs, Test Cloud L200 deck, release notes, and the Agentic Automation deck for your renewal conversation.',
+   ctx:'8 accounts · 2 at-risk renewals',rec:[102,105,113,109],
+   sugg:['Financial Crime Compliance FAQ for customers','Test Cloud latest release features','At-risk renewal playbook','How to demonstrate ROI for AI automation']}
+];
+
+// ── REAL ASSETS FROM SHAREPOINT (from uploaded CSV) ──
+const realAssets=[
+  {id:101,title:'Workfusion Outreach Sequence',type:'Template',tc:'type-template',
+   sum:'Multi-touch cold outreach sequence for building Financial Crimes Compliance pipeline in FinServ. Includes 10 personalised email templates referencing Wells Fargo, Goldman Sachs, Deutsche Bank and others.',
+   conf:'Verified',cc:'conf-verified',owner:'UiPath Sales',ver:'Jan 2026',
+   roles:['AE','SDR'],vert:'Financial Services',tags:['Outreach','FCC','FinServ'],
+   url:'https://uipath.sharepoint.com/:w:/r/sites/Product/_layouts/15/Doc.aspx?sourcedoc=%7BCB9C6A07-BB0C-435F-9958-6804728DE51C%7D&file=Workfusion%20Outreach%20sequnece.docx'},
+
+  {id:102,title:'Financial Crimes Compliance FAQs',type:'FAQ Doc',tc:'type-product',
+   sum:'Comprehensive internal and customer-facing FAQs covering UiPath\'s FCC solution powered by WorkFusion AI Agents (Evelyn, Tara, Evan). Covers deployment, competitors, MRM documentation, and pricing.',
+   conf:'Verified',cc:'conf-verified',owner:'Lenka Dulovicova',ver:'Dec 2025',
+   roles:['AE','SE','CS'],vert:'Financial Services',tags:['FCC','WorkFusion','FAQ'],
+   url:'https://uipath.sharepoint.com/:w:/r/sites/Product/_layouts/15/Doc.aspx?sourcedoc=%7B0F77835F-6AA0-4D7D-812E-BA2AB6567222%7D&file=WIP%20FCC%20solution%20FAQs.docx'},
+
+  {id:103,title:'Test Cloud — Master Pitch Deck',type:'Deck',tc:'type-product',
+   sum:'Master presentation deck for Test Cloud pursuits. Covers platform capabilities, key differentiators, business value, and customer proof points. Use for AE and BDR-led customer conversations.',
+   conf:'Verified',cc:'conf-verified',owner:'UiPath Product',ver:'Feb 2026',
+   roles:['AE','SDR'],vert:'General',tags:['Test Cloud','Pitch','Demo'],
+   url:'https://uipath.sharepoint.com/:p:/r/sites/SoftwareTesting/_layouts/15/Doc.aspx?sourcedoc=%7BA64A454B-B602-4435-8044-0270E8B4C2EC%7D&file=Test%20Cloud%20-%20Master%20Pitch%20Deck.pptx'},
+
+  {id:104,title:'AI Agents for FCC — TARA Overview',type:'Deck',tc:'type-product',
+   sum:'4-page overview deck for the TARA (Transaction Alert Review) Agent — part of the UiPath Financial Crime Compliance solution. Covers use case, ROI, and deployment for Payment Sanctions screening.',
+   conf:'Verified',cc:'conf-verified',owner:'UiPath Product',ver:'Nov 2025',
+   roles:['AE'],vert:'Financial Services',tags:['TARA','FCC','Transaction Screening'],
+   url:'https://uipath.sharepoint.com/sites/Product/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FProduct%2FShared%20Documents%2FVertical%20Agents%20%28Solutions%29%2FFINS%20%2D%20WorkFusion%2FWF%20content%2FTransaction%20Screening%20%28Tara%29%2FAI%20Agents%20for%20FCC%20%2D%20Overview%20%284p%29%20Tara%2C%20Payment%20Sanctions%20%2D%202025Q1%2Epdf'},
+
+  {id:105,title:'Test Cloud — 25.10 Release Features',type:'Release Notes',tc:'type-product',
+   sum:'Detailed overview of Test Cloud 25.10 release including Performance Testing, Autopilot enhancements, Studio Web integration (private preview), Agentic Chat, Mobile performance improvements (25-30% faster), and MCP Server integration.',
+   conf:'Verified',cc:'conf-verified',owner:'UiPath Product',ver:'Oct 2025',
+   roles:['SE','CS'],vert:'General',tags:['Test Cloud','Release','Features'],
+   url:'https://uipath.sharepoint.com/:w:/r/sites/LearningPortal/Academy/_layouts/15/Doc.aspx?sourcedoc=%7BF224814E-EAC2-4E16-A5EB-A5D856C85AE1%7D&file=Test_Cloud_25.10_Features.docx'},
+
+  {id:106,title:'WorkFusion Business Case — ROI Template',type:'Template',tc:'type-template',
+   sum:'Excel-based ROI calculator and business case template for FCC / WorkFusion pursuits. Helps AEs and SEs build a compelling financial justification for compliance automation investment.',
+   conf:'Verified',cc:'conf-verified',owner:'UiPath Sales',ver:'Feb 2026',
+   roles:['AE','SE'],vert:'Financial Services',tags:['ROI','Business Case','WorkFusion'],
+   url:'https://uipath.sharepoint.com/:x:/r/sites/Product/_layouts/15/Doc.aspx?sourcedoc=%7B5ED051E3-3E14-4B23-84FD-A06FB7F45F18%7D&file=WorkFusion%20Business%20Case%20-%20ROI%20-%20Template.xlsx'},
+
+  {id:107,title:'Pipeline Management — Build a Winning Pipeline',type:'Deck',tc:'type-playbook',
+   sum:'Best practices deck for building and progressing a healthy pipeline. Covers pipeline hygiene, coverage ratios, progression cadences, and how to hit quarterly targets.',
+   conf:'Verified',cc:'conf-verified',owner:'EMEA Sales Ops',ver:'Feb 2026',
+   roles:['AE'],vert:'General',tags:['Pipeline','Sales Process','RevOps'],
+   url:'https://uipath.sharepoint.com/:p:/r/sites/EMEASalesOps/_layouts/15/Doc.aspx?sourcedoc=%7B63911C8D-E5E6-4805-A3CD-2787138E8A6F%7D&file=Pipeline%20Management%20-%20Build%20a%20Winning%20Pipeline.pptx'},
+
+  {id:109,title:'UiPath Agentic Automation — Customer Deck',type:'Deck',tc:'type-product',
+   sum:'Customer-facing deck introducing the UiPath Platform and agentic automation capabilities. Covers AI agents, robots, human oversight, efficiency gains, and positions UiPath as the enterprise automation leader.',
+   conf:'Verified',cc:'conf-verified',owner:'Andreea Baloi',ver:'Feb 2026',
+   roles:['AE','CS','SE','SDR'],vert:'General',tags:['Agentic AI','Platform','Customer Facing'],
+   url:'https://uipath.sharepoint.com/:p:/r/sites/LearningPortal/Academy/_layouts/15/Doc.aspx?sourcedoc=%7B937D6899-A8D3-4CB6-8AC7-32C5F06F59FF%7D&file=UiPath%20agentic%20automation%20CFD_v1.3_29april.pptx'},
+
+  {id:110,title:'Forecasting — Make Revenue Predictable',type:'Deck',tc:'type-playbook',
+   sum:'Best practices deck for the UiPath forecasting process and cadence. Covers commit vs upside definitions, forecast hygiene, CRM discipline, and how to make revenue predictable.',
+   conf:'Verified',cc:'conf-verified',owner:'EMEA Sales Ops',ver:'Feb 2026',
+   roles:['AE'],vert:'General',tags:['Forecasting','Revenue','Sales Ops'],
+   url:'https://uipath.sharepoint.com/:p:/r/sites/EMEASalesOps/_layouts/15/Doc.aspx?sourcedoc=%7B3C148E41-A1BF-42D6-9368-DB7228218DAB%7D&file=Forecasting%20-%20Make%20Revenue%20Predictable.pptx'},
+
+  {id:111,title:'Sales Process Deep Dive',type:'Deck',tc:'type-playbook',
+   sum:'Overview of UiPath sales stages, exit criteria, and best practices for progressing deals. Covers discovery through close with stage-by-stage guidance on activities, stakeholders, and deal health.',
+   conf:'Verified',cc:'conf-verified',owner:'EMEA Sales Ops',ver:'Jan 2026',
+   roles:['AE'],vert:'General',tags:['Sales Process','Stages','Deal Progression'],
+   url:'https://uipath.sharepoint.com/:p:/r/sites/EMEASalesOps/_layouts/15/Doc.aspx?sourcedoc=%7B82177E79-69C6-42F5-B87A-ACCA98012D3A%7D&file=Sales%20Process%20Deep%20Dive.pptx'},
+
+  {id:112,title:'Opportunity Manager — Win More, Close Faster',type:'Deck',tc:'type-playbook',
+   sum:'Process and best practices deck for opportunity management. Covers how to qualify, progress, and close deals efficiently with guidance on multi-threading, executive alignment, and competitive positioning.',
+   conf:'Verified',cc:'conf-verified',owner:'EMEA Sales Ops',ver:'Feb 2026',
+   roles:['AE'],vert:'General',tags:['Opportunity Management','Closing','Win Rate'],
+   url:'https://uipath.sharepoint.com/:p:/r/sites/EMEASalesOps/_layouts/15/Doc.aspx?sourcedoc=%7B6271A823-D9C7-423F-A3D7-01D83582C931%7D&file=Opportunity%20Management%20-%20Win%20More%2C%20Close%20Faster.pptx'},
+
+  {id:113,title:'Transaction Alert Review Demo',type:'Demo Video',tc:'type-casestudy',
+   sum:'Live demo video of the TARA AI Agent reviewing sanctions screening alerts. Shows false positive clearance, narrative generation, analyst escalation workflow, and performance analytics dashboard.',
+   conf:'Verified',cc:'conf-verified',owner:'Lenka Dulovicova',ver:'Dec 2025',
+   roles:['SE','AE'],vert:'Financial Services',tags:['Demo','TARA','FCC'],
+   url:'https://uipath.sharepoint.com/sites/Product/_layouts/15/stream.aspx?id=%2Fsites%2FProduct%2FShared+Documents%2FVertical+Agents+%28Solutions%29%2FFINS+-+WorkFusion%2FUiPath+content%2FDemos%2Ftransaction_alert_review.mp4'},
+
+  {id:114,title:'Test Cloud — L200 Technical Pitch Deck',type:'Deck',tc:'type-product',
+   sum:'Technical deep-dive deck for Test Cloud. Covers architecture, integration options, advanced capabilities, and technical differentiators. Designed for SE and specialist-led conversations with technical buyers.',
+   conf:'Verified',cc:'conf-verified',owner:'UiPath Product',ver:'Jan 2026',
+   roles:['SE','CS'],vert:'General',tags:['Test Cloud','Technical','L200'],
+   url:'https://uipath.sharepoint.com/:p:/r/sites/SoftwareTesting/_layouts/15/Doc.aspx?sourcedoc=%7B728E4942-2176-42BC-853D-D1EFC77BA731%7D&file=Test%20Cloud%20-%20L200%20Pitch%20Deck.pptx'}
+];
+
+// ── MOCK ASSETS (kept for demo breadth) ──
+const mockAssets=[
+  {id:1,title:'Enterprise Close Playbook — Financial Services',type:'Playbook',tc:'type-playbook',sum:'Step-by-step framework for closing enterprise FinServ deals $250K+. Covers procurement navigation, legal review acceleration, and executive alignment tactics.',conf:'Verified',cc:'conf-verified',owner:'Revenue Enablement',ver:'Feb 2025',roles:['AE'],vert:'Financial Services',tags:['Enterprise','Closing'],url:'#'},
+  {id:2,title:'Cold Outreach Sequence — AI Automation',type:'Template',tc:'type-template',sum:'6-touch cold outreach sequence with proven subject lines for AI orchestration. Includes personalisation guidance by industry and company size.',conf:'Verified',cc:'conf-verified',owner:'Demand Generation',ver:'Jan 2025',roles:['SDR'],vert:'Enterprise SaaS',tags:['Outreach','SDR'],url:'#'},
+  {id:3,title:'Microsoft Copilot Competitive Battlecard',type:'Battlecard',tc:'type-battlecard',sum:'Head-to-head vs Microsoft Copilot Studio. Covers key differentiators, common objections, win themes, and landmine questions to plant in discovery.',conf:'Verified',cc:'conf-verified',owner:'Product Marketing',ver:'Feb 2025',roles:['AE','SE','SDR'],vert:'General',tags:['Competitive','Microsoft'],url:'#'},
+  {id:4,title:'At-Risk Renewal Playbook',type:'Playbook',tc:'type-playbook',sum:'CS playbook for accounts flagged at-risk 30–90 days before renewal. Includes executive escalation templates, ROI reframing, and expansion bridge strategies.',conf:'Verified',cc:'conf-verified',owner:'Customer Success',ver:'Jan 2025',roles:['CS'],vert:'General',tags:['Renewal','At-Risk'],url:'#'},
+  {id:5,title:'FinServ AI Automation — ROI Case Study Bundle',type:'Case Study',tc:'type-casestudy',sum:'4 FinServ customer case studies demonstrating ROI from AI orchestration. Includes compliance automation, trade ops, and KYC workflow use cases.',conf:'Verified',cc:'conf-verified',owner:'Product Marketing',ver:'Feb 2025',roles:['AE','SE'],vert:'Financial Services',tags:['Case Study','ROI'],url:'#'},
+  {id:6,title:'Discovery Call Framework',type:'Playbook',tc:'type-playbook',sum:'Structured discovery framework for enterprise AI automation deals. Power questions organised by business outcome, technical readiness, and competitive situation.',conf:'Verified',cc:'conf-verified',owner:'Revenue Enablement',ver:'Jan 2025',roles:['SDR','AE'],vert:'Enterprise SaaS',tags:['Discovery','Framework'],url:'#'},
+  {id:9,title:'Executive Business Review (EBR) Template',type:'Template',tc:'type-template',sum:'Quarterly EBR deck for CS. Includes value realised scorecard, usage benchmarking, roadmap alignment, and expansion opportunity framing.',conf:'Verified',cc:'conf-verified',owner:'Customer Success',ver:'Jan 2025',roles:['CS'],vert:'General',tags:['EBR','Renewal'],url:'#'},
+  {id:10,title:'SDR Objection Handling Guide',type:'Playbook',tc:'type-playbook',sum:'Common top-of-funnel objections with recommended responses. Covers "we already use Microsoft," "not in budget," and "not the right time" scenarios.',conf:'Verified',cc:'conf-verified',owner:'Revenue Enablement',ver:'Feb 2025',roles:['SDR'],vert:'General',tags:['Objections','SDR'],url:'#'},
+  {id:11,title:'Customer Expansion Playbook',type:'Playbook',tc:'type-playbook',sum:'Framework for identifying and executing expansion within existing accounts. Covers usage signal triggers, multi-threading tactics, and commercial structuring.',conf:'Needs Review',cc:'conf-review',owner:'Customer Success',ver:'Sep 2024',roles:['CS'],vert:'General',tags:['Expansion','Upsell'],url:'#'},
+  {id:12,title:'Security & Compliance Data Sheet',type:'Product',tc:'type-product',sum:'Technical overview of security architecture, certifications (SOC2, ISO27001), and compliance posture. Essential for InfoSec review stages.',conf:'Flagged',cc:'conf-flagged',owner:'Security',ver:'Aug 2024',roles:['AE','SE'],vert:'General',tags:['Security','Compliance'],url:'#'}
+];
+
+const content=[...realAssets,...mockAssets];
+
+const smap={
+  fcc:{r:'For your FinServ FCC pursuit, the WorkFusion FAQs give you the full product story, the TARA Overview deck is your leave-behind, and the ROI Template builds your business case. The Transaction Alert Review demo is your strongest proof point — lead with it in discovery.',ids:[102,104,106,113]},
+  tara:{r:'The TARA (Transaction Alert Review) agent overview and live demo video are your go-to assets. Pair with the FCC FAQs for technical deep-dives and the ROI template to anchor the business case.',ids:[104,113,102,106]},
+  ms:{r:'For Microsoft objection handling, use the Microsoft Copilot Competitive Battlecard as your primary resource. Pair with the UiPath Agentic Automation deck to reinforce the platform story and contrast with Microsoft\'s bolt-on approach.',ids:[3,109,1,106]},
+  renewal:{r:'For your at-risk renewal, start with the At-Risk Renewal Playbook for the intervention framework. The EBR Template is critical for your exec meeting. The UiPath Agentic Automation deck helps reframe the value conversation.',ids:[4,9,11,109]},
+  outreach:{r:'The Workfusion Outreach Sequence gives you a proven 10-touch sequence for FinServ FCC prospects referencing Goldman Sachs, Wells Fargo, and Deutsche Bank. Pair with the TARA Overview as your first leave-behind.',ids:[101,104,109,3]},
+  pipeline:{r:'For pipeline and opportunity management, use the Pipeline Management deck for coverage strategy, the Sales Process Deep Dive for stage progression, and Opportunity Manager for deal execution best practices.',ids:[107,111,112,110]},
+  testcloud:{r:'The Test Cloud Master Pitch Deck is your primary asset for customer conversations. The L200 Technical Deck is for SE-led technical deep-dives. The 25.10 Release Notes give you the latest feature proof points.',ids:[103,114,105,109]},
+  def:{r:'I found several relevant assets based on your role and vertical. Results are ranked by relevance to your search and personalised to your active opportunities in Salesforce.',ids:[109,101,103,3]}
+};
+
+let pIdx=0, libF=null;
+
+function g(){const h=new Date().getHours();return h<12?'Good morning':h<17?'Good afternoon':'Good evening';}
+
+function cardHTML(c,fn){
+  return `<div class="card" onclick="${fn}(${c.id})">
+    <div class="card-top"><span class="card-type ${c.tc}">${c.type}</span><span class="conf-badge ${c.cc}"><span class="conf-dot"></span>${c.conf}</span></div>
+    <div class="card-title">${c.title}</div>
+    <div class="card-summary">${c.sum}</div>
+    <div class="card-footer"><div class="card-tags">${c.tags.slice(0,2).map(t=>`<span class="tag">${t}</span>`).join('')}</div><div class="card-owner">${c.owner}</div></div>
+  </div>`;
+}
+
+function renderHome(){
+  const p=personas[pIdx];
+  document.getElementById('g-time').textContent=g();
+  document.getElementById('g-nm').textContent=p.short;
+  document.getElementById('g-role').textContent=`${p.av} ${p.role}`;
+  document.getElementById('g-vert').textContent=`${p.emoji} ${p.vert}`;
+  document.getElementById('g-ctx').textContent=p.ctx;
+  document.getElementById('ai-txt').innerHTML=`<strong>✦ AI Insight:</strong> ${p.ai}`;
+  document.getElementById('opp-nm').textContent=p.opp.nm;
+  document.getElementById('opp-mt').textContent=p.opp.mt;
+  document.getElementById('opp-st').textContent=p.opp.st;
+  document.getElementById('rec-cards').innerHTML=p.rec.map(id=>{const c=content.find(x=>x.id===id);return c?cardHTML(c,'openModal'):'';}).join('');
+  const recent=content.filter(c=>c.roles.some(r=>p.role.includes(r))||c.vert==='General').slice(0,4);
+  document.getElementById('recent-cards').innerHTML=recent.map(c=>cardHTML(c,'openModal')).join('');
+  document.getElementById('tp-pill').textContent=`${p.emoji} ${p.vert} · ${p.role.split(' ')[0]}`;
+}
+
+function renderLib(f){
+  libF=f;
+  const items=f?content.filter(c=>c.type.toLowerCase().includes(f.toLowerCase())):content;
+  document.getElementById('lib-title').textContent=f?`${f}s`:'Content Library';
+  document.getElementById('lib-sub').textContent=f?`All ${f.toLowerCase()}s in your library`:'All content tagged for your role and vertical';
+  document.getElementById('st-tot').textContent=items.length;
+  document.getElementById('st-ver').textContent=items.filter(c=>c.conf==='Verified').length;
+  document.getElementById('st-rev').textContent=items.filter(c=>c.conf==='Needs Review').length;
+  document.getElementById('st-flg').textContent=items.filter(c=>c.conf==='Flagged').length;
+  document.getElementById('lib-cards').innerHTML=items.map(c=>cardHTML(c,'openModal')).join('');
+}
+
+function renderSugg(){
+  const p=personas[pIdx];
+  document.getElementById('sugg-chips').innerHTML=p.sugg.map(s=>`<div class="chip" onclick="doSearch('${s}')">${s}</div>`).join('');
+}
+
+function doSearch(q){document.getElementById('s-in').value=q;showPage('search-pg',document.querySelectorAll('.nav-item')[1]);runSearch();}
+
+function runSearch(){
+  const q=document.getElementById('s-in').value.trim();if(!q)return;
+  showPage('search-pg',document.querySelectorAll('.nav-item')[1]);
+  const area=document.getElementById('results-area');
+  area.innerHTML=`<div class="loading"><div class="spin"></div>Searching with AI…</div>`;
+  setTimeout(()=>{
+    const ql=q.toLowerCase();
+    let d=smap.def;
+    if(ql.includes('tara')||ql.includes('transaction alert')||ql.includes('sanctions'))d=smap.tara;
+    else if(ql.includes('fcc')||ql.includes('financial crime')||ql.includes('workfusion')||ql.includes('compliance'))d=smap.fcc;
+    else if(ql.includes('microsoft')||ql.includes('copilot')||ql.includes('competitive'))d=smap.ms;
+    else if(ql.includes('renewal')||ql.includes('risk')||ql.includes('churn'))d=smap.renewal;
+    else if(ql.includes('outreach')||ql.includes('sequence')||ql.includes('prospect'))d=smap.outreach;
+    else if(ql.includes('pipeline')||ql.includes('forecast')||ql.includes('opportunity'))d=smap.pipeline;
+    else if(ql.includes('test cloud')||ql.includes('testing')||ql.includes('qa'))d=smap.testcloud;
+    const res=d.ids.map(id=>content.find(c=>c.id===id)).filter(Boolean);
+    area.innerHTML=`
+      <div class="search-query-box fade-in"><div class="sqb-label">Your search</div><div class="sqb-text">${q}</div></div>
+      <div class="claude-box fade-in"><div class="claude-hdr">✦ AI Summary</div><p>${d.r}</p></div>
+      ${res.map((c,i)=>`
+        <div class="result-row fade-in" onclick="openModal(${c.id})" style="animation-delay:${i*0.05}s">
+          <div class="result-num">${i+1}</div>
+          <div class="result-body">
+            <div class="result-title">${c.title}</div>
+            <div class="result-summary">${c.sum}</div>
+            <div class="result-meta"><span class="card-type ${c.tc}" style="font-size:10px">${c.type}</span><span class="conf-badge ${c.cc}"><span class="conf-dot"></span>${c.conf}</span><span class="tag">${c.vert}</span></div>
+          </div>
+          <button class="open-link" onclick="event.stopPropagation();${c.url&&c.url!=='#'?`window.open('${c.url}','_blank')`:'void(0)'}">${c.url&&c.url!=='#'?'Open ↗':'Preview'}</button>
+        </div>`).join('')}`;
+  },900);
+}
+
+function openModal(id){
+  const c=content.find(x=>x.id===id);if(!c)return;
+  document.getElementById('m-type').innerHTML=`<span class="card-type ${c.tc}">${c.type}</span>`;
+  document.getElementById('m-title').textContent=c.title;
+  document.getElementById('m-sum').textContent=c.sum;
+  document.getElementById('m-ct').textContent=c.type;
+  document.getElementById('m-cf').innerHTML=`<span class="conf-badge ${c.cc}" style="display:inline-flex"><span class="conf-dot"></span>${c.conf}</span>`;
+  document.getElementById('m-ow').textContent=c.owner;
+  document.getElementById('m-vr').textContent=c.ver;
+  document.getElementById('m-rl').textContent=c.roles.join(', ');
+  document.getElementById('m-vt').textContent=c.vert;
+  // Update SharePoint button
+  const spBtn=document.getElementById('sp-btn');
+  if(c.url&&c.url!=='#'){
+    spBtn.onclick=()=>window.open(c.url,'_blank');
+    spBtn.textContent='📂 Open in SharePoint';
+    spBtn.style.opacity='1';
+    spBtn.style.cursor='pointer';
+  } else {
+    spBtn.onclick=null;
+    spBtn.textContent='📂 Mock Asset';
+    spBtn.style.opacity='0.5';
+    spBtn.style.cursor='default';
+  }
+  document.getElementById('c-modal').classList.add('open');
+}
+
+function closeModal(){document.getElementById('c-modal').classList.remove('open');}
+
+function openPicker(){
+  document.getElementById('p-picker').innerHTML=personas.map((p,i)=>`
+    <div class="picker-opt ${i===pIdx?'selected':''}" onclick="switchP(${i})">
+      <div class="po-name">${p.av} ${p.name}</div>
+      <div class="po-role">${p.role}</div>
+      <div class="po-vert">${p.emoji} ${p.vert}</div>
+    </div>`).join('');
+  document.getElementById('p-overlay').classList.add('open');
+}
+
+function closePicker(){document.getElementById('p-overlay').classList.remove('open');}
+
+function switchP(i){
+  pIdx=i;const p=personas[i];
+  document.getElementById('sb-av').textContent=p.av;
+  document.getElementById('sb-nm').textContent=p.name;
+  document.getElementById('sb-rl').textContent=p.role;
+  document.getElementById('sb-vt').textContent=p.vert;
+  closePicker();renderHome();renderLib(libF);renderSugg();
+  document.getElementById('s-in').value='';
+  document.getElementById('results-area').innerHTML=`<div class="empty"><div class="empty-ico">◎</div><div class="empty-title">Search your content library</div><div class="empty-sub">Type a question above and press Search</div></div>`;
+}
+
+function showPage(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(el)el.classList.add('active');
+}
+
+function goLib(f,el){showPage('library',el);renderLib(f);}
+
+renderHome();renderLib(null);renderSugg();
+</script>
+</body>
+</html>
