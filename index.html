@@ -9,42 +9,63 @@
   :root{--orange:#FF5100;--orange-dark:#d94400;--orange-light:rgba(255,81,0,0.09);--orange-border:rgba(255,81,0,0.25);--deep-blue:#0f172a;--teal:#10b981;--teal-dark:#059669;--teal-light:rgba(16,185,129,0.1);--teal-border:rgba(16,185,129,0.28);--bg:#f8f6f5;--surface:#fff;--surface2:#f1f5f9;--border:#e2e8f0;--border-strong:#cbd5e1;--text:#0f172a;--text2:#475569;--text3:#94a3b8;--radius:12px;--radius-sm:8px;--sidebar-bg:#1e293b;--sidebar-w:256px;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:14px;}
-  .sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);background:#fff;border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:100;overflow-y:auto;}
+  .sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);background:#1e293b;border-right:none;display:flex;flex-direction:column;z-index:100;overflow-y:auto;}
   .sidebar::-webkit-scrollbar{width:0;}
   .logo-area{padding:24px;flex-shrink:0;}
   .logo-lockup{display:flex;align-items:center;gap:12px;}
   .logo-icon{width:40px;height:40px;background:var(--orange);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
   .logo-name{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:var(--orange);line-height:1.2;text-transform:uppercase;letter-spacing:0.7px;}
-  .logo-sub{font-size:12px;color:#64748b;font-weight:400;}
-  .nav-section{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);padding:18px 16px 8px;font-weight:600;flex-shrink:0;}
-  .nav-item{display:flex;align-items:center;gap:12px;padding:8px 12px;margin:0 16px;cursor:pointer;font-size:14px;color:#475569;transition:all 0.15s;border-radius:var(--radius-sm);flex-shrink:0;font-weight:500;}
-  .nav-item:hover{background:var(--surface2);}
-  .nav-item.active{color:var(--orange);background:rgba(255,81,0,0.1);font-weight:600;}
-  .nav-icon{font-size:16px;width:20px;text-align:center;color:#475569;}
+  .logo-sub{font-size:12px;color:rgba(255,255,255,0.4);font-weight:400;}
+  .nav-section{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);padding:18px 16px 8px;font-weight:600;flex-shrink:0;}
+  .nav-item{display:flex;align-items:center;gap:12px;padding:8px 12px;margin:0 16px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.6);transition:all 0.15s;border-radius:var(--radius-sm);flex-shrink:0;font-weight:500;}
+  .nav-item:hover{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.9);}
+  .nav-item.active{color:#fff;background:rgba(255,81,0,0.2);font-weight:600;}
+  .nav-icon{font-size:16px;width:20px;text-align:center;color:rgba(255,255,255,0.6);}
+  .nav-item:hover .nav-icon{color:rgba(255,255,255,0.9);}
   .nav-item.active .nav-icon{color:var(--orange);}
-  .nav-count{margin-left:auto;background:var(--surface2);border-radius:10px;padding:2px 8px;font-size:11px;color:var(--text3);}
+  .nav-count{margin-left:auto;background:rgba(255,255,255,0.1);border-radius:10px;padding:2px 8px;font-size:11px;color:rgba(255,255,255,0.5);}
   .sidebar-action-btn{display:flex;align-items:center;gap:8px;margin:4px 16px 0;padding:9px 14px;background:var(--orange);border:none;border-radius:var(--radius-sm);color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s;}
   .sidebar-action-btn:hover{background:var(--orange-dark);}
-  .sidebar-action-btn.secondary{background:var(--surface2);border:1px solid var(--border);color:var(--text2);}
-  .sidebar-action-btn.secondary:hover{background:var(--border);}
-  .gtm-tools-section{padding:14px 16px 16px;border-top:1px solid var(--border);flex-shrink:0;}
-  .gtm-tools-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-weight:600;margin-bottom:10px;}
+  .sidebar-action-btn.secondary{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);}
+  .sidebar-action-btn.secondary:hover{background:rgba(255,255,255,0.15);}
+  .gtm-tools-section{padding:14px 16px 16px;border-top:1px solid rgba(255,255,255,0.1);flex-shrink:0;}
+  .gtm-tools-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:10px;}
   .gtm-tools-grid{display:flex;flex-direction:column;gap:2px;}
   .gtm-tool-btn{display:flex;flex-direction:row;align-items:center;gap:8px;background:transparent;border:none;border-radius:6px;padding:6px 8px;cursor:pointer;text-decoration:none;transition:all 0.15s;}
-  .gtm-tool-btn:hover{background:var(--surface2);}
-  .gtm-tool-icon{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--surface2);flex-shrink:0;}
+  .gtm-tool-btn:hover{background:rgba(255,255,255,0.08);}
+  .gtm-tool-icon{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:rgba(255,255,255,0.1);flex-shrink:0;}
   .gtm-tool-icon img{width:13px;height:13px;}
-  .gtm-tool-name{font-size:12px;font-weight:500;color:#475569;white-space:nowrap;}
-  .sidebar-bottom{margin-top:auto;padding:16px;border-top:1px solid var(--border);flex-shrink:0;}
+  .gtm-tool-name{font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);white-space:nowrap;}
+  .sidebar-bottom{margin-top:auto;padding:16px;border-top:1px solid rgba(255,255,255,0.1);flex-shrink:0;}
   .persona-card{background:transparent;border:none;border-radius:var(--radius-sm);padding:8px;cursor:pointer;transition:all 0.15s;}
-  .persona-card:hover{background:var(--surface2);}
+  .persona-card:hover{background:rgba(255,255,255,0.08);}
   .persona-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
   .persona-label-sm{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);font-weight:600;}
   .switch-btn{font-size:10px;color:var(--orange);font-weight:600;}
   .persona-row{display:flex;align-items:center;}
   .persona-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-right:10px;background:rgba(255,81,0,0.2);}
-  .persona-name-sm{font-size:14px;font-weight:600;color:var(--deep-blue);}
-  .persona-role-sm{font-size:12px;color:#64748b;margin-top:1px;}
+  .persona-name-sm{font-size:14px;font-weight:600;color:#fff;}
+  .persona-role-sm{font-size:12px;color:rgba(255,255,255,0.5);margin-top:1px;}
+  /* Sidebar light theme overrides */
+  .sidebar.sb-light{background:#f0ede8;border-right:1px solid #d5d0c9;}
+  .sidebar.sb-light .nav-item{color:#475569;}
+  .sidebar.sb-light .nav-item:hover{background:rgba(0,0,0,0.05);color:var(--deep-blue);}
+  .sidebar.sb-light .nav-item.active{color:var(--orange);background:rgba(255,81,0,0.1);}
+  .sidebar.sb-light .nav-icon{color:#475569;}
+  .sidebar.sb-light .nav-item.active .nav-icon{color:var(--orange);}
+  .sidebar.sb-light .nav-section{color:var(--text3);}
+  .sidebar.sb-light .nav-count{background:rgba(0,0,0,0.06);color:var(--text3);}
+  .sidebar.sb-light .sidebar-bottom{border-top-color:#d5d0c9;}
+  .sidebar.sb-light .persona-name-sm{color:var(--deep-blue);}
+  .sidebar.sb-light .persona-role-sm{color:#64748b;}
+  .sidebar.sb-light .persona-card:hover{background:rgba(0,0,0,0.05);}
+  .sidebar.sb-light .gtm-tools-section{border-top-color:#d5d0c9;}
+  .sidebar.sb-light .gtm-tools-label{color:var(--text3);}
+  .sidebar.sb-light .gtm-tool-btn:hover{background:rgba(0,0,0,0.05);}
+  .sidebar.sb-light .gtm-tool-icon{background:#fff;}
+  .sidebar.sb-light .gtm-tool-name{color:#475569;}
+  .sidebar.sb-light .sidebar-action-btn.secondary{background:rgba(0,0,0,0.04);border-color:#d5d0c9;color:var(--text2);}
+  .sidebar.sb-light .sidebar-action-btn.secondary:hover{background:rgba(0,0,0,0.08);}
   .persona-vert-sm{font-size:11px;color:var(--text3);margin-top:1px;font-weight:500;}
   .main{margin-left:var(--sidebar-w);min-height:100vh;}
   .topbar{position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;gap:16px;z-index:50;}
@@ -390,7 +411,7 @@
   .nh-prog-step{font-size:11px;color:var(--text3);white-space:nowrap;display:flex;align-items:center;gap:5px;}
   .nh-prog-step.done{color:#16a34a;font-weight:600;}
   .nh-prog-step.active{color:var(--orange);font-weight:600;}
-  .nh-ai-banner{background:var(--orange);border-radius:var(--radius);padding:12px 18px;display:flex;gap:14px;align-items:center;flex-shrink:0;box-shadow:0 10px 15px -3px rgba(255,81,0,0.2),0 4px 6px -4px rgba(255,81,0,0.2);margin-bottom:0;}
+  .nh-ai-banner{background:var(--orange);border-radius:var(--radius);padding:12px 18px;display:flex;gap:14px;align-items:center;flex-shrink:0;box-shadow:0 10px 15px -3px rgba(255,81,0,0.2),0 4px 6px -4px rgba(255,81,0,0.2);margin-bottom:0;margin-top:12px;}
   .nh-ai-icon{width:38px;height:38px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
   .nh-ai-text{font-size:14px;color:rgba(255,255,255,0.9);line-height:1.55;flex:1;}
   .nh-ai-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;}
@@ -545,12 +566,13 @@
   <div class="nav-item active" id="nav-home" onclick="showPage('home',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span>Home</div>
   <div class="nav-item" onclick="showPage('search-pg',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>Search</div>
   <div class="nav-item" onclick="goLib(null,this)"><span class="nav-icon"><svg width="16" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>Library<span class="nav-count" id="lib-count">12</span></div>
+  <div class="nav-item" id="nav-heatmap" onclick="showPage('heatmap-pg',this)" style="display:none"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Territory Heat Map<span style="margin-left:auto;background:#fee2e2;color:#dc2626;border-radius:10px;padding:2px 7px;font-size:10px;font-weight:700;">7</span></div>
   <div class="nav-section">Content Types</div>
   <div class="nav-item" onclick="goLib('Playbook',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Playbooks</div>
   <div class="nav-item" onclick="goLib('Battlecard',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>Battlecards</div>
   <div class="nav-item" onclick="goLib('Case Study',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></span>Case Studies</div>
   <div class="nav-item" onclick="goLib('Template',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></span>Templates</div>
-  <button class="sidebar-action-btn" id="sidebar-new-content" style="display:none" onclick="goLib(null,null)">＋ New Content</button>
+  <button class="sidebar-action-btn" id="sidebar-new-content" style="display:none;margin-bottom:12px" onclick="goLib(null,null)">＋ New Content</button>
   <button class="sidebar-action-btn secondary" id="sidebar-export-report" style="display:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg> Export Report</button>
   <div class="gtm-tools-section">
     <div class="gtm-tools-label">GTM Tools</div>
@@ -577,7 +599,7 @@
 <div class="main">
   <div class="topbar">
     <div class="search-wrap"><span class="search-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><input id="s-in" type="text" placeholder="Ask anything — e.g. how do we handle Epic objections?" onkeydown="if(event.key==='Enter')runSearch()"></div>
-    <div class="topbar-icons"><div class="topbar-icon-btn" title="Notifications" style="position:relative"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><div style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:var(--orange);border:2px solid #fff;border-radius:50%;"></div></div><div class="topbar-icon-btn" title="Help"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg></div></div>
+    <div class="topbar-icons"><div class="topbar-icon-btn" title="Notifications" style="position:relative"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><div style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:var(--orange);border:2px solid #fff;border-radius:50%;"></div></div><div class="topbar-icon-btn" title="Help"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg></div><div class="topbar-icon-btn" id="sb-theme-toggle" title="Toggle sidebar theme" onclick="toggleSidebarTheme()"><svg id="sb-theme-ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg id="sb-theme-ico-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div></div>
   </div>
 
   <!-- HOME (AE/BDR) -->
@@ -641,6 +663,60 @@
         <div class="section-header"><div class="section-title"><span class="s-dot s-dot-teal"></span>Recently Updated</div><span class="section-link">View all →</span></div>
         <div class="cards-grid" id="recent-cards" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));"></div>
       </div>
+    </div>
+  </div>
+
+  <!-- TERRITORY HEAT MAP -->
+  <div class="page" id="heatmap-pg">
+    <div class="greeting fade-in" style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:20px;">
+      <div>
+        <div class="greeting-name" style="font-size:22px;">Territory Heat Map</div>
+        <p style="font-size:13px;color:var(--text2);margin-top:6px;">Accounts in your territory with zero pipeline, upcoming renewals, and no Test Cloud activity.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;margin-top:6px;">
+        <div class="hm-legend">
+          <div class="hm-legend-item"><div class="hm-legend-dot" style="background:#dc2626"></div>High Risk</div>
+          <div class="hm-legend-item"><div class="hm-legend-dot" style="background:#d97706"></div>Medium Risk</div>
+          <div class="hm-legend-item"><div class="hm-legend-dot" style="background:#10b981"></div>Low Risk</div>
+        </div>
+        <button class="hm-action-btn">&#8595; Export CSV</button>
+      </div>
+    </div>
+    <div class="hm-summary-row fade-in">
+      <div class="hm-summary-card hm-sc-red">
+        <div class="hm-summary-label">Zero Pipeline Accounts</div>
+        <div class="hm-summary-value">7</div>
+        <div class="hm-summary-sub">No open or active opportunities</div>
+      </div>
+      <div class="hm-summary-card hm-sc-amber">
+        <div class="hm-summary-label">Renewals Next Quarter</div>
+        <div class="hm-summary-value">5</div>
+        <div class="hm-summary-sub">Q2 renewals with no pipeline attached</div>
+      </div>
+      <div class="hm-summary-card hm-sc-blue">
+        <div class="hm-summary-label">No Test Cloud Activity</div>
+        <div class="hm-summary-value">7</div>
+        <div class="hm-summary-sub">Zero open or closed-won Test Cloud opps</div>
+      </div>
+    </div>
+    <div class="hm-ai-box fade-in">
+      <div class="hm-ai-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"/></svg></div>
+      <div class="hm-ai-text"><strong>AI Territory Insight:</strong> 4 accounts flag all three risk signals. <strong>Barclays Ventures</strong> and <strong>Fidelity Operations Group</strong> are the highest-priority outreach targets this week. Lead with the Test Cloud ROI one-pager and lock in renewal conversations before Q2 opens.</div>
+    </div>
+    <div class="hm-filter-row fade-in">
+      <button class="hm-filter-btn active" onclick="hmFilter('all',this)">All Accounts (7)</button>
+      <button class="hm-filter-btn" onclick="hmFilter('triple',this)">All 3 Flags (4)</button>
+      <button class="hm-filter-btn" onclick="hmFilter('renewal',this)">Renewal Next Q (5)</button>
+      <button class="hm-filter-btn" onclick="hmFilter('nopipe',this)">Zero Pipeline (7)</button>
+      <button class="hm-filter-btn" onclick="hmFilter('notc',this)">No Test Cloud (7)</button>
+    </div>
+    <div class="hm-table-wrap fade-in">
+      <div class="hm-table-hdr">
+        <div class="hm-table-hdr-left"><div class="hm-table-title">At-Risk Accounts</div><div class="hm-table-count" id="hm-count">7 accounts</div></div>
+        <div style="font-size:11px;color:var(--text3);">Sorted by risk score · Salesforce data as of today</div>
+      </div>
+      <div class="hm-col-hdr"><span>Account</span><span>Pipeline</span><span>Renewal</span><span>Test Cloud</span><span>Risk Score</span><span></span></div>
+      <div id="hm-rows"></div>
     </div>
   </div>
 
@@ -1266,7 +1342,7 @@ function openPicker(){
 function closePicker(){document.getElementById('p-overlay').classList.remove('open');}
 
 function switchP(i){
-  pIdx=i;const p=personas[i];closePicker();renderHome();renderLib(libF);renderSugg();
+  pIdx=i;const p=personas[i];closePicker();renderHome();renderLib(libF);renderSugg();renderHeatmap();
   document.getElementById('s-in').value='';
   document.getElementById('results-area').innerHTML='<div class="empty"><div class="empty-ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div class="empty-title">Search your content library</div><div class="empty-sub">Type a question above and press Search</div></div>';
   if(p.isManager)showPage('manager-home',document.getElementById('nav-home'));
@@ -1285,7 +1361,57 @@ function showPage(id,el){
 }
 function goLib(f,el){showPage('library',el);renderLib(f);}
 
-renderHome();renderLib(null);renderSugg();
+// ── SIDEBAR THEME ───────────────────────────────────────────────────
+function applySidebarTheme(isDark){
+  const sb=document.querySelector('.sidebar');
+  sb.classList.toggle('sb-light',!isDark);
+  document.getElementById('sb-theme-ico-sun').style.display=isDark?'none':'block';
+  document.getElementById('sb-theme-ico-moon').style.display=isDark?'block':'none';
+}
+function toggleSidebarTheme(){
+  const isDark=!document.querySelector('.sidebar').classList.contains('sb-light');
+  applySidebarTheme(!isDark);
+  try{localStorage.setItem('sb-theme',isDark?'light':'dark');}catch(e){}
+}
+(function(){try{const t=localStorage.getItem('sb-theme');if(t==='light')applySidebarTheme(false);}catch(e){}}());
+
+// ── TERRITORY HEAT MAP ──────────────────────────────────────────────
+const hmAccounts=[
+  {name:'Barclays Ventures',sub:'FinServ · London',pipeline:false,renewal:'next',testCloud:false,risk:3,action:'Create Opp'},
+  {name:'Fidelity Operations Group',sub:'FinServ · Boston',pipeline:false,renewal:'next',testCloud:false,risk:3,action:'Create Opp'},
+  {name:'Lloyds Digital Unit',sub:'FinServ · London',pipeline:false,renewal:'next',testCloud:false,risk:3,action:'Create Opp'},
+  {name:'HSBC Automation Centre',sub:'FinServ · Hong Kong',pipeline:false,renewal:'next',testCloud:false,risk:3,action:'Schedule Call'},
+  {name:'NatWest Innovation Lab',sub:'FinServ · Edinburgh',pipeline:false,renewal:'later',testCloud:false,risk:2,action:'Create Opp'},
+  {name:'Allianz Global Ops',sub:'FinServ · Munich',pipeline:false,renewal:'none',testCloud:false,risk:2,action:'Prospect'},
+  {name:'JP Morgan Automation Hub',sub:'FinServ · New York',pipeline:false,renewal:'later',testCloud:true,risk:1,action:'Prospect'}
+];
+function hmRiskLabel(r){return r===3?'HIGH':r===2?'MED':'LOW';}
+function hmRiskClass(r){return r===3?'hm-risk-high':r===2?'hm-risk-med':'hm-risk-low';}
+function hmRowHTML(a){
+  const pipeHTML=a.pipeline?'<span class="hm-flag hm-flag-green">&#10003; Active</span>':'<span class="hm-flag hm-flag-red">&#10005; None</span>';
+  const renewHTML=a.renewal==='next'?'<span class="hm-renewal-chip hm-renewal-next">&#9888; Next Q</span>':a.renewal==='later'?'<span class="hm-renewal-chip hm-renewal-later">Q3+</span>':'<span class="hm-renewal-chip hm-renewal-none">None</span>';
+  const tcHTML=a.testCloud?'<span class="hm-flag hm-flag-green">&#10003; Active</span>':'<span class="hm-flag hm-flag-red">&#10005; None</span>';
+  return '<div class="hm-account-row"><div><div class="hm-account-name">'+a.name+'</div><div class="hm-account-sub">'+a.sub+'</div></div><div>'+pipeHTML+'</div><div>'+renewHTML+'</div><div>'+tcHTML+'</div><div><span class="hm-risk-score '+hmRiskClass(a.risk)+'">'+hmRiskLabel(a.risk)+'</span></div><div><button class="hm-action-btn">'+a.action+'</button></div></div>';
+}
+function hmFilter(f,btn){
+  document.querySelectorAll('.hm-filter-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  let rows=hmAccounts;
+  if(f==='triple')rows=hmAccounts.filter(a=>!a.pipeline&&a.renewal==='next'&&!a.testCloud);
+  else if(f==='renewal')rows=hmAccounts.filter(a=>a.renewal==='next'&&!a.pipeline);
+  else if(f==='nopipe')rows=hmAccounts.filter(a=>!a.pipeline);
+  else if(f==='notc')rows=hmAccounts.filter(a=>!a.testCloud);
+  document.getElementById('hm-rows').innerHTML=rows.map(hmRowHTML).join('');
+  document.getElementById('hm-count').textContent=rows.length+' account'+(rows.length!==1?'s':'');
+}
+function renderHeatmap(){
+  const p=personas[pIdx];
+  const navItem=document.getElementById('nav-heatmap');
+  if(navItem)navItem.style.display=(!p.isManager&&!p.isNewHire&&!p.isBDR&&!p.isCSM)?'flex':'none';
+  hmFilter('all',document.querySelector('.hm-filter-btn'));
+}
+
+renderHome();renderLib(null);renderSugg();renderHeatmap();
 </script>
 </body>
 </html>
