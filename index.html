@@ -99,7 +99,7 @@
   .s-dot{width:7px;height:7px;background:var(--orange);border-radius:50%;}
   .s-dot-teal{background:var(--teal);}
   .section-link{font-size:13px;color:var(--teal-dark);cursor:pointer;font-weight:500;}
-  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:24px;}
+  .cards-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:24px;}
   .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;cursor:pointer;transition:all 0.18s;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.05);}
   .card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background 0.18s;}
   .card:hover{border-color:var(--orange-border);transform:translateY(-2px);box-shadow:0 10px 15px -3px rgba(255,81,0,0.2);}
@@ -140,7 +140,8 @@
   .opp-name{font-size:15px;font-weight:600;color:var(--text);margin-top:2px;}
   .opp-meta{font-size:13px;color:var(--text2);margin-top:2px;}
   .stage-pill{background:rgba(247,201,72,0.15);color:#c9960a;border:1px solid rgba(201,150,10,0.25);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;white-space:nowrap;}
-  .home-grid{display:grid;grid-template-columns:1fr 370px;gap:20px;align-items:start;margin-top:20px;}
+  .home-grid{display:grid;grid-template-columns:1fr 1fr 370px;gap:20px;align-items:start;margin-top:20px;}
+  .home-center{display:flex;flex-direction:column;gap:16px;}
   .home-right{display:flex;flex-direction:column;gap:16px;}
   .widget-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.05);}
   .widget-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);}
@@ -258,7 +259,7 @@
   .po-role{font-size:12px;color:#64748b;margin-top:2px;}
   .po-vert{font-size:11px;color:var(--teal);margin-top:2px;font-weight:500;}
   /* MANAGER */
-  #manager-home{display:none;padding:24px 32px 12px;height:calc(100vh - 53px);overflow:hidden;flex-direction:column;gap:16px;}
+  #manager-home{display:none;padding:24px 32px 12px;flex-direction:column;gap:16px;}
   #manager-home.active{display:flex;}
   .mgr-top-row{display:flex;gap:12px;align-items:center;flex-shrink:0;}
   .mgr-greeting-compact{flex-shrink:0;min-width:250px;}
@@ -298,7 +299,7 @@
   .kpi-trend{font-size:10px;font-weight:600;}
   .kpi-trend.up{color:#16a34a;}
   .kpi-trend.down{color:var(--orange);}
-  .mgr-main-grid{display:grid;grid-template-columns:1fr 1fr 370px;gap:16px;flex:1;min-height:0;}
+  .mgr-main-grid{display:grid;grid-template-columns:1fr 1fr 370px;gap:16px;}
   /* Panel — fits content, no forced stretch */
   .mgr-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.05);}
   .panel-hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border);flex-shrink:0;}
@@ -366,7 +367,7 @@
   .ps-late{color:#fff;background:#16a34a;}
   .ps-mid{color:#fff;background:#ca8a04;}
   /* NEW HIRE */
-  #newhire-home{display:none;padding:14px 24px 10px;height:calc(100vh - 73px);overflow:hidden;flex-direction:column;gap:8px;}
+  #newhire-home{display:none;padding:14px 24px 10px;flex-direction:column;gap:8px;}
   #newhire-home.active{display:flex;}
   .nh-top-row{display:flex;gap:12px;align-items:stretch;flex-shrink:0;}
   .nh-greeting-block{flex:1;}
@@ -406,8 +407,12 @@
   .ai-opp-name{font-size:13px;font-weight:700;color:#fff;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .ai-opp-meta{font-size:11px;color:rgba(255,255,255,0.65);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .ai-opp-stage{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);border-radius:4px;padding:3px 8px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap;flex-shrink:0;}
-  .nh-main-grid{display:grid;grid-template-columns:1fr 1fr 370px;grid-template-rows:1fr auto;gap:12px;flex:1;min-height:0;}
-  .nh-col{display:flex;flex-direction:column;gap:12px;min-height:0;overflow-y:auto;}
+  .nh-main-grid{display:grid;grid-template-columns:1fr 1fr 370px;gap:12px;}
+  .nh-col{display:flex;flex-direction:column;gap:12px;min-height:0;}
+  .nh-col .nh-card{display:flex;flex-direction:column;max-height:400px;}
+  .nh-col .nh-card .nh-card-body{flex:1;overflow-y:auto;}
+  .nh-col .nh-card .nh-card-body::-webkit-scrollbar{width:4px;}
+  .nh-col .nh-card .nh-card-body::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:2px;}
   .nh-col::-webkit-scrollbar{width:4px;}
   .nh-col::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:2px;}
   .nh-col-right{grid-column:3;grid-row:1 / -1;display:flex;flex-direction:column;min-height:0;overflow-y:auto;}
@@ -561,8 +566,8 @@
   <div class="sidebar-bottom">
     <div class="persona-card" onclick="openPicker()">
       <div class="persona-row">
-        <div class="persona-avatar" id="sb-av" style="font-size:13px;font-weight:700;color:var(--orange)">SC</div>
-        <div style="flex:1;min-width:0;"><div class="persona-name-sm" id="sb-nm">Sarah Chan</div><div class="persona-role-sm" id="sb-rl">FS Account Executive</div></div>
+        <div class="persona-avatar" id="sb-av" style="font-size:18px;">👩‍💼</div>
+        <div style="flex:1;min-width:0;"><div class="persona-name-sm" id="sb-nm">Sarah Chan</div><div class="persona-role-sm" id="sb-rl">FS Account Executive</div><span class="sb-pill" id="sb-pill" style="display:inline-block;font-size:8px;font-weight:700;padding:1px 6px;border-radius:3px;margin-top:2px;background:var(--orange);color:#fff;">AE</span></div>
         <svg width="5" height="10" viewBox="0 0 6 12" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M1 1l4 5-4 5"/></svg>
       </div>
     </div>
@@ -597,7 +602,7 @@
       <div class="ai-two-col" id="ai-two-col">
         <div class="ai-col-left">
           <div class="nh-ai-title">AI Insight</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.5;margin-top:4px;columns:2;column-gap:20px;" id="ai-txt">Loading…</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.5;margin-top:4px;" id="ai-txt">Loading…</div>
         </div>
         <div class="ai-col-right" id="ai-opp-card" style="display:none;flex:none;width:334px;">
           <div class="ai-opp-label" id="opp-eye">Active Opportunity</div>
@@ -612,22 +617,29 @@
       </div>
     </div>
     <div class="home-grid fade-in">
+      <!-- LEFT COLUMN: Recommended Content -->
       <div class="home-left">
         <div class="section-header"><div class="section-title"><span class="s-dot"></span>Recommended for You</div><span class="section-link" onclick="goLib(null,null)">View all →</span></div>
         <div class="cards-grid" id="rec-cards"></div>
-        <div class="section-header"><div class="section-title"><span class="s-dot s-dot-teal"></span>Recently Updated</div><span class="section-link">View all →</span></div>
-        <div class="cards-grid" id="recent-cards"></div>
       </div>
-      <!-- RIGHT COLUMN: Calendar first, then Coaching -->
-      <div class="home-right">
+      <!-- CENTER COLUMN: Upcoming Meetings -->
+      <div class="home-center">
         <div class="widget-panel">
           <div class="widget-hdr"><div class="widget-hdr-left"><div class="widget-icon wi-teal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div class="widget-title">Upcoming Meetings</div></div><span class="widget-link">Open Calendar →</span></div>
           <div class="widget-body" id="calendar-cards"></div>
         </div>
+      </div>
+      <!-- RIGHT COLUMN: Call Coaching -->
+      <div class="home-right">
         <div class="widget-panel">
           <div class="widget-hdr"><div class="widget-hdr-left"><div class="widget-icon wi-orange"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><path d="M12 19v4M8 23h8"/></svg></div><div class="widget-title">Call Coaching</div><span style="font-size:9px;font-weight:700;background:rgba(16,185,129,0.12);color:var(--teal-dark);border-radius:10px;padding:1px 6px;margin-left:4px;">Clari CoPilot</span></div><span class="widget-link">All calls →</span></div>
           <div class="widget-body" id="coaching-cards"></div>
         </div>
+      </div>
+      <!-- BOTTOM ROW: Recently Updated — spans columns 1-2 -->
+      <div style="grid-column:1/3;">
+        <div class="section-header"><div class="section-title"><span class="s-dot s-dot-teal"></span>Recently Updated</div><span class="section-link">View all →</span></div>
+        <div class="cards-grid" id="recent-cards" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));"></div>
       </div>
     </div>
   </div>
@@ -674,7 +686,7 @@
       <div class="ai-two-col">
         <div class="ai-col-left">
           <div class="nh-ai-title">Manager Insight</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.5;margin-top:4px;columns:2;column-gap:20px;" id="mgr-ai-txt">2 of your 6 reps haven't accessed the platform this week. The WorkFusion ROI Template is your team's most-used asset. 3 content items are flagged — review before Q1 close.</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.5;margin-top:4px;" id="mgr-ai-txt">2 of your 6 reps haven't accessed the platform this week. The WorkFusion ROI Template is your team's most-used asset. 3 content items are flagged — review before Q1 close.</div>
         </div>
         <div class="ai-col-right" style="flex:none;width:350px;">
           <div class="ai-opp-label">Team Overview</div>
@@ -1010,7 +1022,7 @@
 
 <script>
 const personas=[
-  {name:'Sarah Chan',av:'SC',role:'FS Account Executive',vert:'Financial Services',emoji:'',pill:'FinServ · AE',isManager:false,isNewHire:false,isBDR:false,isCSM:false,
+  {name:'Sarah Chan',av:'SC',emo:'👩‍💼',role:'FS Account Executive',vert:'Financial Services',emoji:'',pill:'FinServ · AE',isManager:false,isNewHire:false,isBDR:false,isCSM:false,
    ai:'Your top priority is <strong>Meridian Capital Partners</strong> ($420K, Negotiation). The FinServ FCC Battlecard was just updated with new Deutsche Bank objection responses.',
    opp:{eye:'Active Opportunity · Salesforce',name:'Meridian Capital Partners',meta:'$420K · FinServ · Deutsche Bank FCC',stage:'Negotiation',ico:''},
    qrt:{pct:72,done:13,total:18},pg:{label:'Pipeline Gen · Q1',val:'$1.24M',pct:62,sub:'of $2M target'},
@@ -1032,7 +1044,7 @@ const personas=[
   },
 
   // PERSONA 2 — Priya Nair, HLS CSM
-  {name:'Priya Nair',av:'PN',role:'HLS Customer Success Manager',vert:'Healthcare & Life Sciences',emoji:'',pill:'HLS · CSM',isManager:false,isNewHire:false,isBDR:false,isCSM:true,
+  {name:'Priya Nair',av:'PN',emo:'👩‍⚕️',role:'HLS Customer Success Manager',vert:'Healthcare & Life Sciences',emoji:'',pill:'HLS · CSM',isManager:false,isNewHire:false,isBDR:false,isCSM:true,
    ai:'<strong>Midwest Health System</strong> renewal is in 47 days — health score has dropped to 62. Schedule an executive sponsor call and share the EHR Integration ROI one-pager this week.',
    opp:{eye:'Active Account · Gainsight',name:'Midwest Health System',meta:'$240K ARR · HLS · Renewal in 47 days',stage:'At Risk · 62 Health',ico:''},
    qrt:{pct:55,done:10,total:18},pg:{label:'Renewal ARR · Q1',val:'$890K',pct:44,sub:'of $2M renewal target'},
@@ -1054,7 +1066,7 @@ const personas=[
   },
 
   // PERSONA 3 — Marcus Webb, BDR
-  {name:'Marcus Webb',av:'MW',role:'Business Development Representative',vert:'SaaS / Tech',emoji:'',pill:'SaaS · BDR',isManager:false,isNewHire:false,isBDR:true,isCSM:false,
+  {name:'Marcus Webb',av:'MW',emo:'👨‍💻',role:'Business Development Representative',vert:'SaaS / Tech',emoji:'',pill:'SaaS · BDR',isManager:false,isNewHire:false,isBDR:true,isCSM:false,
    ai:'You have <strong>3 SQL opportunities</strong> ready to pass to AEs this week. Your cold call-to-meeting rate is 8.2% — 2× above team average. Focus on TechCorp and CloudBase sequences.',
    opp:{eye:'Active Sequence · Outreach',name:'TechCorp Global — IT Automation',meta:'Sequence Day 7 · 3 touches sent · Replied 1x',stage:'In Sequence',ico:''},
    qrt:{pct:40,done:7,total:18},pg:{label:'Pipeline Gen · Q1',val:'14 SQLs',pct:70,sub:'of 20 SQL target'},
@@ -1074,12 +1086,12 @@ const personas=[
   },
 
   // PERSONA 4 — Alex Rivera, Manager
-  {name:'Alex Rivera',av:'AR',role:'Regional Sales Manager',vert:'EMEA · FinServ',emoji:'',pill:'Manager · EMEA',isManager:true,isNewHire:false,isBDR:false,isCSM:false,
+  {name:'Alex Rivera',av:'AR',emo:'👨‍💼',role:'Regional Sales Manager',vert:'EMEA · FinServ',emoji:'',pill:'Manager · EMEA',isManager:true,isNewHire:false,isBDR:false,isCSM:false,
    qrt:{pct:81,done:14,total:18},pg:{label:'Team Pipeline · Q1',val:'$4.1M',pct:68,sub:'of $6M team target'},ai:'2 of your 6 reps haven\'t accessed the platform this week. The WorkFusion ROI Template is your team\'s most-used asset. 3 content items are flagged — review before Q1 close.',opp:null,sugg:[]
   },
 
   // PERSONA 5 — Jordan Mills, New Hire
-  {name:'Jordan Mills',av:'JM',role:'Acquisition Account Executive',vert:'Mid-Market · AMER',emoji:'',pill:'New Hire · AMER',isManager:false,isNewHire:true,isBDR:false,isCSM:false,
+  {name:'Jordan Mills',av:'JM',emo:'🧑‍🎓',role:'Acquisition Account Executive',vert:'Mid-Market · AMER',emoji:'',pill:'New Hire · AMER',isManager:false,isNewHire:true,isBDR:false,isCSM:false,
    qrt:{pct:11,done:2,total:18},pg:{label:'Pipeline Gen · Q1',val:'$0',pct:0,sub:'of $500K target'},ai:'',opp:null,
    sugg:['What does UiPath do?','How do I set up Outreach?','MEDDPICC cheat sheet','FinServ competitive overview'],calls:[],meetings:[]
   }
@@ -1145,9 +1157,13 @@ function runPrep(i){
 
 function renderHome(){
   const p=personas[pIdx];
-  document.getElementById('sb-av').textContent=p.av;
+  document.getElementById('sb-av').textContent=p.emo;
   document.getElementById('sb-nm').textContent=p.name;
   document.getElementById('sb-rl').textContent=p.role;
+  const pillEl=document.getElementById('sb-pill');
+  const pillLabel=p.isManager?'MGR':p.isNewHire?'NEW':p.isCSM?'CSM':p.isBDR?'BDR':'AE';
+  const pillBg=p.isManager?'var(--orange)':p.isNewHire?'#7c3aed':p.isCSM?'var(--teal)':p.isBDR?'var(--deep-blue)':'var(--orange)';
+  pillEl.textContent=pillLabel;pillEl.style.background=pillBg;
   document.getElementById('sidebar-new-content').style.display=(!p.isManager&&!p.isNewHire)?'flex':'none';
   document.getElementById('sidebar-export-report').style.display=p.isManager?'flex':'none';
   updateTopbarWidgets();
@@ -1244,7 +1260,7 @@ function openModal(id){
 function closeModal(){document.getElementById('c-modal').classList.remove('open');}
 
 function openPicker(){
-  document.getElementById('p-picker').innerHTML=personas.map((p,i)=>`<div class="picker-opt ${i===pIdx?'selected':''}" onclick="switchP(${i})"><div class="po-name">${p.av} ${p.name}${p.isManager?' <span style="font-size:8px;background:var(--orange);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">MGR</span>':''}${p.isBDR?' <span style="font-size:8px;background:var(--deep-blue);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">BDR</span>':''}${p.isCSM?' <span style="font-size:8px;background:var(--teal);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">CSM</span>':''}${p.isNewHire?' <span style="font-size:8px;background:#7c3aed;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">NEW</span>':''}</div><div class="po-role">${p.role}</div><div class="po-vert">${p.vert}</div></div>`).join('');
+  document.getElementById('p-picker').innerHTML=personas.map((p,i)=>`<div class="picker-opt ${i===pIdx?'selected':''}" onclick="switchP(${i})"><div class="po-name">${p.emo} ${p.name}${p.isManager?' <span style="font-size:8px;background:var(--orange);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">MGR</span>':''}${p.isBDR?' <span style="font-size:8px;background:var(--deep-blue);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">BDR</span>':''}${p.isCSM?' <span style="font-size:8px;background:var(--teal);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">CSM</span>':''}${p.isNewHire?' <span style="font-size:8px;background:#7c3aed;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">NEW</span>':''}</div><div class="po-role">${p.role}</div><div class="po-vert">${p.vert}</div></div>`).join('');
   document.getElementById('p-overlay').classList.add('open');
 }
 function closePicker(){document.getElementById('p-overlay').classList.remove('open');}
