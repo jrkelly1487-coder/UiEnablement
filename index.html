@@ -1424,8 +1424,17 @@ function renderHome(){
     document.getElementById('g-ctx').textContent=p.isBDR?'3 active sequences':p.isCSM?'5 active accounts':'3 open opportunities';
   } else { oppCard.style.display='none'; }
   const role=p.isBDR?'BDR':p.isCSM?'CSM':'AE';
-  document.getElementById('rec-cards').innerHTML=content.filter(c=>c.roles.includes(role)&&(c.vert===p.vert||c.vert==='All')).slice(0,3).map(cardHTML).join('');
-  document.getElementById('recent-cards').innerHTML=content.filter(c=>c.cc==='conf-verified').slice(0,3).map(cardHTML).join('');
+document.getElementById('rec-cards').innerHTML=content.filter(c=>c.roles.includes(role)&&(c.vert===p.vert||c.vert==='All')).slice(0,3).map(cardHTML).join('');
+const recentItems=content.filter(c=>c.cc==='conf-verified').slice(0,6);
+document.getElementById('recent-cards').innerHTML=recentItems.map(c=>
+  `<button class="recent-btn" onclick="openModal(${c.id})">
+    <span class="card-type ${c.tc}" style="font-size:8px;padding:2px 6px;">${c.type}</span>
+    <span class="recent-btn-title">${c.title}</span>
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#94a3b8"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"/></svg>
+  </button>`
+).join('');
   renderCalendarWidget(p);
   renderCoachingWidget(p);
 }
