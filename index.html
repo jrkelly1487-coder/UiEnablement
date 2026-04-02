@@ -1908,6 +1908,231 @@ function renderHeatmap(){
 }
 
 renderHome();renderLib(null);renderSugg();renderHeatmap();
+
+  // ── TASK CENTER DATA ──────────────────────────────────────────
+const taskData = {
+  // Sarah Chan — FS AE
+  0: [
+    {id:'t101',title:'Send FCC product overview deck to Deutsche Bank champion',meta:'Follow-up from discovery call on Feb 18 — Ben Fischer waiting',bucket:'self',source:'sf',due:'overdue',dueLabel:'2 days overdue',action:'Open in Salesforce',actionPrimary:true,done:false},
+    {id:'t102',title:'Update Meridian Capital close date to Mar 7 in Salesforce',meta:'Agreed in negotiation call — legal redlines confirmed',bucket:'self',source:'sf',due:'today',dueLabel:'Due Today',action:'Open Opp',actionPrimary:true,done:false},
+    {id:'t103',title:'Review updated WorkFusion battlecard before Avalon Bank call',meta:'Assigned by Alex Rivera · New competitive intel added Feb 20',bucket:'manager',source:'highspot',due:'today',dueLabel:'Due Today',action:'Open in Highspot',actionPrimary:false,done:false},
+    {id:'t104',title:'Complete Q1 Forecast update in Clari',meta:'Deadline: Friday EOD · Required for manager forecast rollup',bucket:'manager',source:'clari',due:'week',dueLabel:'Due Fri',action:'Open Clari',actionPrimary:false,done:false},
+    {id:'t105',title:'Complete FY26 Data Privacy & Security Certification',meta:'Annual compliance requirement · All employees · HR policy',bucket:'company',source:'workday',due:'overdue',dueLabel:'5 days overdue',action:'Start in Workday',actionPrimary:true,done:false},
+    {id:'t106',title:'Acknowledge UiPath AI Platform Product Launch Brief',meta:'New product announcement — required read before customer calls',bucket:'company',source:'highspot',due:'today',dueLabel:'Due Today',action:'Read & Ack',actionPrimary:false,done:false},
+    {id:'t107',title:'Log call notes from Pinnacle Insurance demo',meta:'Demo was Feb 20 · Notes needed for CSM handoff',bucket:'self',source:'sf',due:'week',dueLabel:'Due Thu',action:'Log in Salesforce',actionPrimary:false,done:false},
+    {id:'t108',title:'Complete MEDDPICC Refresher — Module 2',meta:'Assigned by Alex Rivera · 20 min · Due before Q1 close',bucket:'manager',source:'highspot',due:'week',dueLabel:'Due Fri',action:'Start Module',actionPrimary:false,done:false},
+    {id:'t109',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement processing',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
+    {id:'t110',title:'Book QBR prep call with Sarah — Deutsche Bank',meta:'Completed — prep notes saved in Salesforce',bucket:'self',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 19'},
+  ],
+  // Priya Nair — HLS CSM
+  1: [
+    {id:'t201',title:'Schedule executive sponsor call — Midwest Health System',meta:'Health score dropped to 62 · IT champion flagged Epic integration delay',bucket:'self',source:'sf',due:'overdue',dueLabel:'2 days overdue',action:'Open in Salesforce',actionPrimary:true,done:false},
+    {id:'t202',title:'Send EHR Integration Roadmap to Midwest Health IT lead',meta:'Requested in escalation call Feb 14 · Dr. Kim waiting on Q2 milestones',bucket:'self',source:'highspot',due:'today',dueLabel:'Due Today',action:'Find in Highspot',actionPrimary:true,done:false},
+    {id:'t203',title:'Update Midwest Health renewal risk flag in Gainsight',meta:'Assigned by Alex Rivera · Health score change requires CTM notation',bucket:'manager',source:'sf',due:'today',dueLabel:'Due Today',action:'Update Record',actionPrimary:false,done:false},
+    {id:'t204',title:'Prepare expansion one-pager for Pacific Coast Medical QBR',meta:'Meeting tomorrow 1:00 PM · Prior auth upsell opportunity identified',bucket:'self',source:'highspot',due:'today',dueLabel:'Due Today',action:'Open Highspot',actionPrimary:true,done:false},
+    {id:'t205',title:'Complete FY26 Data Privacy & Security Certification',meta:'Annual compliance requirement · All employees · HR policy',bucket:'company',source:'workday',due:'overdue',dueLabel:'5 days overdue',action:'Start in Workday',actionPrimary:true,done:false},
+    {id:'t206',title:'Acknowledge UiPath AI Platform Product Launch Brief',meta:'New product announcement — required read before customer calls',bucket:'company',source:'highspot',due:'today',dueLabel:'Due Today',action:'Read & Ack',actionPrimary:false,done:false},
+    {id:'t207',title:'Complete HLS CSM Certification — Module 3: Renewal Motion',meta:'Assigned by Alex Rivera · 35 min · Required for Q1',bucket:'manager',source:'highspot',due:'week',dueLabel:'Due Fri',action:'Start Module',actionPrimary:false,done:false},
+    {id:'t208',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
+    {id:'t209',title:'Log BioNexus onboarding milestones in Salesforce',meta:'Kickoff call Thu — update onboarding tracker post-call',bucket:'self',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open Record',actionPrimary:false,done:false},
+    {id:'t210',title:'Sent Q4 customer health summary to Alex Rivera',meta:'Completed — all 5 accounts summarized',bucket:'manager',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 18'},
+  ],
+  // Marcus Webb — BDR
+  2: [
+    {id:'t301',title:'Send TechCorp IT Automation one-pager via Outreach sequence',meta:'Follow-up from cold call Feb 5 · Day 7 of sequence',bucket:'self',source:'sf',due:'overdue',dueLabel:'1 day overdue',action:'Open Outreach',actionPrimary:true,done:false},
+    {id:'t302',title:'Prepare SQL handoff summary for TechCorp AE meeting',meta:'Meeting tomorrow 1:00 PM · Include BANT notes and call recordings',bucket:'self',source:'sf',due:'today',dueLabel:'Due Today',action:'Open in Salesforce',actionPrimary:true,done:false},
+    {id:'t303',title:'Complete BDR Cold Call Certification — Module 2',meta:'Assigned by Alex Rivera · 20 min · Due before weekly 1:1',bucket:'manager',source:'highspot',due:'today',dueLabel:'Due Today',action:'Start Module',actionPrimary:false,done:false},
+    {id:'t304',title:'Complete FY26 Data Privacy & Security Certification',meta:'Annual compliance requirement · All employees · HR policy',bucket:'company',source:'workday',due:'overdue',dueLabel:'5 days overdue',action:'Start in Workday',actionPrimary:true,done:false},
+    {id:'t305',title:'Acknowledge UiPath AI Platform Product Launch Brief',meta:'New product announcement — required read before prospecting calls',bucket:'company',source:'highspot',due:'today',dueLabel:'Due Today',action:'Read & Ack',actionPrimary:false,done:false},
+    {id:'t306',title:'Update CloudBase sequence status after today\'s call',meta:'Log outcome in Salesforce · Advance or pause sequence in Outreach',bucket:'self',source:'sf',due:'today',dueLabel:'Due Today',action:'Log in Salesforce',actionPrimary:false,done:false},
+    {id:'t307',title:'Add 5 new SaaS/IT contacts to Q1 prospecting list',meta:'Assigned by Alex Rivera · Sourced from ZoomInfo · Due weekly',bucket:'manager',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open Salesforce',actionPrimary:false,done:false},
+    {id:'t308',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
+    {id:'t309',title:'Logged call outcome — initial CloudBase outreach',meta:'Completed Feb 17',bucket:'self',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
+  ],
+  // Alex Rivera — Manager (sees team-wide tasks)
+  3: [],
+  // Jordan Mills — New Hire
+  4: [
+    {id:'t401',title:'Complete Benefits Enrollment — Health, Dental & Vision',meta:'Deadline Feb 28 · Select plan in Workday before window closes',bucket:'company',source:'workday',due:'overdue',dueLabel:'Due Feb 28',action:'Open Workday',actionPrimary:true,done:false},
+    {id:'t402',title:'Complete UiPath Platform Fundamentals — Module 3',meta:'30 min · Required cert · 3 days late',bucket:'company',source:'highspot',due:'overdue',dueLabel:'3 days late',action:'Open Academy',actionPrimary:true,done:false},
+    {id:'t403',title:'Complete MEDDPICC Foundations — Module 1',meta:'45 min · Required for all AEs · 1 day late',bucket:'company',source:'highspot',due:'overdue',dueLabel:'1 day late',action:'Start Module',actionPrimary:true,done:false},
+    {id:'t404',title:'Update Salesforce profile and territory assignment',meta:'Assigned by Alex Rivera · Complete before Thursday team sync',bucket:'manager',source:'sf',due:'today',dueLabel:'Due Today',action:'Open Salesforce',actionPrimary:false,done:false},
+    {id:'t405',title:'Attend New Hire Cohort Sync — Week 2',meta:'Today 2:00 PM · Zoom · 8 attendees',bucket:'company',source:'sf',due:'today',dueLabel:'Today 2:00 PM',action:'Join Zoom',actionPrimary:false,done:false},
+    {id:'t406',title:'Review Competitive Intel — ServiceNow & Pega battlecard',meta:'25 min · Required before first customer calls · Due Fri',bucket:'manager',source:'highspot',due:'week',dueLabel:'Due Fri',action:'Open Highspot',actionPrimary:false,done:false},
+    {id:'t407',title:'Shadow call with Sarah Chan — Deutsche Bank',meta:'Thu 10:00 AM · Observation only · Calendar invite sent',bucket:'manager',source:'sf',due:'week',dueLabel:'Thu 10 AM',action:'View Calendar',actionPrimary:false,done:false},
+    {id:'t408',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
+    {id:'t409',title:'IT system access & laptop provisioning',meta:'Completed Feb 17',bucket:'company',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
+    {id:'t410',title:'I-9 & onboarding paperwork',meta:'Completed Feb 17',bucket:'company',source:'workday',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
+  ]
+};
+
+// task state (checked/unchecked) — persisted in memory
+const taskState = {};
+
+function tcSourceBadge(s){
+  const map={sf:'ts-sf',clari:'ts-clari',highspot:'ts-highspot',workday:'ts-workday',hub:'ts-hub'};
+  const labels={sf:'Salesforce',clari:'Clari',highspot:'Highspot',workday:'Workday',hub:'Hub'};
+  return`<span class="task-source ${map[s]||'ts-hub'}">${labels[s]||s}</span>`;
+}
+function tcBucketBadge(b){
+  const map={self:'tb-self',manager:'tb-manager',company:'tb-company'};
+  const labels={self:'🙋 Self',manager:'👔 Manager',company:'🏢 Company'};
+  return`<span class="task-bucket ${map[b]||'tb-self'}">${labels[b]||b}</span>`;
+}
+function tcDueBadge(d,lbl){
+  const map={overdue:'due-overdue',today:'due-today',week:'due-week',upcoming:'due-upcoming',done:''};
+  if(d==='done')return'';
+  return`<span class="task-due ${map[d]||'due-upcoming'}">${lbl}</span>`;
+}
+
+let tcCurrentFilter='all',tcCurrentSort='priority';
+
+function tcFilter(f){
+  tcCurrentFilter=f;
+  ['all','self','manager','company'].forEach(k=>{
+    const b=document.getElementById('tcf-'+k);
+    if(b)b.classList.toggle('active',k===f);
+  });
+  renderTaskCenter();
+}
+function tcSort(v){tcCurrentSort=v;renderTaskCenter();}
+
+function getTasksForPersona(){
+  const tasks=JSON.parse(JSON.stringify(taskData[pIdx]||[]));
+  tasks.forEach(t=>{if(taskState[t.id]!==undefined)t.done=taskState[t.id];});
+  return tasks;
+}
+
+function priorityOrder(t){
+  if(t.done)return 99;
+  const o={overdue:0,today:1,week:2,upcoming:3};
+  return o[t.due]??4;
+}
+
+function renderTaskCard(t,i){
+  const isDone=t.done;
+  return`<div class="task-card ${isDone?'done-card':''}" id="tcard-${t.id}">
+    <div class="task-check ${isDone?'checked':''}" onclick="toggleTask('${t.id}')" title="${isDone?'Mark incomplete':'Mark complete'}">${isDone?'✓':''}</div>
+    <div class="task-body">
+      <div class="task-title">${t.title}</div>
+      <div class="task-meta">${t.meta}</div>
+      <div class="task-tags">
+        ${tcBucketBadge(t.bucket)}
+        ${tcSourceBadge(t.source)}
+        ${tcDueBadge(t.due,t.dueLabel)}
+      </div>
+    </div>
+    <div class="task-right">
+      ${!isDone?`<button class="task-action-btn ${t.actionPrimary?'primary':''}" onclick="event.stopPropagation()">${t.action}</button>`:'<span style="font-size:9px;color:var(--text3)">Done '+( t.doneDate||'')+'</span>'}
+    </div>
+  </div>`;
+}
+
+function renderTaskCenter(){
+  if(!document.getElementById('tc-list'))return;
+  const p=personas[pIdx];
+  document.getElementById('tc-time').textContent=timeGreet();
+  document.getElementById('tc-nm').textContent=p.name.split(' ')[0];
+  document.getElementById('tc-role').textContent=p.av+' '+p.role;
+
+  let tasks=getTasksForPersona();
+  // Apply bucket filter
+  if(tcCurrentFilter!=='all')tasks=tasks.filter(t=>t.bucket===tcCurrentFilter);
+  // Apply sort
+  if(tcCurrentSort==='priority')tasks.sort((a,b)=>priorityOrder(a)-priorityOrder(b));
+  else if(tcCurrentSort==='due')tasks.sort((a,b)=>priorityOrder(a)-priorityOrder(b));
+  else if(tcCurrentSort==='source')tasks.sort((a,b)=>a.source.localeCompare(b.source));
+  else if(tcCurrentSort==='bucket')tasks.sort((a,b)=>a.bucket.localeCompare(b.bucket));
+
+  const active=tasks.filter(t=>!t.done);
+  const done=tasks.filter(t=>t.done);
+  const overdue=active.filter(t=>t.due==='overdue');
+  const today=active.filter(t=>t.due==='today');
+  const week=active.filter(t=>t.due==='week');
+  const upcoming=active.filter(t=>t.due==='upcoming');
+
+  // Update context
+  const allActive=getTasksForPersona().filter(t=>!t.done);
+  document.getElementById('tc-ctx').textContent=`${allActive.filter(t=>t.due==='overdue').length} overdue · ${allActive.filter(t=>t.due==='today').length} due today · ${allActive.filter(t=>t.due==='week').length} this week`;
+
+  // Summary cards
+  document.getElementById('tc-summary').innerHTML=`
+    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(250,70,22,0.1)">⚠️</div><div><div class="tc-sc-label">Overdue</div><div class="tc-sc-val" style="color:var(--orange)">${allActive.filter(t=>t.due==='overdue').length}</div></div></div>
+    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(249,115,22,0.1)">📅</div><div><div class="tc-sc-label">Due Today</div><div class="tc-sc-val" style="color:#c2410c">${allActive.filter(t=>t.due==='today').length}</div></div></div>
+    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:var(--teal-light)">📋</div><div><div class="tc-sc-label">This Week</div><div class="tc-sc-val" style="color:var(--teal-dark)">${allActive.filter(t=>t.due==='week').length}</div></div></div>
+    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(22,163,74,0.1)">✅</div><div><div class="tc-sc-label">Completed</div><div class="tc-sc-val" style="color:#16a34a">${getTasksForPersona().filter(t=>t.done).length}</div></div></div>
+  `;
+
+  // Update sidebar badge
+  const badge=document.getElementById('task-count');
+  if(badge)badge.textContent=allActive.filter(t=>t.due==='overdue'||t.due==='today').length;
+
+  let html='';
+  function section(items,label,hdrClass,icon){
+    if(!items.length)return'';
+    return`<div class="tc-section">
+      <div class="tc-section-hdr ${hdrClass}">
+        <span style="font-size:14px">${icon}</span>
+        <span class="tc-section-label">${label}</span>
+        <span class="tc-section-count">${items.length}</span>
+      </div>
+      ${items.map((t,i)=>renderTaskCard(t,i)).join('')}
+    </div>`;
+  }
+
+  html+=section(overdue,'Overdue','overdue-hdr','🔴');
+  html+=section(today,'Due Today','today-hdr','🟠');
+  html+=section(week,'This Week','week-hdr','🔵');
+  html+=section(upcoming,'Upcoming','upcoming-hdr','⬜');
+  html+=section(done,'Done This Week','done-hdr','✅');
+  if(!html)html='<div class="tc-empty">🎉 All clear — no tasks match this filter.</div>';
+
+  document.getElementById('tc-list').innerHTML=html;
+
+  // Update manager panel
+  renderMgrTaskCompletion();
+}
+
+function toggleTask(id){
+  const tasks=getTasksForPersona();
+  const t=tasks.find(x=>x.id===id);
+  if(!t)return;
+  const newDone=!t.done;
+  taskState[id]=newDone;
+  renderTaskCenter();
+}
+
+function renderMgrTaskCompletion(){
+  const el=document.getElementById('mgr-task-completion');
+  if(!el)return;
+  const repIdxs=[0,1,2,4]; // Sarah, Priya, Marcus, Jordan
+  el.innerHTML=repIdxs.map(i=>{
+    const p=personas[i];
+    const tasks=JSON.parse(JSON.stringify(taskData[i]||[]));
+    tasks.forEach(t=>{if(taskState[t.id]!==undefined)t.done=taskState[t.id];});
+    const total=tasks.length,done=tasks.filter(t=>t.done).length;
+    const overdue=tasks.filter(t=>!t.done&&t.due==='overdue').length;
+    const pct=total?Math.round(done/total*100):0;
+    const barColor=pct>=70?'var(--teal)':pct>=40?'#f7c948':'#f87171';
+    return`<div class="mgr-task-rep-row">
+      <div class="mtr-name">${p.av} ${p.name.split(' ')[0]}</div>
+      <div class="mtr-bar-wrap">
+        <div class="mtr-bar-bg"><div class="mtr-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+        <span class="mtr-pct">${pct}%</span>
+      </div>
+      ${overdue?`<span class="mtr-overdue">⚠ ${overdue} late</span>`:'<span class="mtr-overdue" style="color:#16a34a">✓ On track</span>'}
+    </div>`;
+  }).join('');
+}
+
+// Extend switchP and renderHome to refresh task center
+const _origRenderHome=renderHome;
+// patch showPage to refresh task center on nav
+const _origShowPage=showPage;
+function showPage(id,el){
+  _origShowPage(id,el);
+  if(id==='task-center')renderTaskCenter();
+}
 </script>
 </body>
 </html>
