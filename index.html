@@ -1629,6 +1629,8 @@ function showPage(id,el){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   if(el)el.classList.add('active');
+    if(id==='task-center') renderTaskCenter();
+  if(id==='manager-home') renderMgrTaskCompletion();
 }
 function goLib(f,el){showPage('library',el);renderLib(f);}
 
@@ -2123,15 +2125,6 @@ function renderMgrTaskCompletion(){
       ${overdue?`<span class="mtr-overdue">⚠ ${overdue} late</span>`:'<span class="mtr-overdue" style="color:#16a34a">✓ On track</span>'}
     </div>`;
   }).join('');
-}
-
-// Extend switchP and renderHome to refresh task center
-const _origRenderHome=renderHome;
-// patch showPage to refresh task center on nav
-const _origShowPage=showPage;
-function showPage(id,el){
-  _origShowPage(id,el);
-  if(id==='task-center')renderTaskCenter();
 }
 </script>
 </body>
