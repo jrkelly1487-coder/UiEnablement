@@ -285,7 +285,7 @@
 .tc-filter-btn.f-manager.active{background:var(--orange);border-color:var(--orange);}
 .tc-filter-btn.f-company.active{background:#7c3aed;border-color:#7c3aed;}
 .tc-sort{margin-left:auto;background:var(--surface);border:1px solid var(--border-strong);border-radius:6px;padding:5px 10px;font-size:11px;color:var(--text2);font-family:'Inter',sans-serif;cursor:pointer;outline:none;}
-.tc-summary-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.tc-summary-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px;}
 .tc-summary-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:11px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
 .tc-sc-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
 .tc-sc-label{font-size:10px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;}
@@ -709,6 +709,47 @@
 .hm-legend{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 .hm-legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-weight:500;}
 .hm-legend-dot{width:8px;height:8px;border-radius:50%;}
+ 
+/* ── WORKSPACE PAGES ─────────────────────────────────────────────── */
+.workspace-coming-soon{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px;}
+.workspace-icon{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(0,0,0,0.12);}
+.workspace-title{font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;color:var(--deep-blue);margin-bottom:10px;}
+.workspace-subtitle{font-size:15px;color:var(--text2);max-width:420px;line-height:1.65;margin-bottom:28px;}
+.workspace-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--text3);}
+.workspace-features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px;margin:28px auto 0;}
+.workspace-feature-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:left;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.workspace-feature-icon{font-size:22px;margin-bottom:8px;}
+.workspace-feature-title{font-size:12px;font-weight:700;color:var(--deep-blue);margin-bottom:4px;}
+.workspace-feature-desc{font-size:11px;color:var(--text3);line-height:1.55;}
+ 
+/* ── ACCOUNT INSIGHTS ────────────────────────────────────────────── */
+.acct-insights-section{margin-bottom:0;}
+.acct-insight-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px 16px;margin-bottom:8px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 4px rgba(0,0,0,0.05);transition:all 0.15s;}
+.acct-insight-card:last-child{margin-bottom:0;}
+.acct-insight-card:hover{border-color:var(--orange-border);box-shadow:0 3px 12px rgba(0,0,0,0.08);}
+.acct-insight-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aii-red{background:rgba(220,38,38,0.1);}
+.aii-amber{background:rgba(245,158,11,0.1);}
+.aii-blue{background:rgba(59,130,246,0.1);}
+.aii-teal{background:var(--teal-light);}
+.acct-insight-body{flex:1;min-width:0;}
+.acct-insight-account{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px;}
+.acct-insight-title{font-size:13px;font-weight:600;color:var(--deep-blue);line-height:1.4;}
+.acct-insight-meta{font-size:11px;color:var(--text2);margin-top:3px;}
+.acct-insight-btn{flex-shrink:0;background:var(--deep-blue);color:#fff;border:none;border-radius:6px;padding:7px 13px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:all 0.15s;}
+.acct-insight-btn:hover{background:var(--orange);}
+.acct-insight-btn.btn-teal{background:var(--teal-dark);}
+.acct-insight-btn.btn-teal:hover{background:var(--teal);}
+.acct-insight-btn.btn-amber{background:#b45309;}
+.acct-insight-btn.btn-amber:hover{background:#92400e;}
+ 
+/* ── TASK CENTER — ACCOUNT PLAN + DAY 2 PLAN BUCKETS ──────────── */
+.tb-acctplan{background:rgba(16,185,129,0.1);color:#065f46;border:1px solid rgba(16,185,129,0.3);}
+.tb-day2{background:rgba(59,130,246,0.1);color:#1e40af;border:1px solid rgba(59,130,246,0.3);}
+.tc-filter-btn.f-acctplan.active{background:#065f46;border-color:#065f46;}
+.tc-filter-btn.f-day2.active{background:#1e40af;border-color:#1e40af;}
+.tc-section-hdr.acctplan-hdr{border-bottom-color:#065f46;}
+.tc-section-hdr.day2-hdr{border-bottom-color:#1e40af;}
 </style>
 </head>
 <body>
@@ -720,6 +761,9 @@
   <div class="nav-item" onclick="goLib(null,this)"><span class="nav-icon"><svg width="16" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>Library<span class="nav-count" id="lib-count">12</span></div>
   <div class="nav-item" id="nav-heatmap" onclick="showPage('heatmap-pg',this)" style="display:none"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Territory Heat Map<span style="margin-left:auto;background:#fee2e2;color:#dc2626;border-radius:10px;padding:2px 7px;font-size:10px;font-weight:700;">7</span></div>
   <div class="nav-item" onclick="showPage('task-center',this)"><span class="nav-icon">✅</span>Task Center<span class="nav-count" id="task-count">0</span></div>
+  <div class="nav-section">Workspaces</div>
+  <div class="nav-item" id="nav-forecast" onclick="showPage('forecast-hub',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>Forecast Hub</div>
+  <div class="nav-item" id="nav-arena" onclick="showPage('account-arena',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span>Account Arena</div>
   <div class="nav-section">Content Types</div>
   <div class="nav-item" onclick="goLib('Playbook',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Playbooks</div>
   <div class="nav-item" onclick="goLib('Battlecard',this)"><span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>Battlecards</div>
@@ -748,13 +792,13 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="main">
   <div class="topbar">
     <div class="search-wrap"><span class="search-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><input id="s-in" type="text" placeholder="Ask anything — e.g. how do we handle Epic objections?" onkeydown="if(event.key==='Enter')runSearch()"></div>
     <div class="topbar-icons"><div class="topbar-icon-btn" title="Notifications" style="position:relative"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><div style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:var(--orange);border:2px solid #fff;border-radius:50%;"></div></div><div class="topbar-icon-btn" title="Help"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg></div><div class="topbar-icon-btn" id="sb-theme-toggle" title="Toggle sidebar theme" onclick="toggleSidebarTheme()"><svg id="sb-theme-ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg id="sb-theme-ico-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div></div>
   </div>
-
+ 
   <!-- HOME (AE/BDR) -->
   <div class="page active" id="home">
     <div class="greeting fade-in" style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;">
@@ -791,6 +835,51 @@
         </div>
       </div>
     </div>
+    <!-- ACCOUNT INSIGHTS — Sarah Chan only, shown/hidden via JS -->
+    <div id="acct-insights-wrap" class="fade-in" style="margin-bottom:20px;display:none;">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="s-dot" style="background:#dc2626"></span>Account Insights
+          <span style="font-size:9px;font-weight:700;background:rgba(11,162,179,0.1);color:var(--teal-dark);border-radius:10px;padding:2px 7px;margin-left:4px;">✦ AI Signals</span>
+        </div>
+        <span class="section-link">View all accounts →</span>
+      </div>
+      <div class="acct-insights-section">
+        <div class="acct-insight-card">
+          <div class="acct-insight-icon aii-red">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="acct-insight-body">
+            <div class="acct-insight-account">Pinnacle Insurance</div>
+            <div class="acct-insight-title">Trending below on utilization — 34% below contracted volume</div>
+            <div class="acct-insight-meta">Last 60 days · 3 automations inactive · Renewal in 5 months</div>
+          </div>
+          <button class="acct-insight-btn btn-amber">Kick Off Mitigation Plan</button>
+        </div>
+        <div class="acct-insight-card">
+          <div class="acct-insight-icon aii-amber">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div class="acct-insight-body">
+            <div class="acct-insight-account">Deutsche Bank</div>
+            <div class="acct-insight-title">Renewal coming up in 3 months — no renewal opportunity created</div>
+            <div class="acct-insight-meta">$380K ARR · Last QBR Feb 22 · Champion: Sebastian Müller</div>
+          </div>
+          <button class="acct-insight-btn btn-teal">Kick Off Renewal Agent</button>
+        </div>
+        <div class="acct-insight-card">
+          <div class="acct-insight-icon aii-blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="acct-insight-body">
+            <div class="acct-insight-account">Meridian Capital Partners</div>
+            <div class="acct-insight-title">Account plan is only 45% complete — missing exec sponsor and Q2 use cases</div>
+            <div class="acct-insight-meta">Updated Feb 10 · Deal at Negotiation · $420K at stake</div>
+          </div>
+          <button class="acct-insight-btn">Go to Account Plan</button>
+        </div>
+      </div>
+    </div>
     <div class="home-grid fade-in">
       <!-- LEFT COLUMN: Recommended Content -->
       <div class="home-left">
@@ -818,7 +907,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- TASK CENTER -->
 <div class="page" id="task-center">
   <div class="greeting fade-in">
@@ -829,16 +918,18 @@
       <span class="context-text" id="tc-ctx">Loading tasks…</span>
     </div>
   </div>
-
+ 
   <!-- Summary cards -->
   <div class="tc-summary-row fade-in" id="tc-summary"></div>
-
+ 
   <!-- Toolbar -->
   <div class="tc-toolbar fade-in">
     <button class="tc-filter-btn active" id="tcf-all"    onclick="tcFilter('all')">All Tasks</button>
     <button class="tc-filter-btn f-self"    id="tcf-self"   onclick="tcFilter('self')">🙋 Self-Generated</button>
     <button class="tc-filter-btn f-manager" id="tcf-manager" onclick="tcFilter('manager')">👔 Manager Delegated</button>
     <button class="tc-filter-btn f-company" id="tcf-company" onclick="tcFilter('company')">🏢 Company-Wide</button>
+    <button class="tc-filter-btn f-acctplan" id="tcf-acctplan" onclick="tcFilter('acctplan')">📋 Account Plan</button>
+    <button class="tc-filter-btn f-day2"     id="tcf-day2"     onclick="tcFilter('day2')">🏆 Day 2 Plan</button>
     <select class="tc-sort" onchange="tcSort(this.value)">
       <option value="priority">Sort: Priority</option>
       <option value="due">Sort: Due Date</option>
@@ -846,11 +937,11 @@
       <option value="bucket">Sort: Bucket</option>
     </select>
   </div>
-
+ 
   <!-- Task list -->
   <div id="tc-list"></div>
 </div>
-
+ 
   <!-- TERRITORY HEAT MAP -->
   <div class="page" id="heatmap-pg">
     <div class="greeting fade-in" style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:20px;">
@@ -904,7 +995,7 @@
       <div id="hm-rows"></div>
     </div>
   </div>
-
+ 
   <!-- SEARCH -->
   <div class="page" id="search-pg">
     <div class="greeting fade-in"><div class="greeting-name" style="font-size:20px">Search Content</div><p style="font-size:13px;color:var(--text2);margin-top:6px">Ask in plain English — personalized to your role and vertical.</p></div>
@@ -912,7 +1003,7 @@
     <div class="suggestions" id="sugg-chips"></div>
     <div id="results-area"><div class="empty"><div class="empty-ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div class="empty-title">Search your content library</div><div class="empty-sub">Type a question above and press Search</div></div></div>
   </div>
-
+ 
   <!-- LIBRARY -->
   <div class="page" id="library">
     <div class="greeting fade-in"><div class="greeting-name" style="font-size:20px" id="lib-title">Content Library</div><p style="font-size:13px;color:var(--text2);margin-top:6px" id="lib-sub">All content tagged for your role and vertical</p></div>
@@ -924,7 +1015,7 @@
     </div>
     <div class="cards-grid fade-in" id="lib-cards"></div>
   </div>
-
+ 
   <!-- MANAGER HOME -->
   <div class="page" id="manager-home">
     <div class="greeting fade-in" style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;">
@@ -1085,7 +1176,7 @@
   </div>
   <div class="panel-body" id="mgr-task-completion"></div>
 </div>
-
+ 
     <!-- Account Plans -->
     <div class="acct-row">
       <div class="acct-row-hdr">
@@ -1107,7 +1198,7 @@
       </div>
     </div>
     <div class="acct-divider"></div>
-
+ 
     <!-- Day 2 Plans -->
     <div class="acct-row">
       <div class="acct-row-hdr">
@@ -1127,7 +1218,7 @@
       </div>
     </div>
     <div class="acct-divider"></div>
-
+ 
     <!-- QRT Completion -->
     <div class="acct-row">
       <div class="acct-row-hdr">
@@ -1148,19 +1239,19 @@
         <div class="acct-rep-row"><div class="acct-rep-av av-gray">DO</div><div class="acct-rep-name">Dan Osei</div><span class="acct-rep-status rs-missing">28% · 5/18</span></div>
       </div>
     </div>
-
+ 
     <div class="acct-footer">
       <span class="acct-footer-label">Updated today · Salesforce + Highspot</span>
       <button class="acct-nudge-btn">📣 Nudge missing (4)</button>
     </div>
-
+ 
   </div>
 </div>
-
+ 
       </div>
     </div>
   </div>
-
+ 
   <!-- NEW HIRE HOME -->
   <div class="page" id="newhire-home">
     <div class="nh-top-row fade-in">
@@ -1316,7 +1407,80 @@
     </div>
   </div>
 </div>
-
+ 
+ 
+  <!-- FORECAST HUB -->
+  <div class="page" id="forecast-hub">
+    <div class="greeting fade-in">
+      <div class="greeting-eyebrow">Workspace</div>
+      <div class="greeting-name">Forecast <span>Hub</span></div>
+    </div>
+    <div class="workspace-coming-soon fade-in">
+      <div class="workspace-icon" style="background:linear-gradient(135deg,var(--orange),#ff8c42);">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div class="workspace-title">Forecast Hub</div>
+      <div class="workspace-subtitle">Your unified view for pipeline health, deal inspection, commit tracking, and AI-powered forecast accuracy — all in one place.</div>
+      <div class="workspace-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Coming Soon · In Development
+      </div>
+      <div class="workspace-features">
+        <div class="workspace-feature-card">
+          <div class="workspace-feature-icon">📊</div>
+          <div class="workspace-feature-title">Pipeline Waterfall</div>
+          <div class="workspace-feature-desc">Track pipeline creation, movement, and slippage week-over-week with Clari data.</div>
+        </div>
+        <div class="workspace-feature-card">
+          <div class="workspace-feature-icon">🤖</div>
+          <div class="workspace-feature-title">AI Commit Scoring</div>
+          <div class="workspace-feature-desc">AI-scored deal confidence with risk flags and commit vs. best-case split.</div>
+        </div>
+        <div class="workspace-feature-card">
+          <div class="workspace-feature-icon">⚡</div>
+          <div class="workspace-feature-title">Deal Velocity Alerts</div>
+          <div class="workspace-feature-desc">Surface deals with stalled activity, missing next steps, or forecast risk signals.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ACCOUNT ARENA -->
+  <div class="page" id="account-arena">
+    <div class="greeting fade-in">
+      <div class="greeting-eyebrow">Workspace</div>
+      <div class="greeting-name">Account <span>Arena</span></div>
+    </div>
+    <div class="workspace-coming-soon fade-in">
+      <div class="workspace-icon" style="background:linear-gradient(135deg,var(--teal),#0e7490);">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      </div>
+      <div class="workspace-title">Account Arena</div>
+      <div class="workspace-subtitle">A strategic workspace for account planning, whitespace analysis, health scoring, and expansion motion — built for AEs and CSMs managing complex accounts.</div>
+      <div class="workspace-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Coming Soon · In Development
+      </div>
+      <div class="workspace-features">
+        <div class="workspace-feature-card">
+          <div class="workspace-feature-icon">🗺️</div>
+          <div class="workspace-feature-title">Account Maps</div>
+          <div class="workspace-feature-desc">Visualize org charts, stakeholder influence, and relationship strength across your book.</div>
+        </div>
+        <div class="workspace-feature-card">
+          <div class="workspace-feature-icon">📋</div>
+          <div class="workspace-feature-title">Account Plans</div>
+          <div class="workspace-feature-desc">Build, track, and score account plans with AI-suggested plays and milestone tracking.</div>
+        </div>
+        <div class="workspace-feature-card">
+          <div class="workspace-feature-icon">🔍</div>
+          <div class="workspace-feature-title">Whitespace Analysis</div>
+          <div class="workspace-feature-desc">Identify untapped products, departments, and use cases across your entire territory.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 <!-- MODAL -->
 <div class="overlay" id="c-modal">
   <div class="modal">
@@ -1346,12 +1510,12 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- PERSONA PICKER -->
 <div class="persona-overlay" id="p-overlay" onclick="if(event.target.id==='p-overlay')closePicker()">
   <div class="persona-picker" id="p-picker"></div>
 </div>
-
+ 
 <script>
 const personas=[
   {name:'Sarah Chan',av:'SC',emo:'👩‍💼',role:'FS Account Executive',vert:'Financial Services',emoji:'',pill:'FinServ · AE',isManager:false,isNewHire:false,isBDR:false,isCSM:false,
@@ -1374,7 +1538,7 @@ const personas=[
       prepPoints:['Pull Q1 automation metrics from Salesforce before the meeting','Prepare expansion deck for 2 new FCC use cases','Key stakeholder: Sebastian Müller (Head of FCC Technology)']}
    ]
   },
-
+ 
   // PERSONA 2 — Priya Nair, HLS CSM
   {name:'Priya Nair',av:'PN',emo:'👩‍⚕️',role:'HLS Customer Success Manager',vert:'Healthcare & Life Sciences',emoji:'',pill:'HLS · CSM',isManager:false,isNewHire:false,isBDR:false,isCSM:true,
    ai:'<strong>Midwest Health System</strong> renewal is in 47 days — health score has dropped to 62. Schedule an executive sponsor call and share the EHR Integration ROI one-pager this week.',
@@ -1396,7 +1560,7 @@ const personas=[
       prepPoints:['New customer — 90-day onboarding plan is in Gainsight','Primary use case: clinical trial data automation','IT lead is nervous about HIPAA compliance — have compliance one-pager ready']}
    ]
   },
-
+ 
   // PERSONA 3 — Marcus Webb, BDR
   {name:'Marcus Webb',av:'MW',emo:'👨‍💻',role:'Business Development Representative',vert:'SaaS / Tech',emoji:'',pill:'SaaS · BDR',isManager:false,isNewHire:false,isBDR:true,isCSM:false,
    ai:'You have <strong>3 SQL opportunities</strong> ready to pass to AEs this week. Your cold call-to-meeting rate is 8.2% — 2× above team average. Focus on TechCorp and CloudBase sequences.',
@@ -1416,19 +1580,19 @@ const personas=[
       prepPoints:['Prepare SQL summary with BANT qualification notes','Attach Outreach sequence history and call recordings','Flag: budget confirmed $80K–$100K range']}
    ]
   },
-
+ 
   // PERSONA 4 — Alex Rivera, Manager
   {name:'Alex Rivera',av:'AR',emo:'👨‍💼',role:'Regional Sales Manager',vert:'EMEA · FinServ',emoji:'',pill:'Manager · EMEA',isManager:true,isNewHire:false,isBDR:false,isCSM:false,
    qrt:{pct:81,done:14,total:18},pg:{label:'Team Pipeline · Q1',val:'$4.1M',pct:68,sub:'of $6M team target'},ai:'2 of your 6 reps haven\'t accessed the platform this week. The WorkFusion ROI Template is your team\'s most-used asset. 3 content items are flagged — review before Q1 close.',opp:null,sugg:[]
   },
-
+ 
   // PERSONA 5 — Jordan Mills, New Hire
   {name:'Jordan Mills',av:'JM',emo:'🧑‍🎓',role:'Acquisition Account Executive',vert:'Mid-Market · AMER',emoji:'',pill:'New Hire · AMER',isManager:false,isNewHire:true,isBDR:false,isCSM:false,
    qrt:{pct:11,done:2,total:18},pg:{label:'Pipeline Gen · Q1',val:'$0',pct:0,sub:'of $500K target'},ai:'',opp:null,
    sugg:['What does UiPath do?','How do I set up Outreach?','MEDDPICC cheat sheet','FinServ competitive overview'],calls:[],meetings:[]
   }
 ];
-
+ 
 const content=[
   {id:101,title:'ServiceNow Competitive Battlecard',type:'Battlecard',tc:'type-battlecard',sum:'Side-by-side comparison of UiPath vs ServiceNow across FCC features, pricing, deployment complexity, and customer references. Includes top 5 displacement plays.',conf:'Verified',cc:'conf-verified',owner:'UiPath PMM',ver:'Jan 2026',roles:['AE','SE','BDR'],vert:'Financial Services'},
   {id:102,title:'Financial Crime Compliance — FCC Solution Overview',type:'Playbook',tc:'type-playbook',sum:'Comprehensive overview of UiPath FCC automation platform covering AML, KYC, transaction monitoring, and regulatory reporting for FinServ buyers.',conf:'Verified',cc:'conf-verified',owner:'UiPath Product',ver:'Feb 2026',roles:['AE','SE','BDR'],vert:'Financial Services'},
@@ -1448,13 +1612,13 @@ const content=[
   {id:115,title:'Enterprise Positioning One-Pager',type:'Playbook',tc:'type-playbook',sum:'One-page executive summary of UiPath enterprise value proposition covering AI and automation platform story, ROI proof points, and customer references.',conf:'Flagged',cc:'conf-flagged',owner:'UiPath Marketing',ver:'Sep 2025',roles:['AE'],vert:'All'},
   {id:116,title:'Security & Compliance Data Sheet',type:'Playbook',tc:'type-playbook',sum:'UiPath platform security overview including SOC2, ISO27001, data residency, and enterprise compliance certifications.',conf:'Flagged',cc:'conf-flagged',owner:'UiPath Legal',ver:'Aug 2025',roles:['AE','SE'],vert:'All'}
 ];
-
+ 
 let pIdx=0,libF=null;
-
+ 
 function timeGreet(){const h=new Date().getHours();return h<12?'Good morning':h<17?'Good afternoon':'Good evening';}
-
+ 
 function updateTopbarWidgets(){}
-
+ 
 function renderCoachingWidget(p){
   const el=document.getElementById('coaching-cards');if(!el)return;
   if(!p.calls||!p.calls.length){el.innerHTML='<div style="padding:16px 0;text-align:center;color:var(--text3);font-size:12px">No recent calls</div>';return;}
@@ -1464,15 +1628,15 @@ function renderCoachingWidget(p){
     return`<div class="call-coach-card"><div class="ccc-top" onclick="toggleCoach(${i})"><div class="ccc-thumb"><div class="ccc-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="6 3 20 12 6 21"/></svg></div></div><div class="ccc-info"><div class="ccc-title">${c.title}</div><div class="ccc-meta"><span class="call-tag-sm ${c.tag}">${c.tagLabel}</span>${c.meta}</div></div><div class="ccc-scores"><div class="score-pill"><div class="score-val ${ovc}">${ov}</div><div class="score-lbl">Score</div></div><div class="score-pill"><div class="score-val ${tc}">${c.scores.talk}%</div><div class="score-lbl">Talk%</div></div><div class="score-pill"><div class="score-val sv-teal">${c.scores.next}</div><div class="score-lbl">Next</div></div></div></div><div class="ccc-actions" id="ccc-body-${i}" style="display:block"><div class="ccc-actions-label">✦ AI Recommended Next Steps</div>${c.actions.map((a,j)=>`<div class="ccc-action-row"><div class="cca-dot ${j===0?'cca-orange':j===1?'cca-teal':'cca-green'}"></div><div class="cca-text">${a}</div><button class="cca-btn ${j===0?'primary':''}">${j===0?'Do Now':'Log'}</button></div>`).join('')}</div></div>`;
   }).join('');
 }
-
+ 
 function toggleCoach(i){const b=document.getElementById('ccc-body-'+i);if(b)b.style.display=b.style.display==='none'?'block':'none';}
-
+ 
 function renderCalendarWidget(p){
   const el=document.getElementById('calendar-cards');if(!el)return;
   if(!p.meetings||!p.meetings.length){el.innerHTML='<div style="padding:16px 0;text-align:center;color:var(--text3);font-size:12px">No upcoming meetings</div>';return;}
   el.innerHTML=p.meetings.map((m,i)=>`<div class="cal-meeting ${m.timeClass}"><div class="cm-top"><div class="cm-info"><div class="cm-title">${m.title}</div><div class="cm-company">${m.company}</div><div class="cm-attendees">${m.attendees}</div></div><div class="cm-time-badge" style="${m.timeStyle}">${m.time}</div></div><div class="cm-footer"><span class="cm-type-pill ${m.typeClass}">${m.type}</span><button class="prep-btn" id="prep-btn-${i}" onclick="runPrep(${i})"><span class="prep-txt">✦ Pre-Call Prep</span><span class="prep-spin"></span></button></div><div class="prep-result" id="prep-res-${i}"><div class="prep-result-hdr">✦ AI Pre-Call Brief</div><div id="prep-body-${i}"></div></div></div>`).join('');
 }
-
+ 
 function runPrep(i){
   const p=personas[pIdx],m=p.meetings[i];
   const btn=document.getElementById('prep-btn-'+i),res=document.getElementById('prep-res-'+i),body=document.getElementById('prep-body-'+i);
@@ -1486,7 +1650,7 @@ function runPrep(i){
     res.classList.add('open');
   },1800);
 }
-
+ 
 function renderHome(){
   const p=personas[pIdx];
   document.getElementById('sb-av').textContent=p.emo;
@@ -1528,6 +1692,9 @@ function renderHome(){
     document.getElementById('opp-st').textContent=p.opp.stage;
     oppCard.style.display='flex';
     document.getElementById('g-ctx').textContent=p.isBDR?'3 active sequences':p.isCSM?'5 active accounts':'3 open opportunities';
+  // Account Insights — show only for Sarah (pIdx 0, FS AE)
+  const insightWrap = document.getElementById('acct-insights-wrap');
+  if(insightWrap) insightWrap.style.display = (pIdx===0) ? 'block' : 'none';
   } else { oppCard.style.display='none'; }
   const role=p.isBDR?'BDR':p.isCSM?'CSM':'AE';
 document.getElementById('rec-cards').innerHTML=content.filter(c=>c.roles.includes(role)&&(c.vert===p.vert||c.vert==='All')).slice(0,3).map(cardHTML).join('');
@@ -1544,9 +1711,9 @@ document.getElementById('recent-cards').innerHTML=recentItems.map(c=>
   renderCalendarWidget(p);
   renderCoachingWidget(p);
 }
-
+ 
 function cardHTML(c){return`<div class="card" onclick="openModal(${c.id})"><div class="card-top"><span class="card-type ${c.tc}">${c.type}</span><span class="conf-badge ${c.cc}"><span class="conf-dot"></span>${c.conf}</span></div><div class="card-title">${c.title}</div><div class="card-summary">${c.sum.substring(0,100)}…</div><div class="card-footer"><div class="card-tags"><span class="tag">${c.vert}</span></div><span class="card-owner">${c.owner}</span></div></div>`;}
-
+ 
 function renderLib(filter){
   libF=filter;
   const p=personas[pIdx],role=p.isBDR?'BDR':p.isCSM?'CSM':'AE';
@@ -1562,7 +1729,7 @@ function renderLib(filter){
   document.getElementById('lib-title').textContent=filter?filter+'s':'Content Library';
   document.getElementById('lib-sub').textContent=filter?`All ${filter}s in your library`:'All content tagged for your role and vertical';
 }
-
+ 
 function renderSugg(){
   const p=personas[pIdx];
   document.getElementById('sugg-chips').innerHTML=(p.sugg||[]).map(s=>`<div class="chip" onclick="doSearch('${s}')">${s}</div>`).join('');
@@ -1573,9 +1740,9 @@ function renderSugg(){
   el.style.display = isOpen ? 'none' : 'flex';
   btn.classList.toggle('open', !isOpen);
 }
-
+ 
 function runSearch(){const q=document.getElementById('s-in').value.trim();if(q)doSearch(q);}
-
+ 
 function doSearch(q){
   document.getElementById('s-in').value=q;
   showPage('search-pg',null);
@@ -1588,7 +1755,7 @@ function doSearch(q){
   else html+=results.map((c,i)=>`<div class="result-row" onclick="openModal(${c.id})"><div class="result-num">${i+1}</div><div class="result-body"><div class="result-title">${c.title}</div><div class="result-summary">${c.sum.substring(0,120)}…</div><div class="result-meta"><span class="card-type ${c.tc}">${c.type}</span><span class="conf-badge ${c.cc}"><span class="conf-dot"></span>${c.conf}</span><span class="tag">${c.vert}</span></div></div><button class="open-link">Open →</button></div>`).join('');
   document.getElementById('results-area').innerHTML=html;
 }
-
+ 
 function openModal(id){
   const c=content.find(x=>x.id===id);if(!c)return;
   document.getElementById('m-type').innerHTML=`<span class="card-type ${c.tc}">${c.type}</span>`;
@@ -1605,13 +1772,13 @@ function openModal(id){
   document.getElementById('c-modal').classList.add('open');
 }
 function closeModal(){document.getElementById('c-modal').classList.remove('open');}
-
+ 
 function openPicker(){
   document.getElementById('p-picker').innerHTML=personas.map((p,i)=>`<div class="picker-opt ${i===pIdx?'selected':''}" onclick="switchP(${i})"><div class="po-name">${p.emo} ${p.name}${p.isManager?' <span style="font-size:8px;background:var(--orange);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">MGR</span>':''}${p.isBDR?' <span style="font-size:8px;background:var(--deep-blue);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">BDR</span>':''}${p.isCSM?' <span style="font-size:8px;background:var(--teal);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">CSM</span>':''}${p.isNewHire?' <span style="font-size:8px;background:#7c3aed;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-weight:700">NEW</span>':''}</div><div class="po-role">${p.role}</div><div class="po-vert">${p.vert}</div></div>`).join('');
   document.getElementById('p-overlay').classList.add('open');
 }
 function closePicker(){document.getElementById('p-overlay').classList.remove('open');}
-
+ 
 function switchP(i){
   pIdx=i;const p=personas[i];closePicker();renderHome();renderLib(libF);renderSugg();renderHeatmap();
   document.getElementById('s-in').value='';
@@ -1620,7 +1787,7 @@ function switchP(i){
   else if(p.isNewHire)showPage('newhire-home',document.getElementById('nav-home'));
   else showPage('home',document.getElementById('nav-home'));
 }
-
+ 
 function showPage(id,el){
   const p=personas[pIdx];
   if(id==='home'&&p.isManager)id='manager-home';
@@ -1629,11 +1796,11 @@ function showPage(id,el){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   if(el)el.classList.add('active');
-    if(id==='task-center') renderTaskCenter();
+  if(id==='task-center') renderTaskCenter();
   if(id==='manager-home') renderMgrTaskCompletion();
 }
 function goLib(f,el){showPage('library',el);renderLib(f);}
-
+ 
 // ── SIDEBAR THEME ───────────────────────────────────────────────────
 function applySidebarTheme(isDark){
   const sb=document.querySelector('.sidebar');
@@ -1647,7 +1814,7 @@ function toggleSidebarTheme(){
   try{localStorage.setItem('sb-theme',isDark?'light':'dark');}catch(e){}
 }
 (function(){try{const t=localStorage.getItem('sb-theme');if(t==='light')applySidebarTheme(false);}catch(e){}}());
-
+ 
   // ── TASK CENTER DATA ──────────────────────────────────────────
 const taskData = {
   // Sarah Chan — FS AE
@@ -1662,6 +1829,10 @@ const taskData = {
     {id:'t108',title:'Complete MEDDPICC Refresher — Module 2',meta:'Assigned by Alex Rivera · 20 min · Due before Q1 close',bucket:'manager',source:'highspot',due:'week',dueLabel:'Due Fri',action:'Start Module',actionPrimary:false,done:false},
     {id:'t109',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement processing',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
     {id:'t110',title:'Book QBR prep call with Sarah — Deutsche Bank',meta:'Completed — prep notes saved in Salesforce',bucket:'self',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 19'},
+    {id:'t111',title:'Update Meridian Capital Account Plan — Q2 Expansion Strategy',meta:'Account Plan review due before Q2 kickoff · Add 2 new contacts and expansion use cases',bucket:'acctplan',source:'sf',due:'overdue',dueLabel:'3 days overdue',action:'Open Account Plan',actionPrimary:true,done:false},
+    {id:'t112',title:'Complete Avalon Bank Account Plan — Whitespace Analysis',meta:'New logo — account plan must be filed within 30 days of Stage 2 entry',bucket:'acctplan',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open in Salesforce',actionPrimary:false,done:false},
+    {id:'t113',title:'Complete Day 2 Plan — Meridian Capital Partners ($420K)',meta:'Deal at Stage 5 · Day 2 plan required before Legal review · Exec sponsor not yet identified',bucket:'day2',source:'sf',due:'overdue',dueLabel:'2 days overdue',action:'Open Day 2 Plan',actionPrimary:true,done:false},
+    {id:'t114',title:'Day 2 Plan Review — Deutsche Bank QBR Expansion ($180K)',meta:'Upsell opportunity identified in QBR · Build Day 2 business case with CSM',bucket:'day2',source:'sf',due:'week',dueLabel:'Due Thu',action:'Open in Salesforce',actionPrimary:false,done:false},
   ],
   // Priya Nair — HLS CSM
   1: [
@@ -1675,6 +1846,10 @@ const taskData = {
     {id:'t208',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
     {id:'t209',title:'Log BioNexus onboarding milestones in Salesforce',meta:'Kickoff call Thu — update onboarding tracker post-call',bucket:'self',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open Record',actionPrimary:false,done:false},
     {id:'t210',title:'Sent Q4 customer health summary to Alex Rivera',meta:'Completed — all 5 accounts summarized',bucket:'manager',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 18'},
+    {id:'t211',title:'Update Midwest Health System Account Plan — Renewal Risk Section',meta:'Health score at 62 · Risk narrative and mitigation plan must be updated before renewal call',bucket:'acctplan',source:'sf',due:'overdue',dueLabel:'2 days overdue',action:'Open Account Plan',actionPrimary:true,done:false},
+    {id:'t212',title:'File Pacific Coast Medical Account Plan — Q2 Expansion',meta:'Expansion opp identified in QBR · Account plan required to open upsell opportunity',bucket:'acctplan',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open in Salesforce',actionPrimary:false,done:false},
+    {id:'t213',title:'Complete Day 2 Plan — Midwest Health System Renewal ($240K)',meta:'Renewal at risk · Day 2 plan needed to define post-renewal success metrics and EBR cadence',bucket:'day2',source:'sf',due:'today',dueLabel:'Due Today',action:'Open Day 2 Plan',actionPrimary:true,done:false},
+    {id:'t214',title:'Day 2 Plan — BioNexus Labs Onboarding ($95K New Logo)',meta:'New customer · 90-day success plan and milestone schedule required within first 2 weeks',bucket:'day2',source:'sf',due:'week',dueLabel:'Due Wed',action:'Open in Salesforce',actionPrimary:false,done:false},
   ],
   // Marcus Webb — BDR
   2: [
@@ -1687,6 +1862,8 @@ const taskData = {
     {id:'t307',title:'Add 5 new SaaS/IT contacts to Q1 prospecting list',meta:'Assigned by Alex Rivera · Sourced from ZoomInfo · Due weekly',bucket:'manager',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open Salesforce',actionPrimary:false,done:false},
     {id:'t308',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
     {id:'t309',title:'Logged call outcome — initial CloudBase outreach',meta:'Completed Feb 17',bucket:'self',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
+    {id:'t310',title:'Complete Target Account Plan — TechCorp Global',meta:'Assigned by Alex Rivera · Document org chart, buying signals, and outreach strategy before SQL handoff',bucket:'acctplan',source:'sf',due:'today',dueLabel:'Due Today',action:'Open Account Plan',actionPrimary:true,done:false},
+    {id:'t311',title:'Build Account Plan — CloudBase Inc. (New Target)',meta:'Qualify and document decision maker, tech stack, and pain points · Required before sequence Day 10',bucket:'acctplan',source:'sf',due:'week',dueLabel:'Due Thu',action:'Open in Salesforce',actionPrimary:false,done:false},
   ],
   // Alex Rivera — Manager (sees team-wide tasks)
   3: [],
@@ -1702,20 +1879,21 @@ const taskData = {
     {id:'t408',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
     {id:'t409',title:'IT system access & laptop provisioning',meta:'Completed Feb 17',bucket:'company',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
     {id:'t410',title:'I-9 & onboarding paperwork',meta:'Completed Feb 17',bucket:'company',source:'workday',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
+    {id:'t411',title:'Review Sample Account Plan — Meridian Capital (Learning Exercise)',meta:'Assigned by Alex Rivera · Read and annotate a completed account plan before your first territory review',bucket:'acctplan',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open in Salesforce',actionPrimary:false,done:false},
   ]
 };
-
+ 
 // task state (checked/unchecked) — persisted in memory
 const taskState = {};
-
+ 
 function tcSourceBadge(s){
   const map={sf:'ts-sf',clari:'ts-clari',highspot:'ts-highspot',workday:'ts-workday',hub:'ts-hub'};
   const labels={sf:'Salesforce',clari:'Clari',highspot:'Highspot',workday:'Workday',hub:'Hub'};
   return`<span class="task-source ${map[s]||'ts-hub'}">${labels[s]||s}</span>`;
 }
 function tcBucketBadge(b){
-  const map={self:'tb-self',manager:'tb-manager',company:'tb-company'};
-  const labels={self:'🙋 Self',manager:'👔 Manager',company:'🏢 Company'};
+  const map={self:'tb-self',manager:'tb-manager',company:'tb-company',acctplan:'tb-acctplan',day2:'tb-day2'};
+  const labels={self:'🙋 Self',manager:'👔 Manager',company:'🏢 Company',acctplan:'📋 Account Plan',day2:'🏆 Day 2 Plan'};
   return`<span class="task-bucket ${map[b]||'tb-self'}">${labels[b]||b}</span>`;
 }
 function tcDueBadge(d,lbl){
@@ -1723,31 +1901,31 @@ function tcDueBadge(d,lbl){
   if(d==='done')return'';
   return`<span class="task-due ${map[d]||'due-upcoming'}">${lbl}</span>`;
 }
-
+ 
 let tcCurrentFilter='all',tcCurrentSort='priority';
-
+ 
 function tcFilter(f){
   tcCurrentFilter=f;
-  ['all','self','manager','company'].forEach(k=>{
+  ['all','self','manager','company','acctplan','day2'].forEach(k=>{
     const b=document.getElementById('tcf-'+k);
     if(b)b.classList.toggle('active',k===f);
   });
   renderTaskCenter();
 }
 function tcSort(v){tcCurrentSort=v;renderTaskCenter();}
-
+ 
 function getTasksForPersona(){
   const tasks=JSON.parse(JSON.stringify(taskData[pIdx]||[]));
   tasks.forEach(t=>{if(taskState[t.id]!==undefined)t.done=taskState[t.id];});
   return tasks;
 }
-
+ 
 function priorityOrder(t){
   if(t.done)return 99;
   const o={overdue:0,today:1,week:2,upcoming:3};
   return o[t.due]??4;
 }
-
+ 
 function renderTaskCard(t,i){
   const isDone=t.done;
   return`<div class="task-card ${isDone?'done-card':''}" id="tcard-${t.id}">
@@ -1766,46 +1944,49 @@ function renderTaskCard(t,i){
     </div>
   </div>`;
 }
-
+ 
 function renderTaskCenter(){
   if(!document.getElementById('tc-list'))return;
   const p=personas[pIdx];
   document.getElementById('tc-time').textContent=timeGreet();
   document.getElementById('tc-nm').textContent=p.name.split(' ')[0];
   document.getElementById('tc-role').textContent=p.av+' '+p.role;
-
+ 
   let tasks=getTasksForPersona();
   // Apply bucket filter
-  if(tcCurrentFilter!=='all')tasks=tasks.filter(t=>t.bucket===tcCurrentFilter);
+  if(tcCurrentFilter!=='all')tasks=tasks.filter(t=>t.bucket===tcCurrentFilter); // acctplan/day2 are bucket values
   // Apply sort
   if(tcCurrentSort==='priority')tasks.sort((a,b)=>priorityOrder(a)-priorityOrder(b));
   else if(tcCurrentSort==='due')tasks.sort((a,b)=>priorityOrder(a)-priorityOrder(b));
   else if(tcCurrentSort==='source')tasks.sort((a,b)=>a.source.localeCompare(b.source));
   else if(tcCurrentSort==='bucket')tasks.sort((a,b)=>a.bucket.localeCompare(b.bucket));
-
+ 
   const active=tasks.filter(t=>!t.done);
   const done=tasks.filter(t=>t.done);
   const overdue=active.filter(t=>t.due==='overdue');
   const today=active.filter(t=>t.due==='today');
   const week=active.filter(t=>t.due==='week');
   const upcoming=active.filter(t=>t.due==='upcoming');
-
+ 
   // Update context
   const allActive=getTasksForPersona().filter(t=>!t.done);
   document.getElementById('tc-ctx').textContent=`${allActive.filter(t=>t.due==='overdue').length} overdue · ${allActive.filter(t=>t.due==='today').length} due today · ${allActive.filter(t=>t.due==='week').length} this week`;
-
+ 
   // Summary cards
+  const apOpen=getTasksForPersona().filter(t=>t.bucket==='acctplan'&&!t.done).length;
+  const d2Open=getTasksForPersona().filter(t=>t.bucket==='day2'&&!t.done).length;
   document.getElementById('tc-summary').innerHTML=`
     <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(250,70,22,0.1)">⚠️</div><div><div class="tc-sc-label">Overdue</div><div class="tc-sc-val" style="color:var(--orange)">${allActive.filter(t=>t.due==='overdue').length}</div></div></div>
     <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(249,115,22,0.1)">📅</div><div><div class="tc-sc-label">Due Today</div><div class="tc-sc-val" style="color:#c2410c">${allActive.filter(t=>t.due==='today').length}</div></div></div>
-    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:var(--teal-light)">📋</div><div><div class="tc-sc-label">This Week</div><div class="tc-sc-val" style="color:var(--teal-dark)">${allActive.filter(t=>t.due==='week').length}</div></div></div>
+    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(16,185,129,0.1)">📋</div><div><div class="tc-sc-label">Account Plans</div><div class="tc-sc-val" style="color:#065f46;cursor:pointer;" onclick="tcFilter('acctplan')">${apOpen}</div></div></div>
+    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(59,130,246,0.1)">🏆</div><div><div class="tc-sc-label">Day 2 Plans</div><div class="tc-sc-val" style="color:#1e40af;cursor:pointer;" onclick="tcFilter('day2')">${d2Open}</div></div></div>
     <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(22,163,74,0.1)">✅</div><div><div class="tc-sc-label">Completed</div><div class="tc-sc-val" style="color:#16a34a">${getTasksForPersona().filter(t=>t.done).length}</div></div></div>
   `;
-
+ 
   // Update sidebar badge
   const badge=document.getElementById('task-count');
   if(badge)badge.textContent=allActive.filter(t=>t.due==='overdue'||t.due==='today').length;
-
+ 
   let html='';
   function section(items,label,hdrClass,icon){
     if(!items.length)return'';
@@ -1818,20 +1999,36 @@ function renderTaskCenter(){
       ${items.map((t,i)=>renderTaskCard(t,i)).join('')}
     </div>`;
   }
-
-  html+=section(overdue,'Overdue','overdue-hdr','🔴');
-  html+=section(today,'Due Today','today-hdr','🟠');
-  html+=section(week,'This Week','week-hdr','🔵');
-  html+=section(upcoming,'Upcoming','upcoming-hdr','⬜');
-  html+=section(done,'Done This Week','done-hdr','✅');
+ 
+  if(tcCurrentFilter==='acctplan'||tcCurrentFilter==='day2'){
+    const activeTasks=tasks.filter(t=>!t.done);
+    const doneTasks=tasks.filter(t=>t.done);
+    html+=section(activeTasks.filter(t=>t.due==='overdue'),'Overdue','overdue-hdr','🔴');
+    html+=section(activeTasks.filter(t=>t.due==='today'),'Due Today','today-hdr','🟠');
+    html+=section(activeTasks.filter(t=>t.due==='week'),'This Week','week-hdr','🔵');
+    html+=section(activeTasks.filter(t=>t.due==='upcoming'),'Upcoming','upcoming-hdr','⬜');
+    html+=section(doneTasks,'Done This Week','done-hdr','✅');
+  } else {
+    html+=section(overdue,'Overdue','overdue-hdr','🔴');
+    html+=section(today,'Due Today','today-hdr','🟠');
+    html+=section(week,'This Week','week-hdr','🔵');
+    html+=section(upcoming,'Upcoming','upcoming-hdr','⬜');
+    if(tcCurrentFilter==='all'){
+      const apTasks=tasks.filter(t=>t.bucket==='acctplan'&&!t.done);
+      const d2Tasks=tasks.filter(t=>t.bucket==='day2'&&!t.done);
+      if(apTasks.length) html+=section(apTasks,'Account Plan Tasks','acctplan-hdr','📋');
+      if(d2Tasks.length) html+=section(d2Tasks,'Day 2 Plan Tasks','day2-hdr','🏆');
+    }
+    html+=section(done,'Done This Week','done-hdr','✅');
+  }
   if(!html)html='<div class="tc-empty">🎉 All clear — no tasks match this filter.</div>';
-
+ 
   document.getElementById('tc-list').innerHTML=html;
-
+ 
   // Update manager panel
   renderMgrTaskCompletion();
 }
-
+ 
 function toggleTask(id){
   const tasks=getTasksForPersona();
   const t=tasks.find(x=>x.id===id);
@@ -1840,7 +2037,7 @@ function toggleTask(id){
   taskState[id]=newDone;
   renderTaskCenter();
 }
-
+ 
 function renderMgrTaskCompletion(){
   const el=document.getElementById('mgr-task-completion');
   if(!el)return;
@@ -1863,16 +2060,7 @@ function renderMgrTaskCompletion(){
     </div>`;
   }).join('');
 }
-
-// Extend switchP and renderHome to refresh task center
-const _origRenderHome=renderHome;
-// patch showPage to refresh task center on nav
-const _origShowPage=showPage;
-function showPage(id,el){
-  _origShowPage(id,el);
-  if(id==='task-center')renderTaskCenter();
-}
-
+ 
 // ── TERRITORY HEAT MAP ──────────────────────────────────────────────
 const hmAccounts=[
   {name:'Barclays Ventures',sub:'FinServ · London',pipeline:false,renewal:'next',testCloud:false,risk:3,action:'Create Opp'},
@@ -1908,224 +2096,9 @@ function renderHeatmap(){
   if(navItem)navItem.style.display=(!p.isManager&&!p.isNewHire&&!p.isBDR&&!p.isCSM)?'flex':'none';
   hmFilter('all',document.querySelector('.hm-filter-btn'));
 }
-
+ 
 renderHome();renderLib(null);renderSugg();renderHeatmap();
-
-  // ── TASK CENTER DATA ──────────────────────────────────────────
-const taskData = {
-  // Sarah Chan — FS AE
-  0: [
-    {id:'t101',title:'Send FCC product overview deck to Deutsche Bank champion',meta:'Follow-up from discovery call on Feb 18 — Ben Fischer waiting',bucket:'self',source:'sf',due:'overdue',dueLabel:'2 days overdue',action:'Open in Salesforce',actionPrimary:true,done:false},
-    {id:'t102',title:'Update Meridian Capital close date to Mar 7 in Salesforce',meta:'Agreed in negotiation call — legal redlines confirmed',bucket:'self',source:'sf',due:'today',dueLabel:'Due Today',action:'Open Opp',actionPrimary:true,done:false},
-    {id:'t103',title:'Review updated WorkFusion battlecard before Avalon Bank call',meta:'Assigned by Alex Rivera · New competitive intel added Feb 20',bucket:'manager',source:'highspot',due:'today',dueLabel:'Due Today',action:'Open in Highspot',actionPrimary:false,done:false},
-    {id:'t104',title:'Complete Q1 Forecast update in Clari',meta:'Deadline: Friday EOD · Required for manager forecast rollup',bucket:'manager',source:'clari',due:'week',dueLabel:'Due Fri',action:'Open Clari',actionPrimary:false,done:false},
-    {id:'t105',title:'Complete FY26 Data Privacy & Security Certification',meta:'Annual compliance requirement · All employees · HR policy',bucket:'company',source:'workday',due:'overdue',dueLabel:'5 days overdue',action:'Start in Workday',actionPrimary:true,done:false},
-    {id:'t106',title:'Acknowledge UiPath AI Platform Product Launch Brief',meta:'New product announcement — required read before customer calls',bucket:'company',source:'highspot',due:'today',dueLabel:'Due Today',action:'Read & Ack',actionPrimary:false,done:false},
-    {id:'t107',title:'Log call notes from Pinnacle Insurance demo',meta:'Demo was Feb 20 · Notes needed for CSM handoff',bucket:'self',source:'sf',due:'week',dueLabel:'Due Thu',action:'Log in Salesforce',actionPrimary:false,done:false},
-    {id:'t108',title:'Complete MEDDPICC Refresher — Module 2',meta:'Assigned by Alex Rivera · 20 min · Due before Q1 close',bucket:'manager',source:'highspot',due:'week',dueLabel:'Due Fri',action:'Start Module',actionPrimary:false,done:false},
-    {id:'t109',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement processing',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
-    {id:'t110',title:'Book QBR prep call with Sarah — Deutsche Bank',meta:'Completed — prep notes saved in Salesforce',bucket:'self',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 19'},
-  ],
-  // Priya Nair — HLS CSM
-  1: [
-    {id:'t201',title:'Schedule executive sponsor call — Midwest Health System',meta:'Health score dropped to 62 · IT champion flagged Epic integration delay',bucket:'self',source:'sf',due:'overdue',dueLabel:'2 days overdue',action:'Open in Salesforce',actionPrimary:true,done:false},
-    {id:'t202',title:'Send EHR Integration Roadmap to Midwest Health IT lead',meta:'Requested in escalation call Feb 14 · Dr. Kim waiting on Q2 milestones',bucket:'self',source:'highspot',due:'today',dueLabel:'Due Today',action:'Find in Highspot',actionPrimary:true,done:false},
-    {id:'t203',title:'Update Midwest Health renewal risk flag in Gainsight',meta:'Assigned by Alex Rivera · Health score change requires CTM notation',bucket:'manager',source:'sf',due:'today',dueLabel:'Due Today',action:'Update Record',actionPrimary:false,done:false},
-    {id:'t204',title:'Prepare expansion one-pager for Pacific Coast Medical QBR',meta:'Meeting tomorrow 1:00 PM · Prior auth upsell opportunity identified',bucket:'self',source:'highspot',due:'today',dueLabel:'Due Today',action:'Open Highspot',actionPrimary:true,done:false},
-    {id:'t205',title:'Complete FY26 Data Privacy & Security Certification',meta:'Annual compliance requirement · All employees · HR policy',bucket:'company',source:'workday',due:'overdue',dueLabel:'5 days overdue',action:'Start in Workday',actionPrimary:true,done:false},
-    {id:'t206',title:'Acknowledge UiPath AI Platform Product Launch Brief',meta:'New product announcement — required read before customer calls',bucket:'company',source:'highspot',due:'today',dueLabel:'Due Today',action:'Read & Ack',actionPrimary:false,done:false},
-    {id:'t207',title:'Complete HLS CSM Certification — Module 3: Renewal Motion',meta:'Assigned by Alex Rivera · 35 min · Required for Q1',bucket:'manager',source:'highspot',due:'week',dueLabel:'Due Fri',action:'Start Module',actionPrimary:false,done:false},
-    {id:'t208',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
-    {id:'t209',title:'Log BioNexus onboarding milestones in Salesforce',meta:'Kickoff call Thu — update onboarding tracker post-call',bucket:'self',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open Record',actionPrimary:false,done:false},
-    {id:'t210',title:'Sent Q4 customer health summary to Alex Rivera',meta:'Completed — all 5 accounts summarized',bucket:'manager',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 18'},
-  ],
-  // Marcus Webb — BDR
-  2: [
-    {id:'t301',title:'Send TechCorp IT Automation one-pager via Outreach sequence',meta:'Follow-up from cold call Feb 5 · Day 7 of sequence',bucket:'self',source:'sf',due:'overdue',dueLabel:'1 day overdue',action:'Open Outreach',actionPrimary:true,done:false},
-    {id:'t302',title:'Prepare SQL handoff summary for TechCorp AE meeting',meta:'Meeting tomorrow 1:00 PM · Include BANT notes and call recordings',bucket:'self',source:'sf',due:'today',dueLabel:'Due Today',action:'Open in Salesforce',actionPrimary:true,done:false},
-    {id:'t303',title:'Complete BDR Cold Call Certification — Module 2',meta:'Assigned by Alex Rivera · 20 min · Due before weekly 1:1',bucket:'manager',source:'highspot',due:'today',dueLabel:'Due Today',action:'Start Module',actionPrimary:false,done:false},
-    {id:'t304',title:'Complete FY26 Data Privacy & Security Certification',meta:'Annual compliance requirement · All employees · HR policy',bucket:'company',source:'workday',due:'overdue',dueLabel:'5 days overdue',action:'Start in Workday',actionPrimary:true,done:false},
-    {id:'t305',title:'Acknowledge UiPath AI Platform Product Launch Brief',meta:'New product announcement — required read before prospecting calls',bucket:'company',source:'highspot',due:'today',dueLabel:'Due Today',action:'Read & Ack',actionPrimary:false,done:false},
-    {id:'t306',title:'Update CloudBase sequence status after today\'s call',meta:'Log outcome in Salesforce · Advance or pause sequence in Outreach',bucket:'self',source:'sf',due:'today',dueLabel:'Due Today',action:'Log in Salesforce',actionPrimary:false,done:false},
-    {id:'t307',title:'Add 5 new SaaS/IT contacts to Q1 prospecting list',meta:'Assigned by Alex Rivera · Sourced from ZoomInfo · Due weekly',bucket:'manager',source:'sf',due:'week',dueLabel:'Due Fri',action:'Open Salesforce',actionPrimary:false,done:false},
-    {id:'t308',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1 · Required for reimbursement',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
-    {id:'t309',title:'Logged call outcome — initial CloudBase outreach',meta:'Completed Feb 17',bucket:'self',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
-  ],
-  // Alex Rivera — Manager (sees team-wide tasks)
-  3: [],
-  // Jordan Mills — New Hire
-  4: [
-    {id:'t401',title:'Complete Benefits Enrollment — Health, Dental & Vision',meta:'Deadline Feb 28 · Select plan in Workday before window closes',bucket:'company',source:'workday',due:'overdue',dueLabel:'Due Feb 28',action:'Open Workday',actionPrimary:true,done:false},
-    {id:'t402',title:'Complete UiPath Platform Fundamentals — Module 3',meta:'30 min · Required cert · 3 days late',bucket:'company',source:'highspot',due:'overdue',dueLabel:'3 days late',action:'Open Academy',actionPrimary:true,done:false},
-    {id:'t403',title:'Complete MEDDPICC Foundations — Module 1',meta:'45 min · Required for all AEs · 1 day late',bucket:'company',source:'highspot',due:'overdue',dueLabel:'1 day late',action:'Start Module',actionPrimary:true,done:false},
-    {id:'t404',title:'Update Salesforce profile and territory assignment',meta:'Assigned by Alex Rivera · Complete before Thursday team sync',bucket:'manager',source:'sf',due:'today',dueLabel:'Due Today',action:'Open Salesforce',actionPrimary:false,done:false},
-    {id:'t405',title:'Attend New Hire Cohort Sync — Week 2',meta:'Today 2:00 PM · Zoom · 8 attendees',bucket:'company',source:'sf',due:'today',dueLabel:'Today 2:00 PM',action:'Join Zoom',actionPrimary:false,done:false},
-    {id:'t406',title:'Review Competitive Intel — ServiceNow & Pega battlecard',meta:'25 min · Required before first customer calls · Due Fri',bucket:'manager',source:'highspot',due:'week',dueLabel:'Due Fri',action:'Open Highspot',actionPrimary:false,done:false},
-    {id:'t407',title:'Shadow call with Sarah Chan — Deutsche Bank',meta:'Thu 10:00 AM · Observation only · Calendar invite sent',bucket:'manager',source:'sf',due:'week',dueLabel:'Thu 10 AM',action:'View Calendar',actionPrimary:false,done:false},
-    {id:'t408',title:'Submit Q1 Expense Report',meta:'Finance deadline Mar 1',bucket:'company',source:'workday',due:'upcoming',dueLabel:'Due Mar 1',action:'Open Workday',actionPrimary:false,done:false},
-    {id:'t409',title:'IT system access & laptop provisioning',meta:'Completed Feb 17',bucket:'company',source:'sf',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
-    {id:'t410',title:'I-9 & onboarding paperwork',meta:'Completed Feb 17',bucket:'company',source:'workday',due:'done',dueLabel:'Done',action:'View',actionPrimary:false,done:true,doneDate:'Feb 17'},
-  ]
-};
-
-// task state (checked/unchecked) — persisted in memory
-const taskState = {};
-
-function tcSourceBadge(s){
-  const map={sf:'ts-sf',clari:'ts-clari',highspot:'ts-highspot',workday:'ts-workday',hub:'ts-hub'};
-  const labels={sf:'Salesforce',clari:'Clari',highspot:'Highspot',workday:'Workday',hub:'Hub'};
-  return`<span class="task-source ${map[s]||'ts-hub'}">${labels[s]||s}</span>`;
-}
-function tcBucketBadge(b){
-  const map={self:'tb-self',manager:'tb-manager',company:'tb-company'};
-  const labels={self:'🙋 Self',manager:'👔 Manager',company:'🏢 Company'};
-  return`<span class="task-bucket ${map[b]||'tb-self'}">${labels[b]||b}</span>`;
-}
-function tcDueBadge(d,lbl){
-  const map={overdue:'due-overdue',today:'due-today',week:'due-week',upcoming:'due-upcoming',done:''};
-  if(d==='done')return'';
-  return`<span class="task-due ${map[d]||'due-upcoming'}">${lbl}</span>`;
-}
-
-let tcCurrentFilter='all',tcCurrentSort='priority';
-
-function tcFilter(f){
-  tcCurrentFilter=f;
-  ['all','self','manager','company'].forEach(k=>{
-    const b=document.getElementById('tcf-'+k);
-    if(b)b.classList.toggle('active',k===f);
-  });
-  renderTaskCenter();
-}
-function tcSort(v){tcCurrentSort=v;renderTaskCenter();}
-
-function getTasksForPersona(){
-  const tasks=JSON.parse(JSON.stringify(taskData[pIdx]||[]));
-  tasks.forEach(t=>{if(taskState[t.id]!==undefined)t.done=taskState[t.id];});
-  return tasks;
-}
-
-function priorityOrder(t){
-  if(t.done)return 99;
-  const o={overdue:0,today:1,week:2,upcoming:3};
-  return o[t.due]??4;
-}
-
-function renderTaskCard(t,i){
-  const isDone=t.done;
-  return`<div class="task-card ${isDone?'done-card':''}" id="tcard-${t.id}">
-    <div class="task-check ${isDone?'checked':''}" onclick="toggleTask('${t.id}')" title="${isDone?'Mark incomplete':'Mark complete'}">${isDone?'✓':''}</div>
-    <div class="task-body">
-      <div class="task-title">${t.title}</div>
-      <div class="task-meta">${t.meta}</div>
-      <div class="task-tags">
-        ${tcBucketBadge(t.bucket)}
-        ${tcSourceBadge(t.source)}
-        ${tcDueBadge(t.due,t.dueLabel)}
-      </div>
-    </div>
-    <div class="task-right">
-      ${!isDone?`<button class="task-action-btn ${t.actionPrimary?'primary':''}" onclick="event.stopPropagation()">${t.action}</button>`:'<span style="font-size:9px;color:var(--text3)">Done '+( t.doneDate||'')+'</span>'}
-    </div>
-  </div>`;
-}
-
-function renderTaskCenter(){
-  if(!document.getElementById('tc-list'))return;
-  const p=personas[pIdx];
-  document.getElementById('tc-time').textContent=timeGreet();
-  document.getElementById('tc-nm').textContent=p.name.split(' ')[0];
-  document.getElementById('tc-role').textContent=p.av+' '+p.role;
-
-  let tasks=getTasksForPersona();
-  // Apply bucket filter
-  if(tcCurrentFilter!=='all')tasks=tasks.filter(t=>t.bucket===tcCurrentFilter);
-  // Apply sort
-  if(tcCurrentSort==='priority')tasks.sort((a,b)=>priorityOrder(a)-priorityOrder(b));
-  else if(tcCurrentSort==='due')tasks.sort((a,b)=>priorityOrder(a)-priorityOrder(b));
-  else if(tcCurrentSort==='source')tasks.sort((a,b)=>a.source.localeCompare(b.source));
-  else if(tcCurrentSort==='bucket')tasks.sort((a,b)=>a.bucket.localeCompare(b.bucket));
-
-  const active=tasks.filter(t=>!t.done);
-  const done=tasks.filter(t=>t.done);
-  const overdue=active.filter(t=>t.due==='overdue');
-  const today=active.filter(t=>t.due==='today');
-  const week=active.filter(t=>t.due==='week');
-  const upcoming=active.filter(t=>t.due==='upcoming');
-
-  // Update context
-  const allActive=getTasksForPersona().filter(t=>!t.done);
-  document.getElementById('tc-ctx').textContent=`${allActive.filter(t=>t.due==='overdue').length} overdue · ${allActive.filter(t=>t.due==='today').length} due today · ${allActive.filter(t=>t.due==='week').length} this week`;
-
-  // Summary cards
-  document.getElementById('tc-summary').innerHTML=`
-    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(250,70,22,0.1)">⚠️</div><div><div class="tc-sc-label">Overdue</div><div class="tc-sc-val" style="color:var(--orange)">${allActive.filter(t=>t.due==='overdue').length}</div></div></div>
-    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(249,115,22,0.1)">📅</div><div><div class="tc-sc-label">Due Today</div><div class="tc-sc-val" style="color:#c2410c">${allActive.filter(t=>t.due==='today').length}</div></div></div>
-    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:var(--teal-light)">📋</div><div><div class="tc-sc-label">This Week</div><div class="tc-sc-val" style="color:var(--teal-dark)">${allActive.filter(t=>t.due==='week').length}</div></div></div>
-    <div class="tc-summary-card"><div class="tc-sc-icon" style="background:rgba(22,163,74,0.1)">✅</div><div><div class="tc-sc-label">Completed</div><div class="tc-sc-val" style="color:#16a34a">${getTasksForPersona().filter(t=>t.done).length}</div></div></div>
-  `;
-
-  // Update sidebar badge
-  const badge=document.getElementById('task-count');
-  if(badge)badge.textContent=allActive.filter(t=>t.due==='overdue'||t.due==='today').length;
-
-  let html='';
-  function section(items,label,hdrClass,icon){
-    if(!items.length)return'';
-    return`<div class="tc-section">
-      <div class="tc-section-hdr ${hdrClass}">
-        <span style="font-size:14px">${icon}</span>
-        <span class="tc-section-label">${label}</span>
-        <span class="tc-section-count">${items.length}</span>
-      </div>
-      ${items.map((t,i)=>renderTaskCard(t,i)).join('')}
-    </div>`;
-  }
-
-  html+=section(overdue,'Overdue','overdue-hdr','🔴');
-  html+=section(today,'Due Today','today-hdr','🟠');
-  html+=section(week,'This Week','week-hdr','🔵');
-  html+=section(upcoming,'Upcoming','upcoming-hdr','⬜');
-  html+=section(done,'Done This Week','done-hdr','✅');
-  if(!html)html='<div class="tc-empty">🎉 All clear — no tasks match this filter.</div>';
-
-  document.getElementById('tc-list').innerHTML=html;
-
-  // Update manager panel
-  renderMgrTaskCompletion();
-}
-
-function toggleTask(id){
-  const tasks=getTasksForPersona();
-  const t=tasks.find(x=>x.id===id);
-  if(!t)return;
-  const newDone=!t.done;
-  taskState[id]=newDone;
-  renderTaskCenter();
-}
-
-function renderMgrTaskCompletion(){
-  const el=document.getElementById('mgr-task-completion');
-  if(!el)return;
-  const repIdxs=[0,1,2,4]; // Sarah, Priya, Marcus, Jordan
-  el.innerHTML=repIdxs.map(i=>{
-    const p=personas[i];
-    const tasks=JSON.parse(JSON.stringify(taskData[i]||[]));
-    tasks.forEach(t=>{if(taskState[t.id]!==undefined)t.done=taskState[t.id];});
-    const total=tasks.length,done=tasks.filter(t=>t.done).length;
-    const overdue=tasks.filter(t=>!t.done&&t.due==='overdue').length;
-    const pct=total?Math.round(done/total*100):0;
-    const barColor=pct>=70?'var(--teal)':pct>=40?'#f7c948':'#f87171';
-    return`<div class="mgr-task-rep-row">
-      <div class="mtr-name">${p.av} ${p.name.split(' ')[0]}</div>
-      <div class="mtr-bar-wrap">
-        <div class="mtr-bar-bg"><div class="mtr-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
-        <span class="mtr-pct">${pct}%</span>
-      </div>
-      ${overdue?`<span class="mtr-overdue">⚠ ${overdue} late</span>`:'<span class="mtr-overdue" style="color:#16a34a">✓ On track</span>'}
-    </div>`;
-  }).join('');
-}
+ 
 </script>
 </body>
 </html>
