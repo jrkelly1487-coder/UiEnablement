@@ -463,6 +463,121 @@ body{font-family:var(--font-body);background:var(--surface2);color:var(--text);m
 .csb-low{background:var(--red-light);color:var(--red);border:1px solid rgba(220,38,38,0.15);font-size:8px;font-weight:700;padding:1px 5px;border-radius:6px;}
 .needs-attn{background:var(--red-light);color:var(--red);border:1px solid rgba(220,38,38,0.15);font-size:7.5px;font-weight:700;padding:1px 5px;border-radius:5px;}
 .call-dur{font-size:8px;color:var(--text3);}
+
+/* ── SALES PLAY DETAIL PAGE ──────────────────────────────── */
+.play-hero-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);}
+.play-hero-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--teal));}
+.play-eyebrow{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange);margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+.play-eyebrow::before{content:'';display:inline-block;width:14px;height:2px;background:var(--orange);border-radius:2px;}
+.play-hero-title{font-family:var(--font-head);font-size:20px;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin-bottom:8px;line-height:1.2;}
+.play-hero-title span{color:var(--orange);}
+.play-hero-desc{font-size:13px;color:var(--text2);max-width:640px;line-height:1.65;margin-bottom:14px;}
+.play-hero-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.play-htag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--surface3);color:var(--text3);border:1px solid var(--border);}
+.play-htag.o{background:var(--orange-light);color:var(--orange);border-color:var(--orange-border);}
+.play-htag.t{background:var(--teal-light);color:var(--teal-dark);border-color:var(--teal-border);}
+.play-htag.n{background:rgba(30,100,130,0.1);color:var(--navy);border-color:rgba(30,100,130,0.25);}
+.play-hero-meta{display:flex;gap:18px;flex-wrap:wrap;}
+.play-hmeta{font-size:11.5px;color:var(--text3);display:flex;align-items:center;gap:5px;}
+.play-hmeta strong{color:var(--text2);font-weight:600;}
+/* stat strip */
+.play-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px;}
+/* section panels */
+.play-sec{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:14px;}
+.play-sec-hdr{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--border);background:var(--surface2);}
+.play-sec-hdr-left{display:flex;align-items:center;gap:8px;}
+.play-sec-title{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text);}
+.play-sec-meta{font-size:10.5px;color:var(--text3);}
+.play-sec-body{padding:14px 16px;}
+/* overview grid */
+.play-ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.play-ov-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;}
+.play-ov-card.full{grid-column:1/-1;}
+.play-ov-lbl{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:7px;}
+.play-ov-text{font-size:12.5px;color:var(--text2);line-height:1.65;}
+.play-tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.play-obj-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+.play-obj-list li{display:flex;gap:7px;font-size:12px;color:var(--text2);line-height:1.5;}
+.play-obj-list li::before{content:'›';color:var(--orange);flex-shrink:0;font-size:14px;line-height:1.3;}
+/* persona tabs */
+.play-ptabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+.play-ptab{padding:5px 13px;border-radius:20px;font-size:11.5px;font-weight:600;border:1px solid var(--border-strong);background:var(--surface);color:var(--text2);cursor:pointer;font-family:var(--font-body);transition:all 0.12s;}
+.play-ptab:hover{border-color:var(--orange);color:var(--orange);}
+.play-ptab.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.play-pp{display:none;}
+.play-pp.active{display:block;}
+.play-pers-hdr{display:flex;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.play-pers-avi{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.play-pers-name{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.play-pers-role{font-size:11px;color:var(--text3);}
+.play-pers-goals{font-size:12px;color:var(--text2);line-height:1.55;margin-top:5px;}
+.play-dq-lbl{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:8px;}
+.play-dq-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.play-dq-item{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 13px;display:flex;gap:9px;font-size:12.5px;color:var(--text2);line-height:1.55;}
+.play-dq-num{font-family:var(--font-head);font-size:10px;color:var(--orange);font-weight:700;min-width:16px;padding-top:1px;flex-shrink:0;}
+/* asset cards */
+.play-assets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.play-asset-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px 14px;cursor:pointer;transition:all 0.18s;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);}
+.play-asset-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transition:background 0.18s;}
+.play-asset-card:hover{border-color:var(--orange-border);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.play-asset-card:hover::before{background:var(--orange);}
+.play-atype{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:2px 7px;border-radius:4px;display:inline-flex;margin-bottom:8px;}
+.pat-deck{background:var(--teal-light);color:var(--teal-dark);}
+.pat-video{background:var(--red-light);color:var(--red);}
+.pat-guide{background:var(--green-light);color:var(--green);}
+.pat-calc{background:var(--amber-light);color:var(--amber);}
+.pat-story{background:var(--purple-light);color:var(--purple);}
+.pat-seq{background:var(--surface3);color:var(--text3);}
+.pat-battle{background:var(--orange-light);color:var(--orange);}
+.play-atitle{font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4;}
+.play-adesc{font-size:11.5px;color:var(--text3);line-height:1.5;}
+.play-ameta{font-size:10px;color:var(--text3);margin-top:9px;display:flex;align-items:center;gap:5px;border-top:1px solid var(--border);padding-top:8px;}
+/* accounts table */
+.play-acct-bar{display:flex;gap:7px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
+.play-acct-search{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius-sm);padding:7px 12px;font-size:12.5px;color:var(--text);font-family:var(--font-body);outline:none;transition:all 0.15s;}
+.play-acct-search:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-light);}
+.play-acct-search::placeholder{color:var(--text3);}
+.play-acct-sel{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius-sm);padding:7px 10px;font-size:12px;color:var(--text2);font-family:var(--font-body);outline:none;cursor:pointer;}
+.play-acct-btn{padding:7px 14px;border-radius:var(--radius-sm);font-size:11.5px;font-weight:600;background:var(--orange);color:#fff;border:none;cursor:pointer;font-family:var(--font-body);box-shadow:0 2px 8px rgba(250,70,22,0.25);white-space:nowrap;transition:background 0.12s;}
+.play-acct-btn:hover{background:var(--orange-dark);}
+.play-acct-tbl{width:100%;border-collapse:collapse;}
+.play-acct-tbl th{font-size:9.5px;text-transform:uppercase;letter-spacing:0.8px;color:var(--text3);font-weight:600;padding:7px 10px;text-align:left;border-bottom:1px solid var(--border);background:var(--surface2);}
+.play-acct-tbl td{padding:9px 10px;font-size:12.5px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:middle;}
+.play-acct-tbl tr:last-child td{border-bottom:none;}
+.play-acct-tbl tr:hover td{background:var(--surface2);}
+.play-acct-tbl td:first-child{color:var(--text);font-weight:600;}
+.play-score-bar{display:flex;align-items:center;gap:8px;}
+.play-score-track{flex:1;height:4px;border-radius:2px;background:var(--surface3);overflow:hidden;}
+.play-score-fill{height:100%;border-radius:2px;}
+.psf-hi{background:var(--green);}
+.psf-md{background:var(--amber);}
+.psf-lo{background:var(--teal);}
+.play-score-n{font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--text2);min-width:22px;}
+/* spiff */
+.play-spiff-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.play-spiff-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 16px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);}
+.play-spiff-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.play-spiff-card.feat{border-color:var(--orange-border);}
+.play-spiff-card.feat::after{background:var(--orange);}
+.play-spiff-card:not(.feat)::after{background:var(--teal);}
+.play-spiff-amt{font-family:var(--font-head);font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.play-spiff-card.feat .play-spiff-amt{color:var(--orange);}
+.play-spiff-card:not(.feat) .play-spiff-amt{color:var(--teal-dark);}
+.play-spiff-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.play-spiff-copy{font-size:12px;color:var(--text2);line-height:1.6;}
+.play-spiff-exp{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:10px;font-weight:600;background:var(--amber-light);color:var(--amber);padding:3px 8px;border-radius:20px;}
+.play-disc-tbl{width:100%;border-collapse:collapse;}
+.play-disc-tbl th{font-size:9.5px;text-transform:uppercase;letter-spacing:0.7px;color:var(--text3);font-weight:600;padding:7px 10px;text-align:left;border-bottom:1px solid var(--border);background:var(--surface2);}
+.play-disc-tbl td{padding:9px 10px;font-size:12.5px;color:var(--text2);border-bottom:1px solid var(--border);}
+.play-disc-tbl tr:last-child td{border-bottom:none;}
+.play-disc-pct{color:var(--green);font-family:var(--font-head);font-weight:700;}
+.play-disc-req{font-size:11.5px;color:var(--text3);}
+.play-note{background:var(--orange-light);border:1px solid var(--orange-border);border-radius:var(--radius-sm);padding:10px 14px;margin-top:12px;font-size:12px;color:var(--text2);line-height:1.6;}
+.play-note strong{color:var(--orange);}
+.play-footer{padding:12px 0 2px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--text3);}
+.play-footer-links{display:flex;gap:14px;}
+.play-footer-links span{cursor:pointer;color:var(--teal-dark);font-weight:500;}
+.play-footer-links span:hover{color:var(--teal);}
 </style>
 </head>
 <body>
@@ -911,6 +1026,7 @@ body{font-family:var(--font-body);background:var(--surface2);color:var(--text);m
         <div class="lp-title" style="font-size:18px;margin-bottom:4px">Sales Play Pages</div>
         <div style="font-size:13px;color:var(--text2);margin-bottom:16px">Structured plays for your top motions</div>
         <div class="sp-grid">
+          <div class="sp-card" onclick="openPlayDetail()"><div class="sp-card-header"><div class="sp-card-eyebrow" style="color:var(--orange)">Enterprise · Displacement</div><div class="sp-card-title">AA / Blue Prism Replace Play</div></div><div class="sp-card-body"><div class="sp-card-desc">Full displacement motion targeting enterprises running Automation Anywhere or Blue Prism. Covers agentic AI upgrade path, migration playbook, and TCO positioning.</div><div class="sp-card-tags"><span class="tag-sm">Displacement</span><span class="tag-sm">Enterprise</span><span class="tag-sm">Agentic AI</span></div></div><div class="sp-card-footer"><span class="sp-stat">Updated Apr 2026 · 9 assets</span><span class="sp-btn">Open Play →</span></div></div>
           <div class="sp-card"><div class="sp-card-header"><div class="sp-card-eyebrow" style="color:var(--orange)">FinServ · Displacement</div><div class="sp-card-title">WorkFusion Displacement Play</div></div><div class="sp-card-body"><div class="sp-card-desc">Full motion for replacing WorkFusion in FCC environments. Includes discovery questions, objection handling, and proof points.</div><div class="sp-card-tags"><span class="tag-sm">FinServ</span><span class="tag-sm">Displacement</span><span class="tag-sm">FCC</span></div></div><div class="sp-card-footer"><span class="sp-stat">Updated Feb 2026 · 8 assets</span><span class="sp-btn">Open Play →</span></div></div>
           <div class="sp-card"><div class="sp-card-header"><div class="sp-card-eyebrow" style="color:var(--teal-dark)">FinServ · Land</div><div class="sp-card-title">FCC New Logo Land Play</div></div><div class="sp-card-body"><div class="sp-card-desc">Land motion for net-new FinServ logos focused on Financial Crime Compliance automation and TARA Agent deployment.</div><div class="sp-card-tags"><span class="tag-sm">FinServ</span><span class="tag-sm">New Logo</span><span class="tag-sm">TARA</span></div></div><div class="sp-card-footer"><span class="sp-stat">Updated Jan 2026 · 6 assets</span><span class="sp-btn">Open Play →</span></div></div>
           <div class="sp-card"><div class="sp-card-header"><div class="sp-card-eyebrow" style="color:var(--green)">HLS · Expand</div><div class="sp-card-title">HLS Expansion Play — Clinical Ops</div></div><div class="sp-card-body"><div class="sp-card-desc">Expansion motion for growing UiPath footprint into clinical operations, prior auth, and claims processing at existing HLS customers.</div><div class="sp-card-tags"><span class="tag-sm">HLS</span><span class="tag-sm">Expansion</span><span class="tag-sm">CSM</span></div></div><div class="sp-card-footer"><span class="sp-stat">Updated Feb 2026 · 5 assets</span><span class="sp-btn">Open Play →</span></div></div>
@@ -926,6 +1042,234 @@ body{font-family:var(--font-body);background:var(--surface2);color:var(--text);m
           <div class="sp-card"><div class="sp-card-header"><div class="sp-card-eyebrow" style="color:var(--orange)">Full Cycle</div><div class="sp-card-title">Enterprise AE Deal Motion</div></div><div class="sp-card-body"><div class="sp-card-desc">Complete deal motion from discovery through close for enterprise AEs — MEDDPICC stages, stakeholder maps, and content by stage.</div><div class="sp-card-tags"><span class="tag-sm">AE</span><span class="tag-sm">Enterprise</span><span class="tag-sm">MEDDPICC</span></div></div><div class="sp-card-footer"><span class="sp-stat">12 stages · 24 assets</span><span class="sp-btn">Open Motion →</span></div></div>
           <div class="sp-card"><div class="sp-card-header"><div class="sp-card-eyebrow" style="color:var(--teal-dark)">Renewal</div><div class="sp-card-title">CSM Renewal Motion — HLS</div></div><div class="sp-card-body"><div class="sp-card-desc">Step-by-step renewal motion for HLS CSMs covering health score triggers, exec sponsor engagement, and expansion identification.</div><div class="sp-card-tags"><span class="tag-sm">CSM</span><span class="tag-sm">HLS</span><span class="tag-sm">Renewal</span></div></div><div class="sp-card-footer"><span class="sp-stat">8 stages · 16 assets</span><span class="sp-btn">Open Motion →</span></div></div>
           <div class="sp-card"><div class="sp-card-header"><div class="sp-card-eyebrow" style="color:var(--purple)">Prospecting</div><div class="sp-card-title">BDR Prospecting Motion</div></div><div class="sp-card-body"><div class="sp-card-desc">Full BDR outreach motion from ICP targeting through SQL handoff — call scripts, email sequences, and qualification frameworks.</div><div class="sp-card-tags"><span class="tag-sm">BDR</span><span class="tag-sm">Outreach</span><span class="tag-sm">SQL</span></div></div><div class="sp-card-footer"><span class="sp-stat">6 stages · 14 assets</span><span class="sp-btn">Open Motion →</span></div></div>
+        </div>
+      </div>
+
+      <!-- AA / Blue Prism Replace Play Detail -->
+      <div id="ch-play-aabp" style="display:none">
+        <div class="ws-back" onclick="showContentPage('ch-plays',null)">← Back to Sales Play Pages</div>
+        <!-- Hero -->
+        <div class="play-hero-card">
+          <div class="play-eyebrow">Sales Play · Enterprise · Displacement</div>
+          <div class="play-hero-title">Automation Anywhere / <span>Blue Prism</span> Replace Play</div>
+          <p class="play-hero-desc">Full displacement motion targeting enterprises running legacy RPA platforms. Focuses on platform consolidation, agentic AI upgrade path, and total cost of ownership. Primary motion for net-new logos and cross-sell into existing UiPath accounts with AA or Blue Prism co-existence.</p>
+          <div class="play-hero-tags">
+            <span class="play-htag o">Displacement</span>
+            <span class="play-htag o">Enterprise</span>
+            <span class="play-htag t">Agentic AI</span>
+            <span class="play-htag t">Platform Consolidation</span>
+            <span class="play-htag n">AE</span>
+            <span class="play-htag n">SC</span>
+            <span class="play-htag">All Verticals</span>
+          </div>
+          <div class="play-hero-meta">
+            <span class="play-hmeta">Play Owner: <strong>Mike Torres, PMM</strong></span>
+            <span class="play-hmeta">Window: <strong>Apr 1 – Jun 30, 2026</strong></span>
+            <span class="play-hmeta">Updated: <strong>Apr 2026 · 9 assets</strong></span>
+          </div>
+        </div>
+        <!-- Stats -->
+        <div class="play-stats">
+          <div class="ch-stat s1"><div class="ch-stat-label">Play Target ARR</div><div class="ch-stat-val">$3.8M</div><div class="ch-stat-sub">Q2 2026 goal</div></div>
+          <div class="ch-stat s2"><div class="ch-stat-label">Target Accounts</div><div class="ch-stat-val">61</div><div class="ch-stat-sub">Your territory</div></div>
+          <div class="ch-stat s3"><div class="ch-stat-label">Avg Deal Size</div><div class="ch-stat-val">$68K</div><div class="ch-stat-sub">ACV baseline</div></div>
+          <div class="ch-stat s4"><div class="ch-stat-label">Win Rate (Pilot)</div><div class="ch-stat-val">41%</div><div class="ch-stat-sub">vs displacement plays</div></div>
+        </div>
+        <!-- 1. Play Overview -->
+        <div class="play-sec">
+          <div class="play-sec-hdr">
+            <div class="play-sec-hdr-left"><div class="quad-dot" style="background:var(--orange)"></div><div class="play-sec-title">Play overview</div></div>
+          </div>
+          <div class="play-sec-body">
+            <div class="play-ov-grid">
+              <div class="play-ov-card full">
+                <div class="play-ov-lbl">Positioning statement</div>
+                <div class="play-ov-text">Automation Anywhere and Blue Prism customers are sitting on aging RPA infrastructure with no clear agentic AI roadmap. Meanwhile, their competitors are accelerating. UiPath offers the only enterprise-grade path from legacy task automation to autonomous AI agents — with a proven migration playbook, dedicated CoE tooling, and the largest RPA-to-AI partner ecosystem in the market.</div>
+              </div>
+              <div class="play-ov-card">
+                <div class="play-ov-lbl">Target qualification signals</div>
+                <div class="play-tag-row">
+                  <span class="tag-sm" style="background:var(--orange-light);color:var(--orange);border-color:var(--orange-border)">AA / Blue Prism renewal</span>
+                  <span class="tag-sm" style="background:var(--orange-light);color:var(--orange);border-color:var(--orange-border)">Agentic AI initiative started</span>
+                  <span class="tag-sm" style="background:var(--orange-light);color:var(--orange);border-color:var(--orange-border)">Platform consolidation project</span>
+                  <span class="tag-sm" style="background:var(--teal-light);color:var(--teal-dark);border-color:var(--teal-border)">New CTO / Head of Automation</span>
+                  <span class="tag-sm" style="background:var(--teal-light);color:var(--teal-dark);border-color:var(--teal-border)">500+ automations in prod</span>
+                  <span class="tag-sm" style="background:var(--teal-light);color:var(--teal-dark);border-color:var(--teal-border)">CoE under review</span>
+                  <span class="tag-sm" style="background:var(--amber-light);color:var(--amber);border-color:rgba(217,119,6,0.2)">Cost reduction mandate</span>
+                </div>
+              </div>
+              <div class="play-ov-card">
+                <div class="play-ov-lbl">Common objections &amp; responses</div>
+                <ul class="play-obj-list">
+                  <li>"We've invested too much in AA/BP to switch" — Quantify stranded cost vs. migration ROI; highlight reference customers who switched</li>
+                  <li>"Migration is too risky" — Lead with phased migration path, UiPath Migration Accelerator, and dedicated PS resources</li>
+                  <li>"AA has agentic AI too" — Demo TARA + Document Understanding + Autopilot head-to-head; lean on Forrester/Gartner positioning</li>
+                </ul>
+              </div>
+              <div class="play-ov-card">
+                <div class="play-ov-lbl">Key competitive differentiators</div>
+                <ul class="play-obj-list">
+                  <li>Only platform with native agentic AI (TARA), document understanding, and process mining in one unified suite</li>
+                  <li>Migration Accelerator: automated conversion of AA/BP bots with 80%+ code reuse rate</li>
+                  <li>G2 &amp; Forrester Wave leader 5 years running — strongest enterprise proof points</li>
+                  <li>Platform TCO advantage: avg 34% lower 3-yr cost vs. AA Enterprise per IDC study</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 2. Personas & Discovery -->
+        <div class="play-sec">
+          <div class="play-sec-hdr">
+            <div class="play-sec-hdr-left"><div class="quad-dot" style="background:var(--teal)"></div><div class="play-sec-title">Personas &amp; discovery questions</div></div>
+            <span class="play-sec-meta">4 personas</span>
+          </div>
+          <div class="play-sec-body">
+            <div class="play-ptabs">
+              <button class="play-ptab active" onclick="playTab(event,'play-p-cto')">Head of Automation / CTO</button>
+              <button class="play-ptab" onclick="playTab(event,'play-p-coe')">CoE Lead</button>
+              <button class="play-ptab" onclick="playTab(event,'play-p-cfo')">CFO / Finance</button>
+              <button class="play-ptab" onclick="playTab(event,'play-p-coo')">COO / Operations</button>
+            </div>
+            <div id="play-p-cto" class="play-pp active">
+              <div class="play-pers-hdr">
+                <div class="play-pers-avi" style="background:var(--teal-light)">⚙️</div>
+                <div><div class="play-pers-name">Head of Automation / CTO</div><div class="play-pers-role">VP/Director · Technical champion or economic buyer</div><div class="play-pers-goals">Owns the automation roadmap. Motivated by platform capability, vendor support quality, and roadmap confidence. Frustrated by AA/BP's slow release cycles. Excited by agentic AI but skeptical of vendor hype.</div></div>
+              </div>
+              <div class="play-dq-lbl">Discovery questions</div>
+              <ul class="play-dq-list">
+                <li class="play-dq-item"><span class="play-dq-num">01</span>Where does your current automation platform fall short of where you need to be in 18–24 months, especially around AI and agentic workflows?</li>
+                <li class="play-dq-item"><span class="play-dq-num">02</span>How would you describe the innovation velocity of your current vendor — are they keeping pace with what the business needs?</li>
+                <li class="play-dq-item"><span class="play-dq-num">03</span>What does your migration risk tolerance look like? If you had a 90-day phased migration path with guaranteed bot conversion, would that change your calculus?</li>
+                <li class="play-dq-item"><span class="play-dq-num">04</span>Tell me about your CoE structure — how centralized is it, and how well is it positioned to manage a platform transition?</li>
+              </ul>
+            </div>
+            <div id="play-p-coe" class="play-pp">
+              <div class="play-pers-hdr">
+                <div class="play-pers-avi" style="background:var(--orange-light)">🔧</div>
+                <div><div class="play-pers-name">CoE Lead / RPA Program Manager</div><div class="play-pers-role">Director/Senior Manager · Day-to-day platform owner</div><div class="play-pers-goals">Responsible for bot uptime, developer productivity, and CoE maturity. Concerned about migration overhead and team retraining. Motivated by better tooling, governance dashboards, and reducing manual ops work.</div></div>
+              </div>
+              <div class="play-dq-lbl">Discovery questions</div>
+              <ul class="play-dq-list">
+                <li class="play-dq-item"><span class="play-dq-num">01</span>How much of your team's time goes to maintaining existing bots vs. building new automations? What would ideal look like?</li>
+                <li class="play-dq-item"><span class="play-dq-num">02</span>What's your developer experience like on your current platform — bot studio, testing, debugging, deployment pipelines?</li>
+                <li class="play-dq-item"><span class="play-dq-num">03</span>If you were to migrate to a new platform, what would your team's biggest day-1 concern be?</li>
+                <li class="play-dq-item"><span class="play-dq-num">04</span>How are you managing governance and bot performance monitoring today — is that a manual process or do you have tooling?</li>
+              </ul>
+            </div>
+            <div id="play-p-cfo" class="play-pp">
+              <div class="play-pers-hdr">
+                <div class="play-pers-avi" style="background:var(--amber-light)">💼</div>
+                <div><div class="play-pers-name">CFO / VP Finance</div><div class="play-pers-role">C-suite · Economic approver or blocker</div><div class="play-pers-goals">Needs a clear ROI narrative and cost-avoidance story. Responds to benchmark data and peer comparisons. Skeptical of platform migrations unless quantified savings are substantial.</div></div>
+              </div>
+              <div class="play-dq-lbl">Discovery questions</div>
+              <ul class="play-dq-list">
+                <li class="play-dq-item"><span class="play-dq-num">01</span>What is your fully-loaded annual cost of your current automation platform — licensing, infrastructure, support, and internal FTE overhead?</li>
+                <li class="play-dq-item"><span class="play-dq-num">02</span>Have you modeled the cost of staying on your current platform for another 3 years, including renewal escalations and tech debt?</li>
+                <li class="play-dq-item"><span class="play-dq-num">03</span>What payback period and ROI threshold would make a platform migration a straightforward approval for you?</li>
+              </ul>
+            </div>
+            <div id="play-p-coo" class="play-pp">
+              <div class="play-pers-hdr">
+                <div class="play-pers-avi" style="background:var(--purple-light)">📋</div>
+                <div><div class="play-pers-name">COO / Head of Operations</div><div class="play-pers-role">C-suite · Business outcomes owner</div><div class="play-pers-goals">Focused on productivity gains, headcount leverage, and operational resilience. Wants automation to scale with business growth. Cares about agentic AI as a competitive differentiator.</div></div>
+              </div>
+              <div class="play-dq-lbl">Discovery questions</div>
+              <ul class="play-dq-list">
+                <li class="play-dq-item"><span class="play-dq-num">01</span>How many FTEs have you effectively displaced or redeployed through automation in the last 2 years? How does that compare to your target?</li>
+                <li class="play-dq-item"><span class="play-dq-num">02</span>Where are the highest-value automation opportunities still sitting unrealized in your org — and what's blocking them?</li>
+                <li class="play-dq-item"><span class="play-dq-num">03</span>If your automation platform could handle end-to-end agentic workflows — not just task automation — how would that change your operational roadmap?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 3. Customer-Facing Content -->
+        <div class="play-sec">
+          <div class="play-sec-hdr">
+            <div class="play-sec-hdr-left"><div class="quad-dot" style="background:var(--navy)"></div><div class="play-sec-title">Customer-facing content</div></div>
+            <span class="play-sec-meta">9 assets · Updated Apr 2026</span>
+          </div>
+          <div class="play-sec-body">
+            <div class="play-assets-grid">
+              <div class="play-asset-card"><span class="play-atype pat-deck">Deck</span><div class="play-atitle">AA / Blue Prism Displacement — Core Pitch</div><div class="play-adesc">Full discovery-to-close deck. Includes platform comparison, Migration Accelerator demo flow, and agentic AI future-state.</div><div class="play-ameta">24 slides · Updated Apr 2026</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-battle">Battlecard</span><div class="play-atitle">UiPath vs. Automation Anywhere</div><div class="play-adesc">Head-to-head competitive comparison. Use with champion only. Covers pricing, agentic AI, governance, and ecosystem.</div><div class="play-ameta">2 pages · Restricted · Champion only</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-battle">Battlecard</span><div class="play-atitle">UiPath vs. Blue Prism</div><div class="play-adesc">Head-to-head competitive comparison. Platform architecture, migration path, and total cost arguments.</div><div class="play-ameta">2 pages · Restricted · Champion only</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-video">Video</span><div class="play-atitle">Migration Accelerator — 5-Min Demo</div><div class="play-adesc">Async-shareable demo of Migration Accelerator converting AA bots to UiPath with automated code analysis.</div><div class="play-ameta">5:14 min · Updated Mar 2026</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-calc">ROI Calc</span><div class="play-atitle">Platform TCO &amp; Migration ROI Calculator</div><div class="play-adesc">Input current platform spend, bot count, and headcount. Outputs 3-yr TCO comparison and migration payback period.</div><div class="play-ameta">Excel + PDF · Updated Apr 2026</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-story">Case Study</span><div class="play-atitle">Global Bank: Migrated 400 AA Bots in 90 Days</div><div class="play-adesc">Enterprise FinServ case study. 90-day migration, 82% bot reuse, $2.1M 3-yr savings. Approved for external use.</div><div class="play-ameta">4 pages · Approved · External</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-guide">One-Pager</span><div class="play-atitle">Why Now: The Case for Agentic AI Migration</div><div class="play-adesc">Executive-level leave-behind. Positions cost of inaction and competitive urgency of agentic platform shift.</div><div class="play-ameta">1 page · Approved · External</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-seq">Sequences</span><div class="play-atitle">Outbound Sequence — Head of Automation</div><div class="play-adesc">6-touch Outreach sequence for cold outreach. Optimized for CoE leads and Heads of Automation at AA/BP shops.</div><div class="play-ameta">6 steps · Clone in Outreach</div></div>
+              <div class="play-asset-card"><span class="play-atype pat-guide">Talk Track</span><div class="play-atitle">Cold Call Script — Displacement Angle</div><div class="play-adesc">Tested cold call talk track. Includes objection branches for "happy with current vendor."</div><div class="play-ameta">1 page · BDR + AE</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- 4. Target Accounts -->
+        <div class="play-sec">
+          <div class="play-sec-hdr">
+            <div class="play-sec-hdr-left"><div class="quad-dot" style="background:var(--green)"></div><div class="play-sec-title">Your target accounts</div></div>
+            <span class="play-sec-meta" id="play-acnt-cnt">Showing 8 of 61 · Sarah Chan · FinServ AE</span>
+          </div>
+          <div class="play-sec-body">
+            <div class="play-acct-bar">
+              <input class="play-acct-search" type="text" placeholder="Search accounts, industry, trigger…" oninput="playFilterAccounts()">
+              <select class="play-acct-sel" id="play-pri-sel" onchange="playFilterAccounts()">
+                <option value="all">All priorities</option>
+                <option value="HOT">Hot</option>
+                <option value="WARM">Warm</option>
+                <option value="NURTURE">Nurture</option>
+              </select>
+              <button class="play-acct-btn" onclick="alert('Account plan builder coming soon!')">Build account plan →</button>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="play-acct-tbl">
+                <thead><tr><th>Account</th><th>Industry</th><th>Trigger signal</th><th>Platform</th><th>Fit score</th><th>Owner</th><th>Priority</th></tr></thead>
+                <tbody id="play-acnt-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- 5. SPIFF & Discounting -->
+        <div class="play-sec">
+          <div class="play-sec-hdr">
+            <div class="play-sec-hdr-left"><div class="quad-dot" style="background:var(--amber)"></div><div class="play-sec-title">SPIFF &amp; discounting authority</div></div>
+            <span style="background:var(--amber-light);border:1px solid rgba(217,119,6,0.2);border-radius:20px;padding:3px 10px;font-size:10.5px;font-weight:600;color:var(--amber);">Expires Jun 30, 2026</span>
+          </div>
+          <div class="play-sec-body">
+            <div class="play-spiff-row">
+              <div class="play-spiff-card feat">
+                <div class="play-spiff-amt">$3,500</div>
+                <div class="play-spiff-title">Displacement New Logo SPIFF</div>
+                <div class="play-spiff-copy">$3,500 cash bonus for any net-new logo where UiPath fully displaces Automation Anywhere or Blue Prism as the primary automation platform. Deal must close and book by Jun 30. Stacks with quota accelerators at 100%+ attainment.</div>
+                <div class="play-spiff-exp">⏱ Ends Jun 30, 2026</div>
+              </div>
+              <div class="play-spiff-card">
+                <div class="play-spiff-amt">$1,500</div>
+                <div class="play-spiff-title">Agentic AI Uplift SPIFF</div>
+                <div class="play-spiff-copy">$1,500 bonus when any displacement deal includes TARA Agent or AI Units as a primary line item (min $25K ACV on agentic component). Valid for new logos and expansion deals adding agentic AI for the first time.</div>
+                <div class="play-spiff-exp">⏱ Ends Jun 30, 2026</div>
+              </div>
+            </div>
+            <div style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px">Discounting authority — AA / Blue Prism Replace Play</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-bottom:10px">Pre-approved tiers. Submit deals above these thresholds to Deal Desk in Salesforce before committing to customer.</div>
+            <table class="play-disc-tbl">
+              <thead><tr><th>Deal size (ACV)</th><th>Max rep discount</th><th>Approval required</th></tr></thead>
+              <tbody>
+                <tr><td>Under $25K</td><td class="play-disc-pct">12%</td><td class="play-disc-req">None — log discount in SFDC opportunity</td></tr>
+                <tr><td>$25K – $75K</td><td class="play-disc-pct">17%</td><td class="play-disc-req">Manager sign-off in SFDC</td></tr>
+                <tr><td>$75K – $150K</td><td class="play-disc-pct">22%</td><td class="play-disc-req">Deal Desk + Manager approval</td></tr>
+                <tr><td>$150K+</td><td class="play-disc-pct">Custom</td><td class="play-disc-req">VP Sales approval required before quoting</td></tr>
+              </tbody>
+            </table>
+            <div class="play-note"><strong>Note:</strong> For competitive displacement deals where AA/BP is offering aggressive pricing to retain, escalate immediately to your manager and Deal Desk. Additional competitive discount pools may be available with VP Sales approval.</div>
+          </div>
+        </div>
+        <div class="play-footer">
+          <span>Updated Apr 2026 · Play owner: Mike Torres · Enterprise PMM</span>
+          <div class="play-footer-links">
+            <span>Submit feedback</span>
+            <span>#sales-plays Slack</span>
+            <span>Deal Desk</span>
+          </div>
         </div>
       </div>
 
@@ -1470,7 +1814,7 @@ function setWsTab(el){
 }
 
 function showContentPage(pageId, el){
-  ['ch-library','ch-plays','ch-motion','ch-create'].forEach(id=>{
+  ['ch-library','ch-plays','ch-motion','ch-create','ch-play-aabp'].forEach(id=>{
     const el2=document.getElementById(id); if(el2) el2.style.display='none';
   });
   const pg=document.getElementById(pageId); if(pg) pg.style.display='block';
@@ -1493,6 +1837,58 @@ function showContentPage(pageId, el){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('open'));
   const cs=document.getElementById('content-sub'); if(cs) cs.classList.add('open');
   document.getElementById('nav-content').classList.add('open');
+}
+
+// ── SALES PLAY DETAIL ────────────────────────────────────────────────
+const playAccounts = [
+  {n:'Vantage Financial Group',i:'FinServ',t:'AA contract renews Aug 2026',p:'AA',s:97,o:'S. Chan',pri:'HOT'},
+  {n:'Apex Global Insurance',i:'Insurance',t:'New Head of Automation hired',p:'Blue Prism',s:93,o:'S. Chan',pri:'HOT'},
+  {n:'Northstar Bancorp',i:'FinServ',t:'CoE rebuild initiative live',p:'AA',s:89,o:'J. Torres',pri:'HOT'},
+  {n:'BlueCross Partners',i:'Healthcare',t:'Platform consolidation RFP',p:'Blue Prism',s:85,o:'S. Chan',pri:'WARM'},
+  {n:'Redwood Savings Bank',i:'FinServ',t:'Cost reduction mandate Q2',p:'AA',s:79,o:'J. Torres',pri:'WARM'},
+  {n:'Harbor Credit Union',i:'FinServ',t:'Agentic AI pilot budgeted',p:'Blue Prism',s:73,o:'S. Chan',pri:'WARM'},
+  {n:'Coastal Mutual Insurance',i:'Insurance',t:'License renewal in 120 days',p:'AA',s:62,o:'J. Torres',pri:'NURTURE'},
+  {n:'Mercer & Crane Advisors',i:'Legal',t:'Digital ops review started',p:'Blue Prism',s:56,o:'S. Chan',pri:'NURTURE'},
+];
+
+function openPlayDetail(){
+  showContentPage('ch-play-aabp', null);
+  renderPlayAccounts(playAccounts);
+}
+
+function playTab(e, id){
+  document.querySelectorAll('.play-pp').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.play-ptab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  e.target.classList.add('active');
+}
+
+function renderPlayAccounts(data){
+  const tbody = document.getElementById('play-acnt-body');
+  if(!tbody) return;
+  tbody.innerHTML = data.map(a => {
+    const priCls = a.pri==='HOT' ? 'sig-red' : a.pri==='WARM' ? 'sig-amber' : 'sig-green';
+    const fillCls = a.s>=85 ? 'psf-hi' : a.s>=70 ? 'psf-md' : 'psf-lo';
+    const platBg = a.p==='AA' ? 'background:rgba(0,85,255,0.08);color:#1d4ed8;border:1px solid rgba(0,85,255,0.18)' : 'background:var(--red-light);color:var(--red);border:1px solid rgba(220,38,38,0.2)';
+    return `<tr>
+      <td>${a.n}</td><td>${a.i}</td><td>${a.t}</td>
+      <td><span style="font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:4px;${platBg}">${a.p}</span></td>
+      <td><div class="play-score-bar"><div class="play-score-track"><div class="play-score-fill ${fillCls}" style="width:${a.s}%"></div></div><span class="play-score-n">${a.s}</span></div></td>
+      <td>${a.o}</td>
+      <td><span class="opp-signal ${priCls}">${a.pri}</span></td>
+    </tr>`;
+  }).join('');
+  const cnt = document.getElementById('play-acnt-cnt');
+  if(cnt) cnt.textContent = `Showing ${data.length} of 61 · ${personas[pIdx].name} · ${personas[pIdx].pill}`;
+}
+
+function playFilterAccounts(){
+  const q = document.querySelector('.play-acct-search').value.toLowerCase();
+  const f = document.getElementById('play-pri-sel').value;
+  renderPlayAccounts(playAccounts.filter(a => {
+    const mq = !q || a.n.toLowerCase().includes(q) || a.i.toLowerCase().includes(q) || a.t.toLowerCase().includes(q) || a.p.toLowerCase().includes(q);
+    return mq && (f==='all' || a.pri===f);
+  }));
 }
 
 // ── BOOT ─────────────────────────────────────────────────────────────
